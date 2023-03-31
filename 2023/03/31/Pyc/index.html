@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="2022&#x2F;10&#x2F;25 重写 加一个内容：exe到pyc的转化  可操作exe的识别（用python编译生成的exe文件一般来讲会比较大） 具体处理（利用脚本完成）   py脚本（pyinstxtractor） （mirrors &#x2F; extremecoders-re &#x2F; pyinstxtractor · GitCode）  使用  建议官方文档readme.m">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2023/03/31/Pyc/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="2022&#x2F;10&#x2F;25 重写 加一个内容：exe到pyc的转化  可操作exe的识别（用python编译生成的exe文件一般来讲会比较大） 具体处理（利用脚本完成）   py脚本（pyinstxtractor） （mirrors &#x2F; extremecoders-re &#x2F; pyinstxtractor · GitCode）  使用  建议官方文档readme.m">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-03-31T11:02:04.211Z">
+<meta property="article:modified_time" content="2023-03-31T11:02:10.294Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Pyc" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/03/31/Pyc/" class="article-date">
+  <time class="dt-published" datetime="2023-03-31T11:02:04.211Z" itemprop="datePublished">2023-03-31</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="2022-x2F-10-x2F-25-重写"><a href="#2022-x2F-10-x2F-25-重写" class="headerlink" title="2022&#x2F;10&#x2F;25 重写"></a>2022&#x2F;10&#x2F;25 重写</h2><ul>
+<li><p>加一个内容：exe到pyc的转化</p>
+<ul>
+<li>可操作exe的识别（用python编译生成的exe文件一般来讲会比较大）</li>
+<li>具体处理（利用脚本完成）</li>
+</ul>
+</li>
+<li><p>py脚本（pyinstxtractor）</p>
+<p>（<a target="_blank" rel="noopener" href="https://gitcode.net/mirrors/extremecoders-re/pyinstxtractor?utm_source=csdn_github_accelerator">mirrors &#x2F; extremecoders-re &#x2F; pyinstxtractor · GitCode</a>）</p>
+</li>
+<li><p>使用</p>
+<ul>
+<li><p>建议官方文档readme.md</p>
+</li>
+<li><p>比较常见的操作就是将要转化的exe程序复制到脚本文件目录下，执行命令</p>
+<blockquote>
+<p>python pyinstxtractor.py test.exe</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="pyc文件反编"><a href="#pyc文件反编" class="headerlink" title="pyc文件反编"></a>pyc文件反编</h3><p>py生成的中间文件</p>
+<blockquote>
+<p>先省略无数字，需要深入了解底层再说</p>
+</blockquote>
+<h3 id="处理"><a href="#处理" class="headerlink" title="处理"></a>处理</h3><ul>
+<li><p>借用外部资源，安装uncompyle6</p>
+<blockquote>
+<p>pip install uncompyle</p>
+</blockquote>
+</li>
+<li><p>使用</p>
+<blockquote>
+<p>uncompyle6 name.pyc &gt; name.py</p>
+</blockquote>
+</li>
+<li><p>或者直接用网上的在线反编译：<br>(<a target="_blank" rel="noopener" href="https://tool.lu/pyc/">https://tool.lu/pyc/</a>)</p>
+</li>
+</ul>
+<blockquote>
+<p>因为比较bug的一件事情是：<br>我遇到了某pyc文件用uncompyle6无法反编的情况，目前推测应该是版本不对的问题<br>后续再研究研究</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/03/31/Pyc/" data-id="clfwpfz5p000gvws47e2h0nkc" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/03/31/Z3/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/03/31/IDA/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/03/31/Affine/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/31/Crypto/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/31/Flat/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/31/Buuctf-RE/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/31/Note3/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

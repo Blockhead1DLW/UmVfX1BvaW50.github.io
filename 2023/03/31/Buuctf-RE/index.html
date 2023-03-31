@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="[网鼎杯 2020 青龙组]jocker exe文件，32位无壳，拖入IDA32 ctrl+f12定位主体函数，修改变量名提高可读性 F5反汇编发现提示栈错误，option调出栈指针，修改栈指针为0，重新F5 查看输入，24位字符串，主体：复制-&gt;加密-&gt;校对-&gt;encypt函数-&gt;final函数 发现wrong函数加密，omg函数校对，简单异或解密，提交错误，为障眼法（但">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2023/03/31/Buuctf-RE/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="[网鼎杯 2020 青龙组]jocker exe文件，32位无壳，拖入IDA32 ctrl+f12定位主体函数，修改变量名提高可读性 F5反汇编发现提示栈错误，option调出栈指针，修改栈指针为0，重新F5 查看输入，24位字符串，主体：复制-&gt;加密-&gt;校对-&gt;encypt函数-&gt;final函数 发现wrong函数加密，omg函数校对，简单异或解密，提交错误，为障眼法（但">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-03-31T11:04:13.815Z">
+<meta property="article:modified_time" content="2023-03-31T11:04:43.645Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Buuctf-RE" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/03/31/Buuctf-RE/" class="article-date">
+  <time class="dt-published" datetime="2023-03-31T11:04:13.815Z" itemprop="datePublished">2023-03-31</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="网鼎杯-2020-青龙组-jocker"><a href="#网鼎杯-2020-青龙组-jocker" class="headerlink" title="[网鼎杯 2020 青龙组]jocker"></a>[网鼎杯 2020 青龙组]jocker</h2><ol>
+<li>exe文件，32位无壳，拖入IDA32</li>
+<li>ctrl+f12定位主体函数，修改变量名提高可读性</li>
+<li>F5反汇编发现提示栈错误，option调出栈指针，修改栈指针为0，重新F5</li>
+<li>查看输入，24位字符串，主体：复制-&gt;加密-&gt;校对-&gt;encypt函数-&gt;final函数</li>
+<li>发现wrong函数加密，omg函数校对，简单异或解密，提交错误，为障眼法（但是得到了正确的输入字符串）</li>
+<li>wrong函数上方对输入的flag进行了复制，真正处理的是复制后的flag</li>
+<li>找到相应的加密函数encypt，结果是动态加密函数，无法直接F5</li>
+<li>exe拖入OD，找到调用加密函数地址，下断点，输入正确字符串运行</li>
+<li>F7单步进入加密函数，ODdump脱壳，生成新文件</li>
+<li>新文件拖入IDA，查看encypt函数，异或解密得到前19位flag</li>
+<li>还剩最后5位，只剩final函数，未知加密，提示是隐藏，推断和之前加密方式相同，为异或加密</li>
+<li>利用最后一位”}”推断出异或key，进行解密得到正确flag</li>
+</ol>
+<blockquote>
+<p>核心：修改由于后续动态加密造成的栈指针错位，解密正确输入，OD动态加密脱壳</p>
+</blockquote>
+<h2 id="SWPU2019-EasiestRe"><a href="#SWPU2019-EasiestRe" class="headerlink" title="[SWPU2019]EasiestRe"></a>[SWPU2019]EasiestRe</h2><ol>
+<li>拖入exeinfope，32位无壳，进IDA</li>
+<li>ctrl+f找到main函数发现GetThreadContext、SetThreadContext等等函数，多线程没跑了，先放一边</li>
+<li>ctrl+f12字符串查找flag找到主体函数(交叉引用)，修改变量名提高可读性</li>
+<li>F5反编发现__debugbreak()，int3断点，可以准备改二进制了，继续查看还不止一个</li>
+<li>重新看线程，是个父子线程保护，子线程加密，查看函数捕获重要长数组v16、v15</li>
+<li>所以又是动态加密，返回__debugbreak()处tab看汇编，int3+nop的长度和v16对的上，那就把v16搬过去，改二进制，重新反编</li>
+<li>观察主体函数：输入-&gt;加密-&gt;check-&gt;输出</li>
+<li>进入加密，又有__debugbreak()，和上面一样的方式，用v15改二进制码，反编</li>
+<li>进入check函数，tab查看汇编，408638地址处发现“cmp [ebp+var_20], 18h”校对指令</li>
+<li>查看对应地址，找到校对字符串（即加密结果）</li>
+<li>返回加密函数，分析，三次加密(异或–&gt;分段–&gt;移位)</li>
+<li>逆写解密</li>
+</ol>
+<p>核心：双线程保护系统，int3断点(0xcc)，二进制修改</p>
+<h2 id="WMCTF2020-easy-re"><a href="#WMCTF2020-easy-re" class="headerlink" title="[WMCTF2020]easy_re"></a>[WMCTF2020]easy_re</h2><ul>
+<li>perl处理：一种解释语言，运行时解压，动调处理<ul>
+<li>搜索script关键词，找到perl脚本调用处</li>
+<li>再关键点下面设断点，F8运行到脚本执行完毕</li>
+<li>下一个eax中可见原文</li>
+</ul>
+</li>
+</ul>
+<h2 id="BJDCTF2020-hamburger-competition"><a href="#BJDCTF2020-hamburger-competition" class="headerlink" title="[BJDCTF2020]hamburger competition"></a>[BJDCTF2020]hamburger competition</h2><ul>
+<li><p>一个unity游戏逆向问题</p>
+</li>
+<li><p>工具：dnspy</p>
+</li>
+<li><p>核心代码一般路径：</p>
+<blockquote>
+<p>\TPH\TPH_Data\Managed\Assembly-CSharp.dll</p>
+</blockquote>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/03/31/Buuctf-RE/" data-id="clfwpfz5k0006vws4dokfdyia" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/03/31/Flat/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/03/31/Note3/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/03/31/Affine/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/31/Crypto/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/31/Flat/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/31/Buuctf-RE/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/31/Note3/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
