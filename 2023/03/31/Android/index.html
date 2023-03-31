@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="安卓系统架构 应用层 应用框架 应用开发组件、开发包   dalvik虚拟机 Google自己设计用于Android平台的虚拟机，可支持.dex格式的java应用程序运行   linux内核 包括一些系统驱动等    apk目录结构 assets 静态文件，apk所使用的各种资源，比如图片、视频等等，通过API获取   res 编译后的资源文件   lib so动态链接库，用于底层的一些调用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android-base">
+<meta property="og:url" content="http://example.com/2023/03/31/Android/index.html">
+<meta property="og:site_name" content="逆向光点">
+<meta property="og:description" content="安卓系统架构 应用层 应用框架 应用开发组件、开发包   dalvik虚拟机 Google自己设计用于Android平台的虚拟机，可支持.dex格式的java应用程序运行   linux内核 包括一些系统驱动等    apk目录结构 assets 静态文件，apk所使用的各种资源，比如图片、视频等等，通过API获取   res 编译后的资源文件   lib so动态链接库，用于底层的一些调用">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-03-31T10:51:42.351Z">
+<meta property="article:modified_time" content="2023-03-31T16:51:36.549Z">
+<meta property="article:author" content="UmVfX1BvaW50">
+<meta property="article:tag" content="Android">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2023/03/31/Android/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Android-base | 逆向光点</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">逆向光点</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/31/Android/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="UmVfX1BvaW50">
+      <meta itemprop="description" content="已经魔化的CTF逆向手">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="逆向光点">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Android-base
+        </h1>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-03-31 18:51:42" itemprop="dateCreated datePublished" datetime="2023-03-31T18:51:42+08:00">2023-03-31</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-04-01 00:51:36" itemprop="dateModified" datetime="2023-04-01T00:51:36+08:00">2023-04-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="安卓系统架构"><a href="#安卓系统架构" class="headerlink" title="安卓系统架构"></a>安卓系统架构</h2><ul>
+<li>应用层</li>
+<li>应用框架<ul>
+<li>应用开发组件、开发包</li>
+</ul>
+</li>
+<li>dalvik虚拟机<ul>
+<li>Google自己设计用于Android平台的虚拟机，可支持.dex格式的java应用程序运行</li>
+</ul>
+</li>
+<li>linux内核<ul>
+<li>包括一些系统驱动等</li>
+</ul>
+</li>
+</ul>
+<h2 id="apk目录结构"><a href="#apk目录结构" class="headerlink" title="apk目录结构"></a>apk目录结构</h2><ol>
+<li>assets<ul>
+<li>静态文件，apk所使用的各种资源，比如图片、视频等等，通过API获取</li>
+</ul>
+</li>
+<li>res<ul>
+<li>编译后的资源文件</li>
+</ul>
+</li>
+<li>lib<ul>
+<li>so动态链接库，用于底层的一些调用</li>
+</ul>
+</li>
+<li>dex<ul>
+<li>虚拟机可执行文件，主要逆向目标</li>
+</ul>
+</li>
+<li>META-INF<ul>
+<li>数字签名，用于校验apk是否被篡改</li>
+</ul>
+</li>
+<li>AndroidManifest.xml<ul>
+<li>一个应用程序的配置清单，声明权限、组件等的基本信息</li>
+</ul>
+</li>
+<li>resources.arsc<ul>
+<li>编译后资源的位置与id之间的映射关系</li>
+</ul>
+</li>
+</ol>
+<h2 id="Android四大组件"><a href="#Android四大组件" class="headerlink" title="Android四大组件"></a>Android四大组件</h2><ol>
+<li>activity<ul>
+<li>用户可视化界面</li>
+<li>safe：1.点击劫持 2.拒绝服务 3.组件导出</li>
+</ul>
+</li>
+<li>service<ul>
+<li>用于后台实现操作，如后台接受微信消息</li>
+<li>safe：1.串谋攻击 2.拒绝服务</li>
+</ul>
+</li>
+<li>content provider<ul>
+<li>为应用提供数据，统一接口</li>
+<li>safe：1.数据库注入</li>
+</ul>
+</li>
+<li>broadcast receiver<ul>
+<li>信息传输机制</li>
+<li>safe：恶意广播</li>
+</ul>
+</li>
+</ol>
+<p>注：所有组件均需在AndroidManifest中注册声明</p>
+<p>参考文章：<a target="_blank" rel="noopener" href="https://blog.csdn.net/ican87/article/details/21874321">(1条消息) android四大组件(详细总结)_87now的博客-CSDN博客_android的四大组件</a></p>
+<h2 id="Android打包流程"><a href="#Android打包流程" class="headerlink" title="Android打包流程"></a>Android打包流程</h2><h2 id="Android安装流程"><a href="#Android安装流程" class="headerlink" title="Android安装流程"></a>Android安装流程</h2><ul>
+<li>复制APk安装包到data&#x2F;app目录下，解压扫描安装包，把dex文件保存到dalvik-cache目录，并在data&#x2F;data目录创建对应的应用数据。（AndroidManifest.xml）</li>
+</ul>
+<h2 id="arm流水线"><a href="#arm流水线" class="headerlink" title="arm流水线"></a>arm流水线</h2><ul>
+<li>PC：程序计数器。永远指向取指地址</li>
+<li>IF：取指。同时确定下一条指令地址（指针指向下一条指令）</li>
+<li>ID：译码。同时给出即将使用的寄存器，或者让立即数进行拓展，亦或者是给出转移目的寄存器与转移条件（转移指令）</li>
+<li>EX：执行。</li>
+<li>MEM：访存。若为load&#x2F;store指令，这个阶段就要访问存储器。另外，在这个阶段还要判定是否有异常要处理，如果有，那么就清除流水线，然后转移到异常处理例程入口地址处继续执行</li>
+<li>WB：回写。将运算结果保存到目标寄存器</li>
+</ul>
+<h4 id="三级流水线"><a href="#三级流水线" class="headerlink" title="三级流水线"></a>三级流水线</h4><ul>
+<li>取指–&gt;译码–&gt;执行</li>
+<li>pc–&gt;pc-4–&gt;pc-8 (arm7)</li>
+</ul>
+<h4 id="五级流水线"><a href="#五级流水线" class="headerlink" title="五级流水线"></a>五级流水线</h4><ul>
+<li>取指–&gt;译码–&gt;执行–&gt;访存–&gt;回写 (arm9)</li>
+</ul>
+<h4 id="Notice"><a href="#Notice" class="headerlink" title="Notice"></a>Notice</h4><ul>
+<li>我觉得需要强调的一个点是理论和实践是不一样的。不一定所有指令都要经历流水线的每个过程</li>
+<li>具体参考文章：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/438259856">CPU设计—五级流水线 - 知乎 (zhihu.com)</a></li>
+</ul>
+<h2 id="ADB"><a href="#ADB" class="headerlink" title="ADB"></a>ADB</h2><ul>
+<li>adb devices 列出当前安卓设备</li>
+<li>adb shell 进入安卓linux命令行</li>
+<li>adb push 上传</li>
+<li>adb pull 下载</li>
+<li>adb connect ip连接设备</li>
+<li>adb kill-server 断开连接</li>
+<li>adb forward tcp:23946 tcp:23946 端口转移到本地</li>
+<li>adb shell dumpsys activity top 查看顶层页面信息</li>
+<li>adb shell dbinfo 查看app使用的数据库信息</li>
+<li>adb shell screencap -p [path] 截屏</li>
+<li>adb shell input text [text] 文本框输入</li>
+<li>adb shell pm install &#x2F; pm uninstall &#x2F; pm list packages</li>
+<li>adb shell am start-activity -D -N [包名] debug</li>
+</ul>
+<h2 id="termux使用"><a href="#termux使用" class="headerlink" title="termux使用"></a>termux使用</h2><ul>
+<li>下载地址：<a target="_blank" rel="noopener" href="https://f-droid.org/packages/com.termux/">Termux | F-Droid - Free and Open Source Android App Repository</a></li>
+</ul>
+<h4 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h4><ul>
+<li><p>termux-setup-storage 获取存储权限</p>
+</li>
+<li><p>pkg install &lt;软件名&gt; 安装软件</p>
+</li>
+<li><p>pkg upgrade 更新软件</p>
+<p>termux-change-repo 切换源</p>
+</li>
+</ul>
+<h2 id="静态插桩"><a href="#静态插桩" class="headerlink" title="静态插桩"></a>静态插桩</h2><ul>
+<li>找到函数入口点</li>
+</ul>
+<h2 id="敏感信息"><a href="#敏感信息" class="headerlink" title="敏感信息"></a>敏感信息</h2><h4 id="动态注册"><a href="#动态注册" class="headerlink" title="动态注册"></a>动态注册</h4><ul>
+<li>Jni_OnLoad</li>
+</ul>
+<h4 id="签名"><a href="#签名" class="headerlink" title="签名"></a>签名</h4><ul>
+<li>getPackageManager</li>
+<li>getPackageInfo</li>
+<li>signatures</li>
+</ul>
+<h4 id="模拟器检测"><a href="#模拟器检测" class="headerlink" title="模拟器检测"></a>模拟器检测</h4><ul>
+<li>checkcpuinfo</li>
+</ul>
+<h4 id="反调试"><a href="#反调试" class="headerlink" title="反调试"></a>反调试</h4><ul>
+<li>android-server</li>
+</ul>
+<h2 id="apktool反编译命令"><a href="#apktool反编译命令" class="headerlink" title="apktool反编译命令"></a>apktool反编译命令</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apktool目录进入命令行</span><br><span class="line">apktool.bat d 反编译文件</span><br></pre></td></tr></table></figure>
+
+<h2 id="dex2-jdgui反编译"><a href="#dex2-jdgui反编译" class="headerlink" title="dex2+jdgui反编译"></a>dex2+jdgui反编译</h2><ol>
+<li>修改apk文件后缀为zip，解压</li>
+<li>将反编的dex文件复制到dex2jar工具目录下</li>
+<li>使用命令生成jar文件</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">d2j-dex2jar.bat document_name.dex</span><br></pre></td></tr></table></figure>
+
+<p>如果出现下列报错(版本号不匹配):</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">com.googlecode.d2j.DexException: not support version.</span><br><span class="line">     at com.googlecode.d2j.reader.DexFileReader.&lt;init&gt;(DexFileReader.java:151)</span><br><span class="line">     at com.googlecode.d2j.reader.DexFileReader.&lt;init&gt;(DexFileReader.java:211)</span><br><span class="line">     at com.googlecode.dex2jar.tools.Dex2jarCmd.doCommandLine(Dex2jarCmd.java:104)</span><br><span class="line">     at com.googlecode.dex2jar.tools.BaseCmd.doMain(BaseCmd.java:288)</span><br><span class="line">     at com.googlecode.dex2jar.tools.Dex2jarCmd.main(Dex2jarCmd.java:32)</span><br></pre></td></tr></table></figure>
+
+
+<p>用文本编辑软件打开dex文件，将文件头改为035或者036</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dex</span><br><span class="line">037 9!Q&lt;€颧€?滣^氶wl?  p   x</span><br></pre></td></tr></table></figure>
+
+
+<p>正常情况应该是这样的(没有任何多余)：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">E:\SoftWarePackage\Jd-GUI+dex2\dex2jar-2.0&gt;d2j-dex2jar.bat classes3.dex</span><br><span class="line">    dex2jar classes3.dex -&gt; .\classes3-dex2jar.jar</span><br></pre></td></tr></table></figure>
+
+
+
+<ol>
+<li><p>用jd-guijar反编译jar文件，命令是这个：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar jd-gui-1.5.0.jar</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>其实就是执行jar文件而已，可以直接写bat桌面一键打开</li>
+</ul>
+</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Android/" rel="tag"># Android</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/03/31/GFSJ-Android/" rel="prev" title="GFSJ-Android">
+      <i class="fa fa-chevron-left"></i> GFSJ-Android
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2023/03/31/Bug/" rel="next" title="">
+       <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E5%8D%93%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84"><span class="nav-number">1.</span> <span class="nav-text">安卓系统架构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#apk%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="nav-number">2.</span> <span class="nav-text">apk目录结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Android%E5%9B%9B%E5%A4%A7%E7%BB%84%E4%BB%B6"><span class="nav-number">3.</span> <span class="nav-text">Android四大组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Android%E6%89%93%E5%8C%85%E6%B5%81%E7%A8%8B"><span class="nav-number">4.</span> <span class="nav-text">Android打包流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Android%E5%AE%89%E8%A3%85%E6%B5%81%E7%A8%8B"><span class="nav-number">5.</span> <span class="nav-text">Android安装流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#arm%E6%B5%81%E6%B0%B4%E7%BA%BF"><span class="nav-number">6.</span> <span class="nav-text">arm流水线</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%89%E7%BA%A7%E6%B5%81%E6%B0%B4%E7%BA%BF"><span class="nav-number">6.0.1.</span> <span class="nav-text">三级流水线</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%94%E7%BA%A7%E6%B5%81%E6%B0%B4%E7%BA%BF"><span class="nav-number">6.0.2.</span> <span class="nav-text">五级流水线</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Notice"><span class="nav-number">6.0.3.</span> <span class="nav-text">Notice</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ADB"><span class="nav-number">7.</span> <span class="nav-text">ADB</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#termux%E4%BD%BF%E7%94%A8"><span class="nav-number">8.</span> <span class="nav-text">termux使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4"><span class="nav-number">8.0.1.</span> <span class="nav-text">命令</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%99%E6%80%81%E6%8F%92%E6%A1%A9"><span class="nav-number">9.</span> <span class="nav-text">静态插桩</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%8F%E6%84%9F%E4%BF%A1%E6%81%AF"><span class="nav-number">10.</span> <span class="nav-text">敏感信息</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E6%B3%A8%E5%86%8C"><span class="nav-number">10.0.1.</span> <span class="nav-text">动态注册</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AD%BE%E5%90%8D"><span class="nav-number">10.0.2.</span> <span class="nav-text">签名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A8%A1%E6%8B%9F%E5%99%A8%E6%A3%80%E6%B5%8B"><span class="nav-number">10.0.3.</span> <span class="nav-text">模拟器检测</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%8D%E8%B0%83%E8%AF%95"><span class="nav-number">10.0.4.</span> <span class="nav-text">反调试</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#apktool%E5%8F%8D%E7%BC%96%E8%AF%91%E5%91%BD%E4%BB%A4"><span class="nav-number">11.</span> <span class="nav-text">apktool反编译命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dex2-jdgui%E5%8F%8D%E7%BC%96%E8%AF%91"><span class="nav-number">12.</span> <span class="nav-text">dex2+jdgui反编译</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">UmVfX1BvaW50</p>
+  <div class="site-description" itemprop="description">已经魔化的CTF逆向手</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">UmVfX1BvaW50</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
