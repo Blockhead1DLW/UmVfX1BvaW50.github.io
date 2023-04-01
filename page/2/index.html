@@ -159,6 +159,402 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/31/Pyc/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="UmVfX1BvaW50">
+      <meta itemprop="description" content="已经魔化的CTF逆向手">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="逆向光点">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/03/31/Pyc/" class="post-title-link" itemprop="url">Pyc decomplier</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-03-31 19:02:04" itemprop="dateCreated datePublished" datetime="2023-03-31T19:02:04+08:00">2023-03-31</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-04-01 10:03:19" itemprop="dateModified" datetime="2023-04-01T10:03:19+08:00">2023-04-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Reverse/" itemprop="url" rel="index"><span itemprop="name">Reverse</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="2022-x2F-10-x2F-25-重写"><a href="#2022-x2F-10-x2F-25-重写" class="headerlink" title="2022&#x2F;10&#x2F;25 重写"></a>2022&#x2F;10&#x2F;25 重写</h2><ul>
+<li><p>加一个内容：exe到pyc的转化</p>
+<ul>
+<li>可操作exe的识别（用python编译生成的exe文件一般来讲会比较大）</li>
+<li>具体处理（利用脚本完成）</li>
+</ul>
+</li>
+<li><p>py脚本（pyinstxtractor）</p>
+<p>（<a target="_blank" rel="noopener" href="https://gitcode.net/mirrors/extremecoders-re/pyinstxtractor?utm_source=csdn_github_accelerator">mirrors &#x2F; extremecoders-re &#x2F; pyinstxtractor · GitCode</a>）</p>
+</li>
+<li><p>使用</p>
+<ul>
+<li><p>建议官方文档readme.md</p>
+</li>
+<li><p>比较常见的操作就是将要转化的exe程序复制到脚本文件目录下，执行命令</p>
+<blockquote>
+<p>python pyinstxtractor.py test.exe</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="pyc文件反编"><a href="#pyc文件反编" class="headerlink" title="pyc文件反编"></a>pyc文件反编</h3><p>py生成的中间文件</p>
+<blockquote>
+<p>先省略无数字，需要深入了解底层再说</p>
+</blockquote>
+<h3 id="处理"><a href="#处理" class="headerlink" title="处理"></a>处理</h3><ul>
+<li><p>借用外部资源，安装uncompyle6</p>
+<blockquote>
+<p>pip install uncompyle</p>
+</blockquote>
+</li>
+<li><p>使用</p>
+<blockquote>
+<p>uncompyle6 name.pyc &gt; name.py</p>
+</blockquote>
+</li>
+<li><p>或者直接用网上的在线反编译：<br>(<a target="_blank" rel="noopener" href="https://tool.lu/pyc/">https://tool.lu/pyc/</a>)</p>
+</li>
+</ul>
+<blockquote>
+<p>因为比较bug的一件事情是：<br>我遇到了某pyc文件用uncompyle6无法反编的情况，目前推测应该是版本不对的问题<br>后续再研究研究</p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/31/IDA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="UmVfX1BvaW50">
+      <meta itemprop="description" content="已经魔化的CTF逆向手">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="逆向光点">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/03/31/IDA/" class="post-title-link" itemprop="url">IDA</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-03-31 19:01:24" itemprop="dateCreated datePublished" datetime="2023-03-31T19:01:24+08:00">2023-03-31</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-04-01 10:03:44" itemprop="dateModified" datetime="2023-04-01T10:03:44+08:00">2023-04-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Reverse/" itemprop="url" rel="index"><span itemprop="name">Reverse</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="快捷操作"><a href="#快捷操作" class="headerlink" title="快捷操作"></a>快捷操作</h2><table>
+<thead>
+<tr>
+<th>操作</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F5</td>
+<td>反汇编</td>
+</tr>
+<tr>
+<td>函数列表Ctrl+F</td>
+<td>搜索函数</td>
+</tr>
+<tr>
+<td>X</td>
+<td>交叉引用</td>
+</tr>
+<tr>
+<td>G</td>
+<td>跳转到指定地址</td>
+</tr>
+<tr>
+<td>Shift+F12</td>
+<td>字符串列表</td>
+</tr>
+<tr>
+<td>Alt+T</td>
+<td>按指令查找</td>
+</tr>
+<tr>
+<td>N</td>
+<td>重命名(函数名等)</td>
+</tr>
+<tr>
+<td>Ctrl+Z</td>
+<td>操作撤销</td>
+</tr>
+<tr>
+<td>D</td>
+<td>将字符串等元素转为数据</td>
+</tr>
+<tr>
+<td>A</td>
+<td>将数据转变为字符串</td>
+</tr>
+<tr>
+<td>C</td>
+<td>将数据转变为汇编代码</td>
+</tr>
+<tr>
+<td>U</td>
+<td>将字符串转变为原始数据</td>
+</tr>
+<tr>
+<td>Shift+E</td>
+<td>导出数据</td>
+</tr>
+<tr>
+<td>Shift+F2</td>
+<td>脚本嵌入</td>
+</tr>
+<tr>
+<td>;</td>
+<td>添加注释(所有交叉参考处均显示)</td>
+</tr>
+<tr>
+<td>:</td>
+<td>添加注释(仅在此处显示)</td>
+</tr>
+<tr>
+<td>Esc</td>
+<td>后退一步</td>
+</tr>
+<tr>
+<td>Ctrl+Enter</td>
+<td>前进一步</td>
+</tr>
+<tr>
+<td>Alt+M</td>
+<td>标记当前位置</td>
+</tr>
+<tr>
+<td>Ctrl+M</td>
+<td>跳转到标记位置</td>
+</tr>
+<tr>
+<td>P</td>
+<td>创建函数</td>
+</tr>
+</tbody></table>
+<h2 id="elf调试"><a href="#elf调试" class="headerlink" title="elf调试"></a>elf调试</h2><ul>
+<li>将linux_server&#x2F;64复制到kali运行</li>
+<li>ida设置调试</li>
+</ul>
+<h2 id="so调试"><a href="#so调试" class="headerlink" title="so调试"></a>so调试</h2><ul>
+<li>将android_server复制到安卓环境中（模拟器 or 测试机）</li>
+<li>chmod 777 android_server并运行</li>
+<li>adb forward将调试端口转移到本机</li>
+<li>将so文件所在apk以debug模式启动</li>
+<li>IDA打开要调试的文件，附加apk进程</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/31/Tea/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="UmVfX1BvaW50">
+      <meta itemprop="description" content="已经魔化的CTF逆向手">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="逆向光点">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/03/31/Tea/" class="post-title-link" itemprop="url">Tea</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-03-31 19:00:12" itemprop="dateCreated datePublished" datetime="2023-03-31T19:00:12+08:00">2023-03-31</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-04-01 09:56:01" itemprop="dateModified" datetime="2023-04-01T09:56:01+08:00">2023-04-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Reverse/" itemprop="url" rel="index"><span itemprop="name">Reverse</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <ul>
+<li>一写题就是变种xxtea，我已经无语了</li>
+<li>茶类算法一般来讲顺序逆写加密代码即可</li>
+<li>代码基于网络开源代码修改，侵删</li>
+</ul>
+<h2 id="Tea"><a href="#Tea" class="headerlink" title="Tea"></a>Tea</h2><h4 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h4><ul>
+<li>delta常数：0x9e3779b9</li>
+<li>key：4个32位无符号整数</li>
+<li>v：2个32位无符号整数</li>
+</ul>
+<h4 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h4><ul>
+<li>利用key和delta对数据进行32轮简单和加密</li>
+<li>特征：<ul>
+<li>三异或</li>
+<li>4、5移位</li>
+</ul>
+</li>
+</ul>
+<h4 id="加密"><a href="#加密" class="headerlink" title="加密"></a>加密</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">encrypt</span> <span class="params">(<span class="type">uint32_t</span>* v, <span class="type">uint32_t</span>* k)</span> </span>&#123;  </span><br><span class="line">    <span class="type">uint32_t</span> delta=<span class="number">0x9e3779b9</span>;</span><br><span class="line">    <span class="type">uint32_t</span> v0 = v[<span class="number">0</span>], v1 = v[<span class="number">1</span>], sum = <span class="number">0</span>;               </span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">32</span>; i++) &#123;                      </span><br><span class="line">        sum += delta;  </span><br><span class="line">        v0 += ((v1&lt;&lt;<span class="number">4</span>) + k[<span class="number">0</span>]) ^ (v1 + sum) ^ ((v1&gt;&gt;<span class="number">5</span>) + k[<span class="number">1</span>]);  </span><br><span class="line">        v1 += ((v0&lt;&lt;<span class="number">4</span>) + k[<span class="number">2</span>]) ^ (v0 + sum) ^ ((v0&gt;&gt;<span class="number">5</span>) + k[<span class="number">3</span>]);  </span><br><span class="line">    &#125;                                                </span><br><span class="line">    v[<span class="number">0</span>] = v0; </span><br><span class="line">    v[<span class="number">1</span>] = v1;  </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<h4 id="解密"><a href="#解密" class="headerlink" title="解密"></a>解密</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">decrypt</span> <span class="params">(<span class="type">uint32_t</span>* v, <span class="type">uint32_t</span>* k)</span> </span>&#123;  </span><br><span class="line">    <span class="type">uint32_t</span> delta = <span class="number">0x9e3779b9</span>; </span><br><span class="line">	<span class="type">uint32_t</span> sum = <span class="number">0xc6ef3720</span>     <span class="comment">//sum = delta*32 = 0x13c6ef3720，取32位，高位数据溢出 </span></span><br><span class="line">    <span class="type">uint32_t</span> v0 = v[<span class="number">0</span>], v1 = v[<span class="number">1</span>]; </span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">32</span>; i++) &#123;                         </span><br><span class="line">        v1 -= ((v0&lt;&lt;<span class="number">4</span>) + k[<span class="number">2</span>]) ^ (v0 + sum) ^ ((v0&gt;&gt;<span class="number">5</span>) + k[<span class="number">3</span>]);  </span><br><span class="line">        v0 -= ((v1&lt;&lt;<span class="number">4</span>) + k[<span class="number">0</span>]) ^ (v1 + sum) ^ ((v1&gt;&gt;<span class="number">5</span>) + k[<span class="number">1</span>]);  </span><br><span class="line">        sum -= delta;  </span><br><span class="line">    &#125;                                            </span><br><span class="line">    v[<span class="number">0</span>] = v0; </span><br><span class="line">    v[<span class="number">1</span>] = v1;  </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+
+<h2 id="xxTea"><a href="#xxTea" class="headerlink" title="xxTea"></a>xxTea</h2><ul>
+<li>key和delta如上，加密轮数由数据长度n决定</li>
+<li>改魔数的就另当别论，一般解tea都是用c++写</li>
+</ul>
+<h4 id="c"><a href="#c" class="headerlink" title="c++"></a>c++</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="comment">//常见变化点</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MX (((z&gt;&gt;5^y<span class="string">&lt;&lt;2) + (y&gt;</span>&gt;3^z&lt;&lt;4)) ^ ((sum^y) + (key[(p&amp;3)^e] ^ z)))  </span></span><br><span class="line"><span class="comment">//key定义，4个32位无符号整数</span></span><br><span class="line"><span class="type">const</span> <span class="type">uint32_t</span> key[<span class="number">4</span>] = &#123;&#125;;</span><br><span class="line"><span class="comment">//delta</span></span><br><span class="line"><span class="type">uint32_t</span> delta = <span class="number">0x9E3779B9</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">encrypt</span><span class="params">(<span class="type">uint32_t</span>* flag, <span class="type">int</span> n)</span></span>&#123;</span><br><span class="line">  <span class="type">uint32_t</span> y, z, sum;  </span><br><span class="line">  rounds = <span class="number">52</span> / n + <span class="number">6</span>;</span><br><span class="line">  sum = <span class="number">0</span>;</span><br><span class="line">  z = flag[n - <span class="number">1</span>];</span><br><span class="line">  <span class="keyword">do</span></span><br><span class="line">  &#123;</span><br><span class="line">    sum += delta;</span><br><span class="line">    e = (sum&gt;&gt;<span class="number">2</span>) &amp; <span class="number">3</span>;</span><br><span class="line">    <span class="keyword">for</span> ( i = <span class="number">0</span>; i &lt; n - <span class="number">1</span>; ++i )</span><br><span class="line">    &#123;</span><br><span class="line">      y = flag[i+<span class="number">1</span>];</span><br><span class="line">      z = flag[i] += MX;</span><br><span class="line">    &#125;</span><br><span class="line">    y = flag[<span class="number">0</span>];</span><br><span class="line">    z = flag[n<span class="number">-1</span>] += MX;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">while</span> (--rounds);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">decrypt</span><span class="params">(<span class="type">uint32_t</span>* flag, <span class="type">int</span> n)</span></span>&#123;</span><br><span class="line">  <span class="type">uint32_t</span> y, z, sum;  </span><br><span class="line">  rounds = <span class="number">52</span> / n + <span class="number">6</span>;</span><br><span class="line">  sum = rounds*delta;</span><br><span class="line">  y = flag[<span class="number">0</span>];</span><br><span class="line">  <span class="keyword">do</span></span><br><span class="line">  &#123;</span><br><span class="line">    e = (sum&gt;&gt;<span class="number">2</span>) &amp; <span class="number">3</span>;</span><br><span class="line">    <span class="keyword">for</span> ( i = n<span class="number">-1</span>; i &gt; <span class="number">0</span>; i--)</span><br><span class="line">    &#123;</span><br><span class="line">      z = flag[i<span class="number">-1</span>];</span><br><span class="line">      y = flag[i] -= MX;</span><br><span class="line">    &#125;</span><br><span class="line">    z = flag[n<span class="number">-1</span>];</span><br><span class="line">    y = flag[<span class="number">0</span>] -= MX;</span><br><span class="line">    sum -= delta;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">while</span> (--rounds);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="python"><a href="#python" class="headerlink" title="python"></a>python</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">参数描述:</span></span><br><span class="line"><span class="string">  DELTA: 神秘常数δ，它来源于黄金比率，以保证每一轮加密都不相同。但δ的精确值似乎并不重要，这里 TEA 把它定义为 δ=「(√5 - 1)231」</span></span><br><span class="line"><span class="string">      v: 需要加解密的数据，格式为32位的无符号整数组成的数组</span></span><br><span class="line"><span class="string">      n: n表示需要加密的32位无符号整数的个数（例：n为1时，只有v数组中的第一个元素被加密了），n不能大于v的长度</span></span><br><span class="line"><span class="string">      k: 密钥，格式为4个32位无符号整数组成的数组，即密钥长度为128位</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="keyword">import</span> struct</span><br><span class="line"><span class="keyword">from</span> ctypes <span class="keyword">import</span> c_uint32</span><br><span class="line"> </span><br><span class="line">DELTA = <span class="number">0x9E3779B9</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">def</span> <span class="title function_">encrypt</span>(<span class="params">v, n, k</span>):</span><br><span class="line">    rounds = <span class="number">6</span> + <span class="built_in">int</span>(<span class="number">52</span> / n)</span><br><span class="line">    <span class="built_in">sum</span> = c_uint32(<span class="number">0</span>)</span><br><span class="line">    z = v[n - <span class="number">1</span>].value</span><br><span class="line">    <span class="keyword">while</span> rounds &gt; <span class="number">0</span>:</span><br><span class="line">        <span class="built_in">sum</span>.value += DELTA</span><br><span class="line">        e = (<span class="built_in">sum</span>.value &gt;&gt; <span class="number">2</span>) &amp; <span class="number">3</span></span><br><span class="line">        p = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> p &lt; n - <span class="number">1</span>:</span><br><span class="line">            y = v[p + <span class="number">1</span>].value</span><br><span class="line">            v[p].value += (((z &gt;&gt; <span class="number">5</span> ^ y &lt;&lt; <span class="number">2</span>) + (y &gt;&gt; <span class="number">3</span> ^ z &lt;&lt; <span class="number">4</span>)) ^ ((<span class="built_in">sum</span>.value ^ y) + (k[(p &amp; <span class="number">3</span>) ^ e] ^ z)))</span><br><span class="line">            z = v[p].value</span><br><span class="line">            p += <span class="number">1</span></span><br><span class="line">        y = v[<span class="number">0</span>].value</span><br><span class="line">        v[n - <span class="number">1</span>].value += (((z &gt;&gt; <span class="number">5</span> ^ y &lt;&lt; <span class="number">2</span>) + (y &gt;&gt; <span class="number">3</span> ^ z &lt;&lt; <span class="number">4</span>)) ^ ((<span class="built_in">sum</span>.value ^ y) + (k[(p &amp; <span class="number">3</span>) ^ e] ^ z)))</span><br><span class="line">        z = v[n - <span class="number">1</span>].value</span><br><span class="line">        rounds -= <span class="number">1</span></span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="keyword">def</span> <span class="title function_">decrypt</span>(<span class="params">v, n, k</span>):</span><br><span class="line">    rounds = <span class="number">6</span> + <span class="built_in">int</span>(<span class="number">52</span> / n)</span><br><span class="line">    <span class="built_in">sum</span> = c_uint32(rounds * DELTA)</span><br><span class="line">    y = v[<span class="number">0</span>].value</span><br><span class="line">    <span class="keyword">while</span> rounds &gt; <span class="number">0</span>:</span><br><span class="line">        e = (<span class="built_in">sum</span>.value &gt;&gt; <span class="number">2</span>) &amp; <span class="number">3</span></span><br><span class="line">        p = n - <span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> p &gt; <span class="number">0</span>:</span><br><span class="line">            z = v[p - <span class="number">1</span>].value</span><br><span class="line">            v[p].value -= (((z &gt;&gt; <span class="number">5</span> ^ y &lt;&lt; <span class="number">2</span>) + (y &gt;&gt; <span class="number">3</span> ^ z &lt;&lt; <span class="number">4</span>)) ^ ((<span class="built_in">sum</span>.value ^ y) + (k[(p &amp; <span class="number">3</span>) ^ e] ^ z)))</span><br><span class="line">            y = v[p].value</span><br><span class="line">            p -= <span class="number">1</span></span><br><span class="line">        z = v[n - <span class="number">1</span>].value</span><br><span class="line">        v[<span class="number">0</span>].value -= (((z &gt;&gt; <span class="number">5</span> ^ y &lt;&lt; <span class="number">2</span>) + (y &gt;&gt; <span class="number">3</span> ^ z &lt;&lt; <span class="number">4</span>)) ^ ((<span class="built_in">sum</span>.value ^ y) + (k[(p &amp; <span class="number">3</span>) ^ e] ^ z)))</span><br><span class="line">        y = v[<span class="number">0</span>].value</span><br><span class="line">        <span class="built_in">sum</span>.value -= DELTA</span><br><span class="line">        rounds -= <span class="number">1</span></span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test1</span>():</span><br><span class="line">    k = [<span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br><span class="line">    v = [c_uint32(<span class="number">1</span>), c_uint32(<span class="number">2</span>)]</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;plain: 1 2&#x27;</span>)</span><br><span class="line">    encrypt(v, <span class="built_in">len</span>(v), k)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;encrypted: %X %X&#x27;</span> % (v[<span class="number">0</span>].value, v[<span class="number">1</span>].value))</span><br><span class="line">    decrypt(v, <span class="built_in">len</span>(v), k)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;decrypted: %X %X&#x27;</span> % (v[<span class="number">0</span>].value, v[<span class="number">1</span>].value))</span><br><span class="line"></span><br><span class="line">————————————————</span><br><span class="line">此段代码为转载，原文链接：https://blog.csdn.net/koxb/article/details/<span class="number">120088234</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/31/BuuCTF-Misc/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -173,7 +569,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/03/31/BuuCTF-Misc/" class="post-title-link" itemprop="url">未命名</a>
+            <a href="/2023/03/31/BuuCTF-Misc/" class="post-title-link" itemprop="url">Buuctf-Misc</a>
         </h2>
 
         <div class="post-meta">
@@ -183,9 +579,24 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2023-03-31 18:59:37 / 修改时间：18:59:49" itemprop="dateCreated datePublished" datetime="2023-03-31T18:59:37+08:00">2023-03-31</time>
+              <time title="创建时间：2023-03-31 18:59:37" itemprop="dateCreated datePublished" datetime="2023-03-31T18:59:37+08:00">2023-03-31</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-04-01 10:04:06" itemprop="dateModified" datetime="2023-04-01T10:04:06+08:00">2023-04-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Misc/" itemprop="url" rel="index"><span itemprop="name">Misc</span></a>
+                </span>
             </span>
 
           
@@ -329,7 +740,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/03/31/UNCTF2022/" class="post-title-link" itemprop="url">未命名</a>
+            <a href="/2023/03/31/UNCTF2022/" class="post-title-link" itemprop="url">UNCTF2022-WP</a>
         </h2>
 
         <div class="post-meta">
@@ -339,9 +750,24 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2023-03-31 18:57:25 / 修改时间：18:59:13" itemprop="dateCreated datePublished" datetime="2023-03-31T18:57:25+08:00">2023-03-31</time>
+              <time title="创建时间：2023-03-31 18:57:25" itemprop="dateCreated datePublished" datetime="2023-03-31T18:57:25+08:00">2023-03-31</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-04-01 09:55:36" itemprop="dateModified" datetime="2023-04-01T09:55:36+08:00">2023-04-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CTF/" itemprop="url" rel="index"><span itemprop="name">CTF</span></a>
+                </span>
             </span>
 
           
@@ -830,7 +1256,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/03/31/Bug/" class="post-title-link" itemprop="url">未命名</a>
+            <a href="/2023/03/31/Bug/" class="post-title-link" itemprop="url">Loophole</a>
         </h2>
 
         <div class="post-meta">
@@ -840,9 +1266,24 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2023-03-31 18:54:32 / 修改时间：18:56:25" itemprop="dateCreated datePublished" datetime="2023-03-31T18:54:32+08:00">2023-03-31</time>
+              <time title="创建时间：2023-03-31 18:54:32" itemprop="dateCreated datePublished" datetime="2023-03-31T18:54:32+08:00">2023-03-31</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-04-01 10:05:15" itemprop="dateModified" datetime="2023-04-01T10:05:15+08:00">2023-04-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Reverse/" itemprop="url" rel="index"><span itemprop="name">Reverse</span></a>
+                </span>
             </span>
 
           
@@ -944,7 +1385,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/31/Android/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/31/DataStruction/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -958,7 +1399,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/03/31/Android/" class="post-title-link" itemprop="url">Android-base</a>
+            <a href="/2023/03/31/DataStruction/" class="post-title-link" itemprop="url">Data Structure</a>
         </h2>
 
         <div class="post-meta">
@@ -969,14 +1410,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2023-03-31 18:51:42" itemprop="dateCreated datePublished" datetime="2023-03-31T18:51:42+08:00">2023-03-31</time>
+              <time title="创建时间：2023-03-31 18:52:46" itemprop="dateCreated datePublished" datetime="2023-03-31T18:52:46+08:00">2023-03-31</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-04-01 00:51:36" itemprop="dateModified" datetime="2023-04-01T00:51:36+08:00">2023-04-01</time>
+                <time title="修改时间：2023-04-01 10:11:49" itemprop="dateModified" datetime="2023-04-01T10:11:49+08:00">2023-04-01</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -984,7 +1425,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a>
+                  <a href="/categories/Computer/" itemprop="url" rel="index"><span itemprop="name">Computer</span></a>
                 </span>
             </span>
 
@@ -999,173 +1440,470 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="安卓系统架构"><a href="#安卓系统架构" class="headerlink" title="安卓系统架构"></a>安卓系统架构</h2><ul>
-<li>应用层</li>
-<li>应用框架<ul>
-<li>应用开发组件、开发包</li>
+          <ul>
+<li>用低劣的水平描述数据结构的东西，后续考研还要细学</li>
+<li>目前主要是要考试，大体过一遍，如果你质疑我的文章，那一定是我错了，我会忽略一些专业术语，更偏向于自己的理解思考</li>
+<li>&lt;对于学过数据结构的人可能有一定用处吧&gt;</li>
+</ul>
+<hr>
+<h1 id="前置"><a href="#前置" class="headerlink" title="前置"></a>前置</h1><ul>
+<li>一堆概念<ul>
+<li>数据：客观事物的符号描述</li>
+<li>数据元素：数据的基本单位</li>
+<li>数据项：组成数据元素的、有独立含义的、不可分割的最小单位</li>
+<li>数据对象：性质相同的数据元素的集合</li>
 </ul>
 </li>
-<li>dalvik虚拟机<ul>
-<li>Google自己设计用于Android平台的虚拟机，可支持.dex格式的java应用程序运行</li>
+<li>逻辑结构<ul>
+<li>线性与非线性</li>
+<li>线性、树、图、集合</li>
 </ul>
 </li>
-<li>linux内核<ul>
-<li>包括一些系统驱动等</li>
+<li>存储结构</li>
+<li>时间复杂度、空间复杂度</li>
 </ul>
-</li>
+<h1 id="线性表"><a href="#线性表" class="headerlink" title="线性表"></a>线性表</h1><h4 id="普通"><a href="#普通" class="headerlink" title="普通"></a>普通</h4><h4 id="单链表"><a href="#单链表" class="headerlink" title="单链表"></a>单链表</h4><h4 id="循环链表"><a href="#循环链表" class="headerlink" title="循环链表"></a>循环链表</h4><h4 id="双向链表"><a href="#双向链表" class="headerlink" title="双向链表"></a>双向链表</h4><h1 id="栈和队列"><a href="#栈和队列" class="headerlink" title="栈和队列"></a>栈和队列</h1><h4 id="栈（先进后出）"><a href="#栈（先进后出）" class="headerlink" title="栈（先进后出）"></a>栈（先进后出）</h4><ul>
+<li>不想说了，没完没了</li>
 </ul>
-<h2 id="apk目录结构"><a href="#apk目录结构" class="headerlink" title="apk目录结构"></a>apk目录结构</h2><ol>
-<li>assets<ul>
-<li>静态文件，apk所使用的各种资源，比如图片、视频等等，通过API获取</li>
+<h4 id="队列（先进先出）"><a href="#队列（先进先出）" class="headerlink" title="队列（先进先出）"></a>队列（先进先出）</h4><ul>
+<li>普通队列</li>
+<li>循环队列</li>
+<li>双向队列（两个端点都能入队、出队）</li>
+<li>优先队列（队列元素维持有序，算竞常用）</li>
 </ul>
-</li>
-<li>res<ul>
-<li>编译后的资源文件</li>
+<h1 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h1><h3 id="KMP算法-字符串匹配，t向s匹配"><a href="#KMP算法-字符串匹配，t向s匹配" class="headerlink" title="KMP算法(字符串匹配，t向s匹配)"></a>KMP算法(字符串匹配，t向s匹配)</h3><ul>
+<li>书上的代码便于理解，但是不能跑，下标有问题</li>
+<li>这个难点就在一个求next数组吧。所谓next，就是每个字符的最长相同前后缀。至于代码上注意把握是在递归求解即可</li>
 </ul>
-</li>
-<li>lib<ul>
-<li>so动态链接库，用于底层的一些调用</li>
-</ul>
-</li>
-<li>dex<ul>
-<li>虚拟机可执行文件，主要逆向目标</li>
-</ul>
-</li>
-<li>META-INF<ul>
-<li>数字签名，用于校验apk是否被篡改</li>
-</ul>
-</li>
-<li>AndroidManifest.xml<ul>
-<li>一个应用程序的配置清单，声明权限、组件等的基本信息</li>
-</ul>
-</li>
-<li>resources.arsc<ul>
-<li>编译后资源的位置与id之间的映射关系</li>
-</ul>
-</li>
-</ol>
-<h2 id="Android四大组件"><a href="#Android四大组件" class="headerlink" title="Android四大组件"></a>Android四大组件</h2><ol>
-<li>activity<ul>
-<li>用户可视化界面</li>
-<li>safe：1.点击劫持 2.拒绝服务 3.组件导出</li>
-</ul>
-</li>
-<li>service<ul>
-<li>用于后台实现操作，如后台接受微信消息</li>
-<li>safe：1.串谋攻击 2.拒绝服务</li>
-</ul>
-</li>
-<li>content provider<ul>
-<li>为应用提供数据，统一接口</li>
-<li>safe：1.数据库注入</li>
-</ul>
-</li>
-<li>broadcast receiver<ul>
-<li>信息传输机制</li>
-<li>safe：恶意广播</li>
-</ul>
-</li>
-</ol>
-<p>注：所有组件均需在AndroidManifest中注册声明</p>
-<p>参考文章：<a target="_blank" rel="noopener" href="https://blog.csdn.net/ican87/article/details/21874321">(1条消息) android四大组件(详细总结)_87now的博客-CSDN博客_android的四大组件</a></p>
-<h2 id="Android打包流程"><a href="#Android打包流程" class="headerlink" title="Android打包流程"></a>Android打包流程</h2><h2 id="Android安装流程"><a href="#Android安装流程" class="headerlink" title="Android安装流程"></a>Android安装流程</h2><ul>
-<li>复制APk安装包到data&#x2F;app目录下，解压扫描安装包，把dex文件保存到dalvik-cache目录，并在data&#x2F;data目录创建对应的应用数据。（AndroidManifest.xml）</li>
-</ul>
-<h2 id="arm流水线"><a href="#arm流水线" class="headerlink" title="arm流水线"></a>arm流水线</h2><ul>
-<li>PC：程序计数器。永远指向取指地址</li>
-<li>IF：取指。同时确定下一条指令地址（指针指向下一条指令）</li>
-<li>ID：译码。同时给出即将使用的寄存器，或者让立即数进行拓展，亦或者是给出转移目的寄存器与转移条件（转移指令）</li>
-<li>EX：执行。</li>
-<li>MEM：访存。若为load&#x2F;store指令，这个阶段就要访问存储器。另外，在这个阶段还要判定是否有异常要处理，如果有，那么就清除流水线，然后转移到异常处理例程入口地址处继续执行</li>
-<li>WB：回写。将运算结果保存到目标寄存器</li>
-</ul>
-<h4 id="三级流水线"><a href="#三级流水线" class="headerlink" title="三级流水线"></a>三级流水线</h4><ul>
-<li>取指–&gt;译码–&gt;执行</li>
-<li>pc–&gt;pc-4–&gt;pc-8 (arm7)</li>
-</ul>
-<h4 id="五级流水线"><a href="#五级流水线" class="headerlink" title="五级流水线"></a>五级流水线</h4><ul>
-<li>取指–&gt;译码–&gt;执行–&gt;访存–&gt;回写 (arm9)</li>
-</ul>
-<h4 id="Notice"><a href="#Notice" class="headerlink" title="Notice"></a>Notice</h4><ul>
-<li>我觉得需要强调的一个点是理论和实践是不一样的。不一定所有指令都要经历流水线的每个过程</li>
-<li>具体参考文章：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/438259856">CPU设计—五级流水线 - 知乎 (zhihu.com)</a></li>
-</ul>
-<h2 id="ADB"><a href="#ADB" class="headerlink" title="ADB"></a>ADB</h2><ul>
-<li>adb devices 列出当前安卓设备</li>
-<li>adb shell 进入安卓linux命令行</li>
-<li>adb push 上传</li>
-<li>adb pull 下载</li>
-<li>adb connect ip连接设备</li>
-<li>adb kill-server 断开连接</li>
-<li>adb forward tcp:23946 tcp:23946 端口转移到本地</li>
-<li>adb shell dumpsys activity top 查看顶层页面信息</li>
-<li>adb shell dbinfo 查看app使用的数据库信息</li>
-<li>adb shell screencap -p [path] 截屏</li>
-<li>adb shell input text [text] 文本框输入</li>
-<li>adb shell pm install &#x2F; pm uninstall &#x2F; pm list packages</li>
-<li>adb shell am start-activity -D -N [包名] debug</li>
-</ul>
-<h2 id="termux使用"><a href="#termux使用" class="headerlink" title="termux使用"></a>termux使用</h2><ul>
-<li>下载地址：<a target="_blank" rel="noopener" href="https://f-droid.org/packages/com.termux/">Termux | F-Droid - Free and Open Source Android App Repository</a></li>
-</ul>
-<h4 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h4><ul>
-<li><p>termux-setup-storage 获取存储权限</p>
-</li>
-<li><p>pkg install &lt;软件名&gt; 安装软件</p>
-</li>
-<li><p>pkg upgrade 更新软件</p>
-<p>termux-change-repo 切换源</p>
-</li>
-</ul>
-<h2 id="静态插桩"><a href="#静态插桩" class="headerlink" title="静态插桩"></a>静态插桩</h2><ul>
-<li>找到函数入口点</li>
-</ul>
-<h2 id="敏感信息"><a href="#敏感信息" class="headerlink" title="敏感信息"></a>敏感信息</h2><h4 id="动态注册"><a href="#动态注册" class="headerlink" title="动态注册"></a>动态注册</h4><ul>
-<li>Jni_OnLoad</li>
-</ul>
-<h4 id="签名"><a href="#签名" class="headerlink" title="签名"></a>签名</h4><ul>
-<li>getPackageManager</li>
-<li>getPackageInfo</li>
-<li>signatures</li>
-</ul>
-<h4 id="模拟器检测"><a href="#模拟器检测" class="headerlink" title="模拟器检测"></a>模拟器检测</h4><ul>
-<li>checkcpuinfo</li>
-</ul>
-<h4 id="反调试"><a href="#反调试" class="headerlink" title="反调试"></a>反调试</h4><ul>
-<li>android-server</li>
-</ul>
-<h2 id="apktool反编译命令"><a href="#apktool反编译命令" class="headerlink" title="apktool反编译命令"></a>apktool反编译命令</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apktool目录进入命令行</span><br><span class="line">apktool.bat d 反编译文件</span><br></pre></td></tr></table></figure>
+<h4 id="结构体声明"><a href="#结构体声明" class="headerlink" title="结构体声明"></a>结构体声明</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> MAXSIZE 1024</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span>&#123;</span><br><span class="line">    <span class="type">char</span> ch[MAXSIZE+<span class="number">1</span>];		<span class="comment">//字符串</span></span><br><span class="line">    <span class="type">int</span> length;				<span class="comment">//长度</span></span><br><span class="line">&#125;String;</span><br></pre></td></tr></table></figure>
 
-<h2 id="dex2-jdgui反编译"><a href="#dex2-jdgui反编译" class="headerlink" title="dex2+jdgui反编译"></a>dex2+jdgui反编译</h2><ol>
-<li>修改apk文件后缀为zip，解压</li>
-<li>将反编的dex文件复制到dex2jar工具目录下</li>
-<li>使用命令生成jar文件</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">d2j-dex2jar.bat document_name.dex</span><br></pre></td></tr></table></figure>
-
-<p>如果出现下列报错(版本号不匹配):</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">com.googlecode.d2j.DexException: not support version.</span><br><span class="line">     at com.googlecode.d2j.reader.DexFileReader.&lt;init&gt;(DexFileReader.java:151)</span><br><span class="line">     at com.googlecode.d2j.reader.DexFileReader.&lt;init&gt;(DexFileReader.java:211)</span><br><span class="line">     at com.googlecode.dex2jar.tools.Dex2jarCmd.doCommandLine(Dex2jarCmd.java:104)</span><br><span class="line">     at com.googlecode.dex2jar.tools.BaseCmd.doMain(BaseCmd.java:288)</span><br><span class="line">     at com.googlecode.dex2jar.tools.Dex2jarCmd.main(Dex2jarCmd.java:32)</span><br></pre></td></tr></table></figure>
-
-
-<p>用文本编辑软件打开dex文件，将文件头改为035或者036</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dex</span><br><span class="line">037 9!Q&lt;€颧€?滣^氶wl?  p   x</span><br></pre></td></tr></table></figure>
-
-
-<p>正常情况应该是这样的(没有任何多余)：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">E:\SoftWarePackage\Jd-GUI+dex2\dex2jar-2.0&gt;d2j-dex2jar.bat classes3.dex</span><br><span class="line">    dex2jar classes3.dex -&gt; .\classes3-dex2jar.jar</span><br></pre></td></tr></table></figure>
-
-
-
-<ol>
-<li><p>用jd-guijar反编译jar文件，命令是这个：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar jd-gui-1.5.0.jar</span><br></pre></td></tr></table></figure>
+<h4 id="求解next数组"><a href="#求解next数组" class="headerlink" title="求解next数组"></a>求解next数组</h4><ul>
+<li>优化前</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">Get_Next</span><span class="params">(String t, <span class="type">int</span> ne[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ne[<span class="number">0</span>] = <span class="number">-1</span>;</span><br><span class="line">    <span class="type">int</span> i = <span class="number">0</span>, j = <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">while</span>(i &lt; t.length)&#123;</span><br><span class="line">        <span class="keyword">if</span>(j == <span class="number">-1</span> || t.ch[i] == t.ch[j])&#123;</span><br><span class="line">            i++, j++;</span><br><span class="line">            ne[i] = j;		<span class="comment">//相等，直接在之前的基础上加一</span></span><br><span class="line">        &#125;<span class="keyword">else</span>&#123; </span><br><span class="line">            j = ne[j];      <span class="comment">//不相等，向前递归</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>其实就是执行jar文件而已，可以直接写bat桌面一键打开</li>
+<li>优化后（优化是优化掉了 t 串 ne[j] 位置的元素与 t[j] 相同的情况，这种情况的匹配一否全否。所以会让ne[j]递归到 t[ne[j]] !&#x3D; t[j]）</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">Get_Next</span><span class="params">(String t, <span class="type">int</span> nextval[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    nextval[<span class="number">0</span>] = <span class="number">-1</span>;</span><br><span class="line">    <span class="type">int</span> i = <span class="number">0</span>, j = <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">while</span>(i &lt; t.length)&#123;</span><br><span class="line">        <span class="comment">//相同前后缀，进入判断</span></span><br><span class="line">        <span class="keyword">if</span>(j == <span class="number">-1</span> || t.ch[i] == t.ch[j])&#123;</span><br><span class="line">            i++, j++;						<span class="comment">//修改位置</span></span><br><span class="line">            <span class="keyword">if</span>(t.ch[i] != t.ch[j])</span><br><span class="line">                nextval[i] = j;				<span class="comment">//不相等，直接取值             </span></span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                nextval[i] = nextval[j];    <span class="comment">//相等，无意义，再次向前求解</span></span><br><span class="line">        &#125;<span class="keyword">else</span></span><br><span class="line">            j = nextval[j];      <span class="comment">//非相同前后缀，向前递归</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="KMP"><a href="#KMP" class="headerlink" title="KMP"></a>KMP</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">KMP</span><span class="params">(String s, String t)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> nextval[MAXSIZE+<span class="number">1</span>];</span><br><span class="line">    <span class="built_in">Get_Next</span>(t, nextval);		             <span class="comment">//求解nextval</span></span><br><span class="line">    <span class="type">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(i &lt; s.length &amp;&amp; j &lt; t.length)&#123;</span><br><span class="line">        <span class="keyword">if</span>(j == - <span class="number">1</span> || s.ch[i] == t.ch[j])&#123;  <span class="comment">//相同，可匹配</span></span><br><span class="line">            i++, j++;</span><br><span class="line">        &#125;<span class="keyword">else</span>							     <span class="comment">//不可匹配，向前追溯</span></span><br><span class="line">            j = nextval[j];        </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//输出匹配位置</span></span><br><span class="line">    <span class="keyword">if</span>(j &gt;= t.length)</span><br><span class="line">        <span class="keyword">return</span> i - t.length + <span class="number">1</span>;	<span class="comment">//输出实际位置长度，非数组下标</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="树"><a href="#树" class="headerlink" title="树"></a>树</h1><h3 id="一堆概念"><a href="#一堆概念" class="headerlink" title="一堆概念"></a>一堆概念</h3><ul>
+<li>写写有些什么吧<ul>
+<li>结点<ul>
+<li>父母结点、祖先结点、左右孩子结点、兄弟结点、子孙结点、前后辈结点</li>
 </ul>
 </li>
-</ol>
+<li>结点的度、结点的层次、树的高度</li>
+<li>有序树、无序树</li>
+<li>二叉树、满二叉树、完全二叉树、线索二叉树</li>
+<li>森林</li>
+</ul>
+</li>
+</ul>
+<h3 id="二叉树的存储"><a href="#二叉树的存储" class="headerlink" title="二叉树的存储"></a>二叉树的存储</h3><h4 id="顺序存储"><a href="#顺序存储" class="headerlink" title="顺序存储"></a>顺序存储</h4><ul>
+<li>将二叉树按照完全二叉树层序依次编号，自上而下，自左向右。按这个编号顺序放进一维容器就可</li>
+<li>二叉树中的没有的结点，编号后按值为0放进容器</li>
+<li>这样存储，若结点下标为k，则其左儿子下标为2k，右儿子为2k+1</li>
+</ul>
+<h4 id="链式存储"><a href="#链式存储" class="headerlink" title="链式存储"></a>链式存储</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Node</span>&#123;</span><br><span class="line">    Data data;	            <span class="comment">//数据</span></span><br><span class="line">	<span class="type">int</span> *lchild, *rchild;	<span class="comment">//指向左儿子和右儿子</span></span><br><span class="line">    <span class="type">int</span> *parent				<span class="comment">//指向父节点</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<h3 id="二叉树的遍历"><a href="#二叉树的遍历" class="headerlink" title="二叉树的遍历"></a>二叉树的遍历</h3><h4 id="先序遍历"><a href="#先序遍历" class="headerlink" title="先序遍历"></a>先序遍历</h4><ul>
+<li>根左右，就是从根结点开始跑图^_^</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//递归是万能的</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">front</span><span class="params">(Node x)</span></span>&#123;</span><br><span class="line">    cout &lt;&lt;x-&gt;data &lt;&lt;<span class="string">&quot; &quot;</span>;	<span class="comment">//输出根</span></span><br><span class="line">	<span class="built_in">front</span>(x-&gt;lchild);		<span class="comment">//递归左儿子</span></span><br><span class="line">    <span class="built_in">front</span>(x-&gt;rchild);		<span class="comment">//递归右儿子</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//下面那俩写成递归代码和这个差不多</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="中序遍历"><a href="#中序遍历" class="headerlink" title="中序遍历"></a>中序遍历</h4><ul>
+<li>左根右，看成果树自然脱落，然后顺序捡果子</li>
+</ul>
+<h4 id="后序遍历"><a href="#后序遍历" class="headerlink" title="后序遍历"></a>后序遍历</h4><ul>
+<li>左右根，好像没什么可描述的思路。</li>
+</ul>
+<h4 id="层序遍历"><a href="#层序遍历" class="headerlink" title="层序遍历"></a>层序遍历</h4><ul>
+<li>顾名思义，从根结点开始，一层一层输出就完事</li>
+</ul>
+<h4 id="树的遍历"><a href="#树的遍历" class="headerlink" title="树的遍历"></a>树的遍历</h4><ul>
+<li>这个就直接合并了，没有中序遍历，其他三种都是有的</li>
+</ul>
+<h3 id="森林"><a href="#森林" class="headerlink" title="森林"></a>森林</h3><ul>
+<li>把一堆树放一起</li>
+</ul>
+<h4 id="森林遍历"><a href="#森林遍历" class="headerlink" title="森林遍历"></a>森林遍历</h4><ul>
+<li>先序遍历<ul>
+<li>先找森林中第一棵树的根结点</li>
+<li>先序遍历第一棵树，把剩余的树看成新的森林</li>
+<li>重复上面的操作</li>
+</ul>
+</li>
+<li>中序遍历<ul>
+<li>先找森林中第一棵树的<code>子树森林</code>（也就是第一棵树中除根结点以外的部分）</li>
+<li>后序遍历第一棵树，把剩余的树看成新的森林</li>
+<li>重复上面的操作</li>
+</ul>
+</li>
+</ul>
+<h3 id="二叉树、树、森林的转换"><a href="#二叉树、树、森林的转换" class="headerlink" title="二叉树、树、森林的转换"></a>二叉树、树、森林的转换</h3><ul>
+<li>树变二叉树<ol>
+<li>在所有的兄弟之间连线</li>
+<li>只保留父节点与第一个儿子结点的连线，去掉其他父子结点之间的连线</li>
+</ol>
+</li>
+<li>森林变二叉树<ol>
+<li>对每一棵树执行树变二叉树的操作</li>
+<li>将森林中所有的树的根结点连起来</li>
+</ol>
+</li>
+<li>二叉树变森林<ol>
+<li>对于一个结点x，他是父结点的左孩子，在父节点和结点x的右孩子、以及其右孩子的右孩子…之间连线</li>
+<li>去掉所有结点与右孩子的连线</li>
+</ol>
+</li>
+</ul>
+<h3 id="哈夫曼树"><a href="#哈夫曼树" class="headerlink" title="哈夫曼树"></a>哈夫曼树</h3><ul>
+<li>最优树，带权路径最短，也就是所有结点的深度与权值积之和最小</li>
+</ul>
+<h3 id="哈夫曼编码"><a href="#哈夫曼编码" class="headerlink" title="哈夫曼编码"></a>哈夫曼编码</h3><ul>
+<li>在哈夫曼树上按照<code>左0右1</code>的规则从根节点走到目标节点形成的数字串</li>
+</ul>
+<h1 id="图"><a href="#图" class="headerlink" title="图"></a>图</h1><h3 id="一堆概念-1"><a href="#一堆概念-1" class="headerlink" title="一堆概念"></a>一堆概念</h3><ul>
+<li>有向图、无向图、混合图</li>
+<li>点、权值</li>
+<li>出度、入度</li>
+<li>边、弧</li>
+<li>强连通（有向图）<ul>
+<li>两个顶点强连通：两个顶点至少存在一条互相可达路径</li>
+<li>强连通图：任意两个顶点强连通</li>
+<li>强连通分量：非强连通图中的最大强连通子图</li>
+</ul>
+</li>
+<li>连通、回路（环）、稀疏图、稠密图</li>
+<li>零图：仅有孤立结点</li>
+<li>平凡图：只有一个孤立结点</li>
+<li>多重图：有多重边的图。非多重图为线图</li>
+<li>简单图：无多重边和自回环的图</li>
+<li>完全图：任意两个不同结点之间都有边的简单图<ul>
+<li>记为Kn</li>
+<li>无向完全图的边数为n(n-1)&#x2F;2</li>
+</ul>
+</li>
+<li>k度正则图：在无向图G&#x3D;&lt;V，E&gt;中，每个结点的度都是k</li>
+<li>点割集：有一个连通图和点的集合，如果在图上把所有集合中的点删去，这个图就不是连通图，而这个集合中的点少一个，它还是连通图，这个集合就叫点割集</li>
+<li>割点：存在两个点u、w，使得uw之间的每一条通路都必须经过点v，那么v就是割点。意思也就是没了v他就不是个连通图</li>
+<li>结点连通度：在一个非完全图的连通图里，变为不连通图所需删去结点的最小数目</li>
+<li>边割集、割边、边连通度</li>
+<li>结点连通度𝜅(G) ≤ 边连通度𝜆(G) ≤ 最小度δ(G)</li>
+</ul>
+<h3 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">有些东西，凭直觉走就行了</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>邻接表</th>
+<th>邻接矩阵</th>
+<th>十字链表</th>
+<th>邻接多重表</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>空间复杂度</td>
+<td>有向图o(V+E2)，无向图o(V+E)</td>
+<td>o(V2)</td>
+<td>o(V+E)</td>
+<td>o(V+E)</td>
+</tr>
+<tr>
+<td>适用范围</td>
+<td>稀疏图</td>
+<td>稠密图</td>
+<td>有向图</td>
+<td>无向图</td>
+</tr>
+<tr>
+<td>缺点</td>
+<td>点和边难删除，一找就需要遍历</td>
+<td>删点需要删除整行整列</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h4 id="邻接表"><a href="#邻接表" class="headerlink" title="邻接表"></a>邻接表</h4><ul>
+<li>就像一个二维向量？</li>
+<li>先把每个点都摘出来是第一维。然后对于每个点，又把所有跟它有关的边都存一遍是第二维</li>
+</ul>
+<h4 id="逆邻接表（有向图）"><a href="#逆邻接表（有向图）" class="headerlink" title="逆邻接表（有向图）"></a>逆邻接表（有向图）</h4><ul>
+<li>针对于有向图，邻接表的第二维放的是由某个点指向的所有边（其实应该叫弧）</li>
+<li>逆邻接表，就是把第二维给倒一下，存所有指向某个点的边</li>
+<li>比如点v，就存a-&gt;v，b-&gt;v，c-&gt;v…</li>
+</ul>
+<h4 id="邻接矩阵"><a href="#邻接矩阵" class="headerlink" title="邻接矩阵"></a>邻接矩阵</h4><ul>
+<li>正常理解就行了</li>
+<li>第n行第m列等于1表示：n-&gt;m &#x3D; 1</li>
+<li>具体数字，那就看什么图了，可以表示权值，也可以表示是否有边</li>
+</ul>
+<h4 id="十字链表（有向图）"><a href="#十字链表（有向图）" class="headerlink" title="十字链表（有向图）"></a>十字链表（有向图）</h4><ul>
+<li>基于邻接表做改进，每个结构里多了两个指针，一个指向弧头相同的结构，另一个指向弧尾相同的结构</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//这玩意只是为了更加形象，不代表就这么简单</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Node</span>&#123;</span><br><span class="line">    <span class="type">int</span> u;		<span class="comment">//弧尾</span></span><br><span class="line">    <span class="type">int</span> v;		<span class="comment">//弧头</span></span><br><span class="line">    <span class="type">int</span> value;	<span class="comment">//权值</span></span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">Node</span> *hlink;    <span class="comment">//指向下一个弧头相同的Node结构</span></span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">Node</span> *tlink;    <span class="comment">//指向下一个弧尾相同的Node结构</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="邻接多重表（无向图）"><a href="#邻接多重表（无向图）" class="headerlink" title="邻接多重表（无向图）"></a>邻接多重表（无向图）</h4><ul>
+<li>跟十字链表大同小异，无非是没有了指向（弧变成了边）</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Node</span>&#123;</span><br><span class="line">    <span class="type">int</span> u;		<span class="comment">//边的一个结点</span></span><br><span class="line">    <span class="type">int</span> v;		<span class="comment">//边的另一个结点</span></span><br><span class="line">    <span class="type">int</span> value;	<span class="comment">//权值</span></span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">Node</span> *hlink;    <span class="comment">//指向下一个含u的Node结构</span></span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">Node</span> *tlink;    <span class="comment">//指向下一个含v的Node结构</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这俩表示方式也就相当于是：</p>
+<p>一条边两个点，分别把跟两个点有关的东西全部串在了一起</p>
+<h3 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h3><h4 id="深度优先搜索（DFS）"><a href="#深度优先搜索（DFS）" class="headerlink" title="深度优先搜索（DFS）"></a>深度优先搜索（DFS）</h4><ul>
+<li>一条道走到黑，走完回去再走另一条</li>
+</ul>
+<h4 id="广度优先搜索（BFS）"><a href="#广度优先搜索（BFS）" class="headerlink" title="广度优先搜索（BFS）"></a>广度优先搜索（BFS）</h4><ul>
+<li>同深度的路同时试探，多点开花</li>
+</ul>
+<h3 id="拓扑排序"><a href="#拓扑排序" class="headerlink" title="拓扑排序"></a>拓扑排序</h3><h4 id="作用对象"><a href="#作用对象" class="headerlink" title="作用对象"></a>作用对象</h4><ul>
+<li>无环有向图</li>
+</ul>
+<h4 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h4><ol>
+<li>找一个无前驱(入度为0)的点存入拓扑序，或者找到后直接输出</li>
+<li>将该点以及所有以该点作为起点的边删掉</li>
+<li>重复1、2操作，直到所有的点都存入拓扑序中或者找不到入度为0的点</li>
+</ol>
+<h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><ol>
+<li>根据操作就可以分析出带环的图无法进行拓扑排序，因为一个环中不存在入度为0的点</li>
+<li>因为一个图在拓扑排序前，或者拓扑排序开始后，都有可能存在许多个入度为0的点，此时就可以选择不同的点继续进行拓扑排序，所以拓扑排序的解不是唯一的</li>
+</ol>
+<h4 id="应用范围"><a href="#应用范围" class="headerlink" title="应用范围"></a>应用范围</h4><ol>
+<li>检测一个图是否含有环</li>
+<li>求解AOE图的关键路径</li>
+<li>在有承接关系的工程中计算最优的项目处理顺序</li>
+</ol>
+<h4 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> MAXN 1000</span></span><br><span class="line"><span class="comment">//邻接矩阵定义</span></span><br><span class="line"><span class="type">int</span> egde[MAXN+<span class="number">1</span>][MAXN+<span class="number">1</span>];</span><br><span class="line"><span class="type">int</span> n, res[MAXN+<span class="number">1</span>];</span><br><span class="line"><span class="comment">//记录每个点的入度</span></span><br><span class="line"><span class="type">int</span> in_cnt[MAXN+<span class="number">1</span>];</span><br><span class="line">queue&lt;<span class="type">int</span>&gt;q;</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">Topo_sort</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//初始化入度</span></span><br><span class="line">    <span class="built_in">memset</span>(in_cnt, <span class="number">0</span>, <span class="built_in">sizeof</span>(in_cnt));</span><br><span class="line">    <span class="comment">//存度</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">	    <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">1</span>; j &lt;= n; j++)&#123;</span><br><span class="line">	        <span class="comment">//指向边不存在或者指向自己</span></span><br><span class="line">	        <span class="keyword">if</span>(i == j || edge[i][j] == <span class="number">-1</span>) <span class="keyword">continue</span>;</span><br><span class="line">            in_cnt[j]++;</span><br><span class="line">	    &#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="type">int</span> cnt = <span class="number">0</span>; <span class="comment">//记录拓扑序</span></span><br><span class="line">	<span class="comment">//拓扑排序</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">	    <span class="comment">//将入度为0的点放入队列</span></span><br><span class="line">	    <span class="keyword">if</span>(in_cnt[i] == <span class="number">0</span>) q.<span class="built_in">push</span>(i);</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">	<span class="keyword">while</span>(!q.<span class="built_in">empty</span>())</span><br><span class="line">	&#123;</span><br><span class="line">	    <span class="type">int</span> temp = q.<span class="built_in">front</span>();  q.<span class="built_in">pop</span>();</span><br><span class="line">	    res[++cnt] = temp;</span><br><span class="line">	    <span class="comment">//删除以其为起点的边</span></span><br><span class="line">	    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">	        <span class="comment">//边不存在</span></span><br><span class="line">	        <span class="keyword">if</span>(edge[temp][i] == <span class="number">-1</span>) <span class="keyword">continue</span>;</span><br><span class="line">	        <span class="comment">//指向的点的入度减一</span></span><br><span class="line">	        in_cnt[i]--;</span><br><span class="line">	        <span class="keyword">if</span>(in_cnt == <span class="number">0</span>) q.<span class="built_in">push</span>(i);</span><br><span class="line">	    &#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//得到的拓扑序中的点的个数小于图中点的个数</span></span><br><span class="line">	<span class="comment">//说明拓扑排序无法完成，可能存在自环</span></span><br><span class="line">    <span class="keyword">if</span>(cnt != n) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="最小生成树-prim"><a href="#最小生成树-prim" class="headerlink" title="最小生成树-prim"></a>最小生成树-prim</h3><ol>
+<li>将图分成两个部分，在树里的部分和不在树里的部分</li>
+<li>选择一条权值最小的边，且该边所连的两个点一个在树内，一个在树外</li>
+<li>将选定的边加入树内，并将该边的权值记录</li>
+<li>重复上述操作直到所有的点都被加入树中</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> M 500000</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> N 100000</span></span><br><span class="line"><span class="type">int</span> n, m, res = <span class="number">0</span>;</span><br><span class="line"><span class="comment">//链式前向星建图</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Node</span>&#123;</span><br><span class="line">    <span class="type">int</span> x, v, next;</span><br><span class="line">&#125;edge[M*<span class="number">2</span>+<span class="number">1</span>];</span><br><span class="line"><span class="type">int</span> head[N+<span class="number">1</span>], cnt = <span class="number">0</span>, dis[N+<span class="number">1</span>];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">addedge</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y, <span class="type">int</span> z)</span></span>&#123;</span><br><span class="line">    edge[++cnt].x = y;</span><br><span class="line">    edge[cnt].v = z;</span><br><span class="line">    edge[cnt].next = head[x];</span><br><span class="line">    head[x] = cnt;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//边权优先队列</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">ty</span>&#123;</span><br><span class="line">    <span class="type">int</span> x, len;  </span><br><span class="line">    <span class="comment">//比大小重载</span></span><br><span class="line">    <span class="type">bool</span> <span class="keyword">operator</span> &lt; (<span class="type">const</span> ty &amp;a) <span class="type">const</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> len &gt; a.len;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;temp;</span><br><span class="line">priority_queue&lt;ty&gt;q;</span><br><span class="line"><span class="type">bool</span> vis[N+<span class="number">1</span>];</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">prim</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//以初始点1更新队列</span></span><br><span class="line">    vis[<span class="number">1</span>] = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = head[<span class="number">1</span>]; i != <span class="number">-1</span>; i = edge[i].next)&#123;</span><br><span class="line">        temp.x = edge[i].x;</span><br><span class="line">        dis[edge[i].x] = edge[i].v;</span><br><span class="line">        temp.len = edge[i].v;</span><br><span class="line">        q.<span class="built_in">push</span>(temp);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(!q.<span class="built_in">empty</span>())&#123;</span><br><span class="line">        <span class="comment">//将当前边权最小的可连接点加入树中</span></span><br><span class="line">        <span class="comment">//并更新最小生成树代价</span></span><br><span class="line">        ty tmp = q.<span class="built_in">top</span>(); q.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="keyword">if</span>(vis[tmp.x]) <span class="keyword">continue</span>;</span><br><span class="line">        vis[tmp.x] = <span class="literal">true</span>;</span><br><span class="line">        res += tmp.len;</span><br><span class="line">        <span class="comment">//将新加入点所连接的边放进队列</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = head[tmp.x]; i != <span class="number">-1</span>; i = edge[i].next)&#123;</span><br><span class="line">            <span class="keyword">if</span>(vis[edge[i].x]) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="comment">//大于等于之前所选边权的新边权无需放入</span></span><br><span class="line">            <span class="keyword">if</span>(dis[edge[i].x] &lt;= edge[i].v) <span class="keyword">continue</span>; </span><br><span class="line">            <span class="comment">//</span></span><br><span class="line">            tmp.x = edge[i].x;</span><br><span class="line">            dis[edge[i].x] = edge[i].v;</span><br><span class="line">            tmp.len = edge[i].v;</span><br><span class="line">            q.<span class="built_in">push</span>(tmp);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//输出</span></span><br><span class="line">    cout &lt;&lt;res;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(head, <span class="number">-1</span>, <span class="built_in">sizeof</span>(head));</span><br><span class="line">    <span class="built_in">memset</span>(dis, <span class="number">0x3f</span>, <span class="built_in">sizeof</span>(dis));</span><br><span class="line">    <span class="built_in">memset</span>(vis, <span class="literal">false</span>, <span class="built_in">sizeof</span>(vis));</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;n, &amp;m);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= m; i++)&#123;</span><br><span class="line">        <span class="type">int</span> a, b, v;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d&quot;</span>, &amp;a, &amp;b, &amp;v);</span><br><span class="line">        <span class="built_in">addedge</span>(a, b, v);</span><br><span class="line">        <span class="built_in">addedge</span>(b, a, v);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">prim</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="最小生成树-kruskal"><a href="#最小生成树-kruskal" class="headerlink" title="最小生成树-kruskal"></a>最小生成树-kruskal</h3><ol>
+<li>将所有的边按大小进行排序</li>
+<li>选择一条之前<code>未选择过的</code>且<code>权值最小的</code>边</li>
+<li>利用并查集判断选出的边所连接的两个点当前是否在一个集合里，如果不在，就将该边计入，并更新并查集信息</li>
+<li>重复2、3操作直到所有的点生成一颗树</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> M 500000</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> N 100000</span></span><br><span class="line"><span class="type">int</span> n, m, res = <span class="number">0</span>;</span><br><span class="line"><span class="comment">//边结构体</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Node</span>&#123;</span><br><span class="line">    <span class="type">int</span> x, y, v;</span><br><span class="line">&#125;edge[M+<span class="number">1</span>];</span><br><span class="line"><span class="comment">//按边权值升序排列</span></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">cmp</span><span class="params">(Node a, Node b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a.v &lt; b.v;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//并查集查找父节点以及路径压缩</span></span><br><span class="line"><span class="type">int</span> fa[N+<span class="number">1</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">find</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(fa[x] == x)</span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> fa[x] = <span class="built_in">find</span>(fa[x]);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Kruskal</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//初始化并查集</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) fa[i] = i;</span><br><span class="line">    <span class="comment">//按边权排序</span></span><br><span class="line">    <span class="built_in">sort</span>(edge+<span class="number">1</span>, edge+<span class="number">1</span>+m, cmp);</span><br><span class="line">    <span class="comment">//依次拿边</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= m; i++)&#123;</span><br><span class="line">        <span class="comment">//判断选定边所连的两个点是否已经在树里</span></span><br><span class="line">        <span class="type">int</span> fx = <span class="built_in">find</span>(edge[i].x);</span><br><span class="line">        <span class="type">int</span> fy = <span class="built_in">find</span>(edge[i].y);</span><br><span class="line">        <span class="keyword">if</span>(fx == fy) <span class="keyword">continue</span>;</span><br><span class="line">        res += edge[i].v;</span><br><span class="line">        fa[fx] = fy;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt;res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;n, &amp;m); </span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= m; i++)&#123;</span><br><span class="line">        <span class="type">int</span> a, b, v;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d&quot;</span>, &amp;edge[i].x, &amp;edge[i].y, &amp;edge[i].v);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">Kruskal</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="最短路"><a href="#最短路" class="headerlink" title="最短路"></a>最短路</h3><ul>
+<li>简单路：经过路的边都不相同</li>
+<li>基本路：路出现的所有结点都不相同</li>
+<li>简单回路、基本回路</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Floyed</th>
+<th>Dijkstra(优先队列优化)</th>
+<th>SPFA(优先队列优化)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>时间复杂度</td>
+<td>o(n3)</td>
+<td>o(n+m)(log2m)</td>
+<td>o(km)</td>
+</tr>
+<tr>
+<td>基本思想</td>
+<td>动态规划</td>
+<td>贪心</td>
+<td>贪心</td>
+</tr>
+<tr>
+<td>适用范围</td>
+<td>无负环图</td>
+<td>无负权图</td>
+<td>无负环图</td>
+</tr>
+<tr>
+<td>适用范围</td>
+<td>多源最短路</td>
+<td>不含负权图的低复杂度解</td>
+<td>含负权边时的单源最短路求解</td>
+</tr>
+</tbody></table>
+<ul>
+<li>懒得重写了，CSDN链接如下</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_59700927/article/details/124547139?ops_request_misc=%7B%22request_id%22:%22167099472316782390553941%22,%22scm%22:%2220140713.130102334.pc_blog.%22%7D&request_id=167099472316782390553941&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_ecpm_v1~rank_v31_ecpm-3-124547139-null-null.nonecase&utm_term=%E6%9C%80%E7%9F%AD%E8%B7%AF&spm=1018.2226.3001.4450">三种求最短路算法基本描述及实现(C++)_Woodenman杜的博客-CSDN博客_最短路算法c++</a></p>
+<h3 id="一些特殊的图"><a href="#一些特殊的图" class="headerlink" title="一些特殊的图"></a>一些特殊的图</h3><h4 id="AOE网"><a href="#AOE网" class="headerlink" title="AOE网"></a>AOE网</h4><ul>
+<li>工程图，可以用来评估工程进度</li>
+<li>具体表示<ul>
+<li>总的来说还是一个带权有向图</li>
+<li>只有一个入度为0的点和出度为0的点，表示工程的起点和终点，也叫入点和汇点</li>
+<li>每一条边表示一项工程，其权值可表示完成工程所需要的时间</li>
+<li>每一个结点，相当于一个锁，只有指向它的所有工程全部完成以后，它所指向的工程才能进行</li>
+<li>多个工程可以同时进行</li>
+</ul>
+</li>
+<li>一些需要关注的点<ul>
+<li>每个工程的最早开始时间</li>
+<li>每个工程的最迟开始时间</li>
+<li>工程的最快完成时间（也就是从入点到汇点的最长路径）</li>
+<li>关键路径（决定完成时间的路径）</li>
+</ul>
+</li>
+</ul>
+<h4 id="欧拉图"><a href="#欧拉图" class="headerlink" title="欧拉图"></a>欧拉图</h4><ul>
+<li>欧拉回路：在一个连通图里，每个边走且只走一次的回路</li>
+<li>欧拉图就是有欧拉回路的图</li>
+</ul>
+<h4 id="哈密顿图"><a href="#哈密顿图" class="headerlink" title="哈密顿图"></a>哈密顿图</h4><ul>
+<li>哈密顿回路：在一个图里，每个点走且只走一次的回路</li>
+<li>哈密顿图就是有哈密顿回路的图</li>
+</ul>
+<h4 id="二部图"><a href="#二部图" class="headerlink" title="二部图"></a>二部图</h4><ul>
+<li>将图中所有的点分成两部分，使得图中所有的边连接的两个点，都属于不同的两部分</li>
+</ul>
+<h1 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h1><h3 id="线性表查找"><a href="#线性表查找" class="headerlink" title="线性表查找"></a>线性表查找</h3><h4 id="顺序查找"><a href="#顺序查找" class="headerlink" title="顺序查找"></a>顺序查找</h4><ul>
+<li>就叫顺序查找（笑哭），线性遍历</li>
+</ul>
+<h4 id="折半查找"><a href="#折半查找" class="headerlink" title="折半查找"></a>折半查找</h4><ul>
+<li>也就是二分查找，一眼可懂。注意被查找的序列必须是按条件有序</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//x为被查找数</span></span><br><span class="line"><span class="keyword">while</span>(l &lt; r)&#123;</span><br><span class="line">  <span class="type">int</span> mid = (l + r) &gt;&gt; <span class="number">2</span>;</span><br><span class="line">  <span class="keyword">if</span>(mid &gt;= x) r = mid;</span><br><span class="line">  <span class="keyword">else</span> l = mid + <span class="number">1</span>;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<h4 id="分块查找"><a href="#分块查找" class="headerlink" title="分块查找"></a>分块查找</h4><ul>
+<li>将原来的表拆分成n个表（分块）</li>
+<li>将每个表中权值最大的元素作为该表的关键字</li>
+<li>find，先通过每个表的关键字定位到正确表中，再进行查找</li>
+</ul>
+<h3 id="树表查找"><a href="#树表查找" class="headerlink" title="树表查找"></a>树表查找</h3><h4 id="二叉排序树"><a href="#二叉排序树" class="headerlink" title="二叉排序树"></a>二叉排序树</h4><ul>
+<li>特殊二叉树，对于每一个结点<ul>
+<li>如果有左子树，左子树所有结点的权值均小于根结点</li>
+<li>如果有右子树，右子树所有结点的权值均大于根结点</li>
+</ul>
+</li>
+<li>至于查找就很简单了，从根结点一直向下比较就行，有点像二分，或者说它就是二分</li>
+</ul>
+<h4 id="平衡二叉树（AVL树）"><a href="#平衡二叉树（AVL树）" class="headerlink" title="平衡二叉树（AVL树）"></a>平衡二叉树（AVL树）</h4><ul>
+<li>|depth左子树 - depth右子树|&lt;&#x3D;1</li>
+</ul>
+<h4 id="B-树"><a href="#B-树" class="headerlink" title="B-树"></a>B-树</h4><h4 id="B-树-1"><a href="#B-树-1" class="headerlink" title="B+树"></a>B+树</h4><h3 id="散列表查找"><a href="#散列表查找" class="headerlink" title="散列表查找"></a>散列表查找</h3><h1 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h1><ul>
+<li>稳定排序：插入、冒泡、基数、归并</li>
+<li>不稳定排序：希尔、选择、快排、堆</li>
+</ul>
+<p>表格还是来得快哈，非常合理</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>时间复杂度(平均)</th>
+<th>空间复杂度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>选择排序</td>
+<td>o(n2)</td>
+<td>o(1)</td>
+</tr>
+<tr>
+<td>堆排序</td>
+<td>o(n2)</td>
+<td>o(1)</td>
+</tr>
+<tr>
+<td>冒泡排序</td>
+<td>o(n2)</td>
+<td>o(1)</td>
+</tr>
+<tr>
+<td>快速排序</td>
+<td>o(nlog2n)</td>
+<td>o(log2n) –&gt; o(n)</td>
+</tr>
+<tr>
+<td>插入排序</td>
+<td>o(n2)</td>
+<td>o(1)</td>
+</tr>
+<tr>
+<td>希尔排序</td>
+<td>看希尔增量合适不合适，平均n1.3?</td>
+<td>o(1)</td>
+</tr>
+<tr>
+<td>基数排序</td>
+<td>o(d(n+rd))</td>
+<td>o(n+rd)</td>
+</tr>
+<tr>
+<td>归并排序</td>
+<td>o(nlog2n)</td>
+<td>o(n)</td>
+</tr>
+<tr>
+<td>计数(桶)排序</td>
+<td>o(n)</td>
+<td>o(max-min+1)</td>
+</tr>
+</tbody></table>
+<h3 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h3><ul>
+<li>不断选择未排序序列中权值最大的数放到未排序序列末尾</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">Select_sort</span><span class="params">(<span class="type">int</span> a[], <span class="type">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> minx, minn;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt; n; i++)&#123;</span><br><span class="line">        <span class="comment">//minn存放每一趟排序中的最小数，minx存放下标</span></span><br><span class="line">        minn = a[i];  minx = i;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = i + <span class="number">1</span>; j &lt;= n; j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(minn &gt; a[j])&#123;</span><br><span class="line">                minn = a[j];</span><br><span class="line">                minx = j;</span><br><span class="line">            &#125; </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(minx != i) <span class="built_in">swap</span>(a[i],a[minx]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h3><p>首先明确这玩意是要顺序存储的完全二叉树，然后利用根堆的根最大（小）的性质</p>
+<ol>
+<li>实现一个大(小)根堆（建初堆）</li>
+<li>将根节点和末尾节点替换</li>
+<li>将除末尾节点（也就是之前根堆的根）之外的其它元素继续执行上述操作，直到排序结束</li>
+</ol>
+<h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><ul>
+<li>通过邻近两元素的不断比较交换实现排序，共n-1趟，期间权值较大的元素不断下浮，故名冒泡</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">Bubble_sort</span><span class="params">(<span class="type">int</span> a[],<span class="type">int</span> n)</span>				    <span class="comment">//n个数，从1下标开始</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">     <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>;i &lt; n; i++)&#123;			        <span class="comment">//n-1趟排序</span></span><br><span class="line">     <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">1</span>; j &lt;= n-i; j++)&#123;				<span class="comment">//第i趟排序后有n-i个未排序的数</span></span><br><span class="line">        <span class="keyword">if</span>(a[j] &gt; a[j+<span class="number">1</span>]) <span class="built_in">swap</span>(a[j], a[j+<span class="number">1</span>]);	<span class="comment">//冒泡交换</span></span><br><span class="line">     &#125;</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><p>这个像所有排序的结合体，虽然说是由冒泡改进而来。同时消除多次逆序</p>
+<ol>
+<li>选择一个枢轴（pivotkey）</li>
+<li>将所有权值小于pivotkey的放在左边，权值大于pivotkey的放在右边</li>
+<li>再将pivotkey归位，放在分界处</li>
+<li>对pivotkey两边的数列重复上述操作，也就是一个递归，直到排序完成</li>
+</ol>
+<h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3><p>拿出第一个乱序数，放到已经排好序的序列的合适位置</p>
+<p>好像挺明了的，可以看成是一个选择排序的进化？</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">insert_sort</span><span class="params">(<span class="type">int</span> a[],<span class="type">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> i,j,temp;</span><br><span class="line">	<span class="keyword">for</span>(i = <span class="number">2</span>; i &lt;= n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">        temp = a[i];		                         <span class="comment">//取出要插入的数</span></span><br><span class="line">		<span class="keyword">for</span>(j = i; j &gt; <span class="number">1</span> &amp;&amp; a[j - <span class="number">1</span>] &gt; temp; j--)    <span class="comment">//寻找合适的插入位置</span></span><br><span class="line">            a[j] = a[j - <span class="number">1</span>];						 <span class="comment">//没有找到的时候就向后推，把位置空出来</span></span><br><span class="line">		a[j] = temp;                                 <span class="comment">//插入数值</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h3><p>这个东西吧，就是分组和插入排序的循环</p>
+<ol>
+<li>在原数组中按照一定间隔从头到尾取出一系列数形成几个新的序列</li>
+<li>对每个新的序列进行插入排序</li>
+<li>按原位置序列合并</li>
+</ol>
+<p>至于这个间隔，就涉及到希尔增量，举个例子就明白了，分组不断降低。</p>
+<p>比如对半式增量：</p>
+<ul>
+<li>一个长度为8的数组，8&#x2F;2 &#x3D; 4，所以第一次就按间隔为4取数，那么形成的新序列的下标就是：&lt;1 5&gt;,&lt;2 6&gt;,&lt;3 7&gt;,&lt;4 8&gt;</li>
+<li>第二次间隔为4&#x2F;2 &#x3D; 2，则新取出的序列为&lt;1 3 5 7&gt;,&lt;2 4 6 8&gt;</li>
+<li>然后下一次就是2&#x2F;2 &#x3D; 1，没得分了，排序也就结束了</li>
+</ul>
+<h3 id="基数排序"><a href="#基数排序" class="headerlink" title="基数排序"></a>基数排序</h3><p>这个不好描述，不写了~</p>
+<ol>
+<li>选取有效位(个十百千万)</li>
+<li>将元素按顺序放进对应数字（0-9）的队列</li>
+<li>再按0-9的顺序将每个队列的元素拿出来</li>
+<li>重复上述过程，直到排序完成（有效位的选取是从低到高的）</li>
+</ol>
+<h3 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h3><p>整体就是无限二分和选数</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//这里a和b数组没有声明，应该写到外面，a数组是录入数据的数组</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Merge_sort</span><span class="params">(<span class="type">int</span> l, <span class="type">int</span> r)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//递归到了只有一个元素，直接返回</span></span><br><span class="line">    <span class="keyword">if</span>(l == r) <span class="keyword">return</span>;</span><br><span class="line">    <span class="comment">//找到中点，然后两边分别再归并（二分）</span></span><br><span class="line">    <span class="type">int</span> mid = (l + r) &gt;&gt; <span class="number">2</span>;</span><br><span class="line">    <span class="built_in">Merge_sort</span>(<span class="number">1</span>, mid);</span><br><span class="line">    <span class="built_in">Merge_sort</span>(mid + <span class="number">1</span>, r);</span><br><span class="line">    <span class="comment">//合并序列（选数）</span></span><br><span class="line">    <span class="type">int</span> p = <span class="number">1</span>, q = mid + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= r; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(q &gt; r || (p &lt;= mid &amp;&amp; a[p] &lt;= a[q])) b[i] = a[p++];</span><br><span class="line">        <span class="keyword">else</span> b[i] = a[q++];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//还原到a数组里</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= r; i++) a[i] = b[i];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="桶（计数）排序"><a href="#桶（计数）排序" class="headerlink" title="桶（计数）排序"></a>桶（计数）排序</h3><ul>
+<li>适用于数据集中，数据范围较小且比较明确的情况</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MAXN 10000</span></span><br><span class="line"><span class="type">int</span> cnt[MAXN+<span class="number">1</span>],n,temp;;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//输入</span></span><br><span class="line">    <span class="built_in">memset</span>(cnt,<span class="number">0</span>,<span class="built_in">sizeof</span>(cnt));</span><br><span class="line">    cin &gt;&gt;n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">        cin &gt;&gt;temp;</span><br><span class="line">        cnt[temp]++; <span class="comment">//计数</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//输出</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt;= MAXN; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(cnt[i])&#123; <span class="comment">//检测数字i有没有出现过</span></span><br><span class="line">            <span class="comment">//出现几次输出几个i</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">1</span>; j &lt;= cnt[i]; j++) cout &lt;&lt;i &lt;&lt;<span class="string">&#x27; &#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -1401,7 +2139,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-04-01 00:50:58" itemprop="dateModified" datetime="2023-04-01T00:50:58+08:00">2023-04-01</time>
+                <time title="修改时间：2023-04-01 10:14:36" itemprop="dateModified" datetime="2023-04-01T10:14:36+08:00">2023-04-01</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1447,489 +2185,6 @@
 
 <h2 id="Java问题"><a href="#Java问题" class="headerlink" title="Java问题"></a>Java问题</h2><ul>
 <li>trim函数，去掉字符串头尾空白字符</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/31/Android-RE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="UmVfX1BvaW50">
-      <meta itemprop="description" content="已经魔化的CTF逆向手">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="逆向光点">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/03/31/Android-RE/" class="post-title-link" itemprop="url">Android-Re</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-03-31 18:47:54" itemprop="dateCreated datePublished" datetime="2023-03-31T18:47:54+08:00">2023-03-31</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-04-01 00:51:13" itemprop="dateModified" datetime="2023-04-01T00:51:13+08:00">2023-04-01</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Smail"><a href="#Smail" class="headerlink" title="Smail"></a>Smail</h1><h3 id="寄存器命名"><a href="#寄存器命名" class="headerlink" title="寄存器命名"></a>寄存器命名</h3><ul>
-<li>均为32位，64位用2个寄存器</li>
-<li>p：p0、p1 函数参数</li>
-<li>v：v0、v1 函数内部变量</li>
-</ul>
-<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><table>
-<thead>
-<tr>
-<th>数据类型——Smail</th>
-<th>数据类型——Java</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>V</td>
-<td>void</td>
-</tr>
-<tr>
-<td>Z</td>
-<td>boolean</td>
-</tr>
-<tr>
-<td>B</td>
-<td>byte</td>
-</tr>
-<tr>
-<td>S</td>
-<td>string</td>
-</tr>
-<tr>
-<td>C</td>
-<td>char</td>
-</tr>
-<tr>
-<td>I</td>
-<td>int</td>
-</tr>
-<tr>
-<td>J</td>
-<td>long</td>
-</tr>
-<tr>
-<td>F</td>
-<td>float</td>
-</tr>
-<tr>
-<td>D</td>
-<td>double</td>
-</tr>
-</tbody></table>
-<ul>
-<li>数组：[+数据类型 eg：[I &lt;&#x3D;&#x3D;&gt; int[]</li>
-</ul>
-<h3 id="文件头"><a href="#文件头" class="headerlink" title="文件头"></a>文件头</h3><ul>
-<li>.class&lt;访问权限&gt;&lt;关键修饰字&gt;&lt;类名&gt;</li>
-<li>.super&lt;父类名&gt;</li>
-<li>.source&lt;源文件名&gt;</li>
-</ul>
-<h3 id="函数声明"><a href="#函数声明" class="headerlink" title="函数声明"></a>函数声明</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.method&lt;访问权限&gt;&lt;关键修饰字&gt;&lt;方法原型（返回值类型）&gt;</span><br><span class="line">&lt;.locals/.registers&gt;		    		# 非参数变量数目</span><br><span class="line">[.param]								# 声明方法中的参数名</span><br><span class="line">[.line]									# 源码中的行号</span><br><span class="line">.end method</span><br></pre></td></tr></table></figure>
-
-<h3 id="常量操作指令"><a href="#常量操作指令" class="headerlink" title="常量操作指令"></a>常量操作指令</h3><ul>
-<li>const</li>
-<li>const-string v1,”re” 将string类型常量re放进寄存器v1</li>
-</ul>
-<h3 id="方法调用指令"><a href="#方法调用指令" class="headerlink" title="方法调用指令"></a>方法调用指令</h3><ul>
-<li>invoke-kind {vA、vB}, method@DDDD</li>
-<li>invoke-(virtual、super、static | 正常函数、父类函数、静态函数) { 传入参数 }，方法名</li>
-</ul>
-<h3 id="移位指令"><a href="#移位指令" class="headerlink" title="移位指令"></a>移位指令</h3><ul>
-<li>move</li>
-<li>move-result-object v0 将上一步的函数返回值存进v0</li>
-</ul>
-<h3 id="分支判断指令"><a href="#分支判断指令" class="headerlink" title="分支判断指令"></a>分支判断指令</h3><ul>
-<li>if-eq：如果vA等于vB则跳转。Java语法表示为“if(vA &#x3D;&#x3D; vB)”</li>
-<li>if-ne：如果vA不等于vB则跳转。Java语法表示为“if(vA !&#x3D; vB)”</li>
-<li>if-lt：如果vA小于vB则跳转。Java语法表示为“if(vA &lt; vB)”</li>
-<li>if-ge：如果vA大于等于vB则跳转。Java语法表示为“if(vA &gt;&#x3D; vB)”</li>
-<li>if-gt：如果vA大于vB则跳转。Java语法表示为“if(vA &gt; vB)”</li>
-<li>if-le：如果vA小于等于vB则跳转。Java语法表示为“if(vA &lt;&#x3D; vB)”</li>
-<li>if-testz vAA, +BBBB：条件跳转指令。拿vAA寄存器与0比较，如果比较结果满足或值为0时就跳转到BBBB指定的偏移处。偏移量BBBB不能为0。 if-testz类型的指令有以下几条：</li>
-<li>if-eqz：如果vAA为0则跳转。Java语法表示为“if(vAA &#x3D;&#x3D; 0)”</li>
-<li>if-nez：如果vAA不为0则跳转。Java语法表示为“if(vAA !&#x3D; 0)”</li>
-<li>if-ltz：如果vAA小于0则跳转。Java语法表示为“if(vAA &lt; 0)”</li>
-<li>if-gez：如果vAA大于等于0则跳转。Java语法表示为“if(vAA &gt;&#x3D; 0)”</li>
-<li>if-gtz：如果vAA大于0则跳转。Java语法表示为“if(vAA &gt; 0)”</li>
-<li>if-lez：如果vAA小于等于0则跳转。Java语法表示为“if(vAA &lt;&#x3D; 0)”</li>
-</ul>
-<h1 id="Frida"><a href="#Frida" class="headerlink" title="Frida"></a>Frida</h1><h2 id="frida（hook框架）安装配置及基本使用"><a href="#frida（hook框架）安装配置及基本使用" class="headerlink" title="frida（hook框架）安装配置及基本使用"></a>frida（hook框架）安装配置及基本使用</h2><h4 id="安装配置"><a href="#安装配置" class="headerlink" title="安装配置"></a>安装配置</h4><ul>
-<li>pip install frida &gt; 核心</li>
-<li>pip install frida-tools &gt; 工具包</li>
-<li>frida –version &gt; 版本检测</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/frida/frida/releases">Releases · frida&#x2F;frida (github.com)</a>安装对应版本的server，如server-android-x86</li>
-<li>将刚才下载的server文件上传到安卓手机中</li>
-</ul>
-<h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><ul>
-<li><p>在手机中给server文件可执行权限并运行</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod +x 文件</span><br><span class="line">./文件</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在cmd中执行命令</p>
-<ul>
-<li>frida-ps -Ua 列出当前正在运行的程序</li>
-<li>frida -U -f 包名 hook对应程序</li>
-</ul>
-</li>
-</ul>
-<h3 id="Objection配置使用"><a href="#Objection配置使用" class="headerlink" title="Objection配置使用"></a>Objection配置使用</h3><ul>
-<li>基于frida框架的一个自动化脚本集成</li>
-<li>安装：pip3 install objection</li>
-</ul>
-<h4 id="使用-1"><a href="#使用-1" class="headerlink" title="使用"></a>使用</h4><ul>
-<li>Objection -g 包名&#x2F;PID explore 注入app进程</li>
-<li>android root disable 绕过root检测</li>
-<li>android proxy set 设置代理</li>
-<li>android sslpinning disable 绕过证书固定</li>
-</ul>
-<h2 id="重载"><a href="#重载" class="headerlink" title="重载"></a>重载</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">main</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="title class_">Java</span>.<span class="title function_">perform</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="keyword">var</span> <span class="title class_">MainActivity</span> = <span class="title class_">Java</span>.<span class="title function_">use</span>(<span class="string">&#x27;com.example.retest.MainActivity&#x27;</span>)</span><br><span class="line">        <span class="comment">//overload重载</span></span><br><span class="line">        <span class="title class_">MainActivity</span>.<span class="property">fun</span>.<span class="title function_">overload</span>(<span class="string">&#x27;int&#x27;</span>,<span class="string">&#x27;int&#x27;</span>).<span class="property">implementation</span> = <span class="keyword">function</span>(<span class="params">x, y</span>)&#123;</span><br><span class="line">            </span><br><span class="line">            ...</span><br><span class="line">        </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">setImmediate</span>(main)</span><br></pre></td></tr></table></figure>
-
-<h2 id="类函数和实例方法主动调用"><a href="#类函数和实例方法主动调用" class="headerlink" title="类函数和实例方法主动调用"></a>类函数和实例方法主动调用</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">main</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="title class_">Java</span>.<span class="title function_">perform</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="keyword">var</span> <span class="title class_">MainActivity</span> = <span class="title class_">Java</span>.<span class="title function_">use</span>(<span class="string">&#x27;com.example.retest.MainActivity&#x27;</span>)</span><br><span class="line">        <span class="comment">//静态函数，直接调用</span></span><br><span class="line">        <span class="title class_">MainActivity</span>.<span class="title function_">staticsecret</span>()</span><br><span class="line">        </span><br><span class="line">		<span class="comment">//动态函数主动调用</span></span><br><span class="line">        <span class="title class_">Java</span>.<span class="title function_">choose</span>(<span class="string">&#x27;com.example.retest.MainActicity&#x27;</span>,&#123;</span><br><span class="line">            <span class="comment">//实例化对象</span></span><br><span class="line">            <span class="attr">onMatch</span>:<span class="keyword">function</span>(<span class="params">instance</span>)&#123;</span><br><span class="line">                <span class="comment">//调用</span></span><br><span class="line">                instance.<span class="title function_">secret</span>()</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">onComplete</span>: <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">                <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;search Complete&#x27;</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">setImmediate</span>(main)</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/31/GFSJ-Re/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="UmVfX1BvaW50">
-      <meta itemprop="description" content="已经魔化的CTF逆向手">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="逆向光点">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/03/31/GFSJ-Re/" class="post-title-link" itemprop="url">GFSJ-Re</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-03-31 18:45:22" itemprop="dateCreated datePublished" datetime="2023-03-31T18:45:22+08:00">2023-03-31</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-04-01 00:52:48" itemprop="dateModified" datetime="2023-04-01T00:52:48+08:00">2023-04-01</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Reverse/" itemprop="url" rel="index"><span itemprop="name">Reverse</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="secret-galaxy-300"><a href="#secret-galaxy-300" class="headerlink" title="secret-galaxy-300"></a>secret-galaxy-300</h3><ul>
-<li>在初始化函数中隐藏关键代码</li>
-<li>找到关键代码动调就行</li>
-</ul>
-<h3 id="rev300"><a href="#rev300" class="headerlink" title="rev300"></a>rev300</h3><ul>
-<li>水题，恢复switch递归（模拟递归求解序号应该最快）得到a1，然后异或</li>
-</ul>
-<h3 id="hackme"><a href="#hackme" class="headerlink" title="hackme"></a>hackme</h3><ul>
-<li><p>乱序循环-&gt;异或加密</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> a[<span class="number">100</span>] = &#123;<span class="number">0x5f</span>,<span class="number">0xf2</span>,<span class="number">0x5e</span>,<span class="number">0x8b</span>,<span class="number">0x4e</span>,<span class="number">0xe</span>,<span class="number">0xa3</span>,<span class="number">0xaa</span>,<span class="number">0xc7</span>,<span class="number">0x93</span>,<span class="number">0x81</span>,<span class="number">0x3d</span>,<span class="number">0x5f</span>,<span class="number">0x74</span>,<span class="number">0xa3</span>,<span class="number">0x9</span>,<span class="number">0x91</span>,<span class="number">0x2b</span>,<span class="number">0x49</span>,<span class="number">0x28</span>,<span class="number">0x93</span>,<span class="number">0x67</span>&#125;;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">22</span>; i++)&#123;</span><br><span class="line">		<span class="type">unsigned</span> <span class="type">long</span> <span class="type">long</span>  j = <span class="number">0</span>, v24 = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">while</span>(j &lt; i)&#123;</span><br><span class="line">			v24 = <span class="number">1828812941</span> * v24 + <span class="number">12345</span>;</span><br><span class="line">			j++;</span><br><span class="line">		&#125;</span><br><span class="line">		cout &lt;&lt;(<span class="type">char</span>)(v24^a[i<span class="number">-1</span>]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="re4-unvm-me"><a href="#re4-unvm-me" class="headerlink" title="re4-unvm-me"></a>re4-unvm-me</h3><ul>
-<li>纯水题，pyc反编md5直接解密</li>
-</ul>
-<h3 id="tt3441810"><a href="#tt3441810" class="headerlink" title="tt3441810"></a>tt3441810</h3><ul>
-<li>抽象十六进制数据文件，过滤得到flag</li>
-</ul>
-<h3 id="BABYRE"><a href="#BABYRE" class="headerlink" title="BABYRE"></a>BABYRE</h3><ul>
-<li><p>这个题我觉得不错</p>
-</li>
-<li><p><code>if ( v5 == 14 &amp;&amp; (*(unsigned int (__fastcall **)(char *))judge)(s) )</code></p>
-</li>
-<li><p>这里的judge明显是个函数，但是看反编又是个数组，说明是个花指令，通过前面的执行修改机器码实现函数</p>
-</li>
-<li><p>所以想PatchByte、CP恢复函数，再写脚本如下</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	string  s = <span class="string">&quot;fmcd&quot;</span>;</span><br><span class="line"> 	<span class="type">int</span> v2 = <span class="number">127</span>;</span><br><span class="line">  	string s1 = <span class="string">&quot;k7d;V`;np&quot;</span>;</span><br><span class="line">  	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt;= <span class="number">3</span>; i++)&#123;</span><br><span class="line">  		cout &lt;&lt;(<span class="type">char</span>)(s[i] ^ i);</span><br><span class="line">  	&#125;</span><br><span class="line">  	cout &lt;&lt;(<span class="type">char</span>)(v2^<span class="number">4</span>);</span><br><span class="line">  	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">5</span>; i &lt;= <span class="number">13</span>; i++)&#123;</span><br><span class="line">  		cout &lt;&lt;(<span class="type">char</span>)(s1[i<span class="number">-5</span>] ^ i);	</span><br><span class="line">  	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="crackme"><a href="#crackme" class="headerlink" title="crackme"></a>crackme</h3><ul>
-<li>一个nspack壳，利用pushad，popad手动脱掉就行，然后就是个简单异或</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	string s = <span class="string">&quot;this_is_not_flag&quot;</span>;</span><br><span class="line">	<span class="type">int</span> a[<span class="number">100</span>] = &#123;<span class="number">0x12</span>,<span class="number">0x04</span>,<span class="number">0x08</span>,<span class="number">0x14</span>,<span class="number">0x24</span>,<span class="number">0x5c</span>,<span class="number">0x4a</span>,<span class="number">0x3d</span>,<span class="number">0x56</span>,<span class="number">0x0a</span>,<span class="number">0x10</span>,<span class="number">0x67</span>,<span class="number">0x00</span>,<span class="number">0x41</span>,<span class="number">0x00</span>,<span class="number">0x01</span>,<span class="number">0x46</span>,<span class="number">0x5a</span>,<span class="number">0x44</span>,<span class="number">0x42</span>,<span class="number">0x6e</span>,<span class="number">0x0c</span>,<span class="number">0x44</span>,<span class="number">0x72</span>,<span class="number">0x0c</span>,<span class="number">0x0d</span>,<span class="number">0x40</span>,<span class="number">0x3e</span>,<span class="number">0x4b</span>,<span class="number">0x5f</span>,<span class="number">0x02</span>,<span class="number">0x01</span>,<span class="number">0x4c</span>,<span class="number">0x5e</span>,<span class="number">0x5b</span>,<span class="number">0x17</span>,<span class="number">0x6e</span>,<span class="number">0x0c</span>,<span class="number">0x16</span>,<span class="number">0x68</span>,<span class="number">0x5b</span>,<span class="number">0x12</span>,<span class="number">0x00</span>&#125;;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">42</span>; i++)&#123;</span><br><span class="line">		cout &lt;&lt;(<span class="type">char</span>)(s[i%<span class="number">16</span>]^a[i]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="debug"><a href="#debug" class="headerlink" title="debug"></a>debug</h2><ul>
-<li>.net题目，dnspy打开，通过调试到入口点找到关键代码</li>
-</ul>
-<h3 id="EASYHOOK"><a href="#EASYHOOK" class="headerlink" title="EASYHOOK"></a>EASYHOOK</h3><ul>
-<li>hook函数修改值跳转到真正加密函数</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> lis[<span class="number">100</span>] = &#123;<span class="number">0x61</span>,<span class="number">0x6a</span>,<span class="number">0x79</span>,<span class="number">0x67</span>,<span class="number">0x6b</span>,<span class="number">0x46</span>,<span class="number">0x6d</span>,<span class="number">0x2e</span>,<span class="number">0x7f</span>,<span class="number">0x5f</span>,<span class="number">0x7e</span>,<span class="number">0x2d</span>,<span class="number">0x53</span>,<span class="number">0x56</span>,<span class="number">0x7b</span>,<span class="number">0x38</span>,<span class="number">0x6d</span>,<span class="number">0x4c</span>,<span class="number">0x6e</span>,<span class="number">0x00</span>&#125;;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt;= <span class="number">18</span>; i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(i == <span class="number">18</span>)&#123;</span><br><span class="line">			lis[i] ^= <span class="number">0x13</span>;</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="keyword">if</span>(i % <span class="number">2</span>)&#123;</span><br><span class="line">				lis[i] ^= i;</span><br><span class="line">				lis[i] += i;</span><br><span class="line">			&#125;<span class="keyword">else</span></span><br><span class="line">				lis[i] ^= i;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">18</span>; i &gt;= <span class="number">2</span>; i-=<span class="number">2</span>)&#123;</span><br><span class="line">		lis[i] = lis[i<span class="number">-2</span>];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt;= <span class="number">18</span>; i++)&#123;</span><br><span class="line">		cout &lt;&lt;(<span class="type">char</span>)lis[i];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="ReverseMe-120"><a href="#ReverseMe-120" class="headerlink" title="ReverseMe-120"></a>ReverseMe-120</h3><ul>
-<li>输入–&gt;base64解码–&gt;异或</li>
-</ul>
-<h2 id="key"><a href="#key" class="headerlink" title="key"></a>key</h2><ul>
-<li>这题有点别调，字符串检索找到关键代码，然后根据加密逆写就行，建议7.0版本以下ida</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	string s = <span class="string">&quot;themidathemidathemida&quot;</span>;</span><br><span class="line">	string t = <span class="string">&quot;&gt;----++++....&lt;&lt;&lt;&lt;.&quot;</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; s[i]; i++)&#123;</span><br><span class="line">		s[i] = (s[i]^t[i]) + <span class="number">22</span> + <span class="number">9</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; s[i]; i++)&#123;</span><br><span class="line">		cout &lt;&lt;(<span class="type">char</span>)s[i];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="easyre-153"><a href="#easyre-153" class="headerlink" title="easyre-153"></a>easyre-153</h2><ul>
-<li>pipe、fork双进程</li>
-<li>利用必然跳转让ida反汇编错误</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mov     [ebp+var_D], al</span><br><span class="line">mov     [ebp+var_C], 0</span><br><span class="line">cmp     [ebp+var_C], 1</span><br><span class="line">jnz     short loc_80486D3</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>去掉必然跳转以后重新反汇编仿写逻辑即可</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> v2[<span class="number">100</span>];</span><br><span class="line">	string a1 = <span class="string">&quot;69800876143568214356928753&quot;</span>;</span><br><span class="line"></span><br><span class="line">	  v2[<span class="number">0</span>] = <span class="number">2</span> * a1[<span class="number">1</span>];</span><br><span class="line">	  v2[<span class="number">1</span>] = a1[<span class="number">4</span>] + a1[<span class="number">5</span>];</span><br><span class="line">	  v2[<span class="number">2</span>] = a1[<span class="number">8</span>] + a1[<span class="number">9</span>];</span><br><span class="line">	  v2[<span class="number">3</span>] = <span class="number">2</span> * a1[<span class="number">12</span>];</span><br><span class="line">	  v2[<span class="number">4</span>] = a1[<span class="number">18</span>] + a1[<span class="number">17</span>];</span><br><span class="line">	  v2[<span class="number">5</span>] = a1[<span class="number">10</span>] + a1[<span class="number">21</span>];</span><br><span class="line">	  v2[<span class="number">6</span>] = a1[<span class="number">9</span>] + a1[<span class="number">25</span>];</span><br><span class="line">	 <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; v2[i]; i++)&#123;</span><br><span class="line">	 	std::cout &lt;&lt;(<span class="type">char</span>)v2[i];</span><br><span class="line">	 &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="Newbie-calculations"><a href="#Newbie-calculations" class="headerlink" title="Newbie_calculations"></a>Newbie_calculations</h3><ul>
-<li>三个函数组成的一长串，就是简单的加减乘混淆</li>
-</ul>
-<h3 id="notsequence"><a href="#notsequence" class="headerlink" title="notsequence"></a>notsequence</h3><ul>
-<li>杨辉三角题目，贴个简单分析代码</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> __cdecl main()</span><br><span class="line">&#123;</span><br><span class="line">  //不断输入数字flag</span><br><span class="line">  do&#123;</span><br><span class="line">    v0 = v3++;</span><br><span class="line">    scanf(<span class="string">&quot;%d&quot;</span>, v0);</span><br><span class="line">  &#125;<span class="keyword">while</span> (*(v3 - <span class="number">1</span>));</span><br><span class="line">  //验证杨辉三角每一层之和为<span class="number">2</span>^&lt;sub&gt;n-<span class="number">1</span>&lt;/sub&gt;</span><br><span class="line">  v2 = sub_80486CD(&amp;unk_8049BE0);</span><br><span class="line">  <span class="keyword">if</span> ( v2 == -<span class="number">1</span> )</span><br><span class="line">    exit(<span class="number">0</span>);</span><br><span class="line">  //验证杨辉三角第n层的第i个元素等于前n-<span class="number">1</span>层第i-<span class="number">1</span>个元素的和</span><br><span class="line">  <span class="keyword">if</span> ( sub_8048783(&amp;unk_8049BE0, v2) != <span class="number">1</span> )</span><br><span class="line">    exit(<span class="number">0</span>);</span><br><span class="line">  <span class="keyword">if</span>(v2 == <span class="number">20</span>)&#123;   //确定一共<span class="number">20</span>层</span><br><span class="line">    puts(<span class="string">&quot;Congratulations! fl4g is :\nRCTF&#123;md5(/*what you input without space or \\n~*/)&#125;&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>所以将杨辉三角前20层的数字顺序拼接即可，网友脚本：</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">triangles</span>():</span><br><span class="line">	s=[<span class="number">1</span>]</span><br><span class="line">	<span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">		<span class="keyword">yield</span> s</span><br><span class="line">		s.append(<span class="number">0</span>)</span><br><span class="line">		s=[s[i-<span class="number">1</span>]+s[i] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(s))]</span><br><span class="line">n=<span class="number">0</span></span><br><span class="line">flag=<span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> triangles():</span><br><span class="line">	flag+=<span class="string">&#x27;&#x27;</span>.join(<span class="built_in">map</span>(<span class="built_in">str</span>,i))</span><br><span class="line">	n+=<span class="number">1</span></span><br><span class="line">	<span class="keyword">if</span> n==<span class="number">20</span>:</span><br><span class="line">		<span class="keyword">break</span></span><br><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line">flag=hashlib.md5(flag.encode()).hexdigest()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;RCTF&#123;&quot;</span>+flag+<span class="string">&quot;&#125;&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<h3 id="easy-Maze"><a href="#easy-Maze" class="headerlink" title="easy_Maze"></a>easy_Maze</h3><ul>
-<li>迷宫题，首先根据传参确定7*7迷宫以及迷宫存储位置</li>
-<li>动调到输入之前，即step_2函数之前，获取迷宫，得到flag</li>
-</ul>
-<h3 id="serial-150"><a href="#serial-150" class="headerlink" title="serial-150"></a>serial-150</h3><ul>
-<li>有花指令，动调恢复代码推断即可</li>
-</ul>
-<h3 id="reverse-for-the-holy-grail-350"><a href="#reverse-for-the-holy-grail-350" class="headerlink" title="reverse-for-the-holy-grail-350"></a>reverse-for-the-holy-grail-350</h3><ul>
-<li>c++逆向，关键函数stringmod分析如下</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">__int64 __fastcall <span class="title">stringMod</span><span class="params">(__int64 *flag)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  __int64 v1; <span class="comment">// r9</span></span><br><span class="line">  __int64 v2; <span class="comment">// r10</span></span><br><span class="line">  __int64 cnt; <span class="comment">// rcx</span></span><br><span class="line">  <span class="type">int</span> v4; <span class="comment">// er8</span></span><br><span class="line">  <span class="type">int</span> *v5; <span class="comment">// rdi</span></span><br><span class="line">  <span class="type">int</span> *v6; <span class="comment">// rsi</span></span><br><span class="line">  <span class="type">int</span> v7; <span class="comment">// ecx</span></span><br><span class="line">  <span class="type">int</span> v8; <span class="comment">// er9</span></span><br><span class="line">  <span class="type">int</span> v9; <span class="comment">// er10</span></span><br><span class="line">  <span class="type">unsigned</span> <span class="type">int</span> v10; <span class="comment">// eax</span></span><br><span class="line">  <span class="type">int</span> mod3; <span class="comment">// esi</span></span><br><span class="line">  <span class="type">int</span> v12; <span class="comment">// esi</span></span><br><span class="line">  <span class="type">int</span> v14[<span class="number">18</span>]; <span class="comment">// [rsp+0h] [rbp-60h] BYREF</span></span><br><span class="line">  __int64 v15; <span class="comment">// [rsp+48h] [rbp-18h] BYREF</span></span><br><span class="line"></span><br><span class="line">  <span class="built_in">memset</span>(v14, <span class="number">0</span>, <span class="built_in">sizeof</span>(v14));</span><br><span class="line">  v2 = *flag;</span><br><span class="line">  cnt = v4 = <span class="number">0</span>;</span><br><span class="line"><span class="comment">//第三位判断逻辑</span></span><br><span class="line">  <span class="keyword">do</span></span><br><span class="line">  &#123; </span><br><span class="line">    v14[cnt] = v2[cnt]; </span><br><span class="line">    <span class="keyword">if</span>(cnt % <span class="number">3</span> == <span class="number">0</span>)&#123; v14[cnt] == firstchar[cnt / <span class="number">3</span>]; &#125;</span><br><span class="line">    ++cnt;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">while</span> ( cnt != <span class="built_in">len</span>(flag));</span><br><span class="line"></span><br><span class="line"><span class="comment">//flag进行异或</span></span><br><span class="line">  v5 = v14;</span><br><span class="line">  v6 = v14;</span><br><span class="line">  v7 = <span class="number">666</span>;</span><br><span class="line">  <span class="keyword">do</span></span><br><span class="line">  &#123;</span><br><span class="line">    *v6 ^= v7;</span><br><span class="line">    v7 += v7 % <span class="number">5</span>;</span><br><span class="line">    ++v6;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">while</span> ( <span class="built_in">len</span>(flag) != v6 );</span><br><span class="line"><span class="comment">//第一三位的验证逻辑</span></span><br><span class="line">  v8 = <span class="number">1</span>;</span><br><span class="line">  v9 = <span class="number">0</span>;</span><br><span class="line">  v10 = <span class="number">1</span>;</span><br><span class="line">  mod3 = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">do</span></span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">if</span> ( mod3 == <span class="number">2</span> )</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="keyword">if</span> ( *v5 != thirdchar[v9] ) wrong;			<span class="comment">//mod2 == third</span></span><br><span class="line">      <span class="keyword">if</span> ( v10 % *v5 != masterArray[v9] ) wrong;	<span class="comment">//mod1*mod2%mod3 == master</span></span><br><span class="line">      ++v9;</span><br><span class="line">      v10 = <span class="number">1</span>;</span><br><span class="line">      mod3 = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">      v10 *= *v5;</span><br><span class="line">      <span class="keyword">if</span> ( ++mod3 == <span class="number">3</span> ) mod3 = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    ++v8,++v5;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">while</span> ( v8 != <span class="number">19</span> );</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>解题脚本</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">f3 = [<span class="number">0x41</span>,<span class="number">0x69</span>,<span class="number">0x6e</span>,<span class="number">0x45</span>,<span class="number">0x6f</span>,<span class="number">0x61</span>]</span><br><span class="line">f2 = [<span class="number">0x2ef</span>,<span class="number">0x2c4</span>,<span class="number">0x2dc</span>,<span class="number">0x2c7</span>,<span class="number">0x2de</span>,<span class="number">0x2fc</span>]</span><br><span class="line">f1 = [<span class="number">0x1d7</span>,<span class="number">0xc</span>,<span class="number">0x244</span>,<span class="number">0x25e</span>,<span class="number">0x93</span>,<span class="number">0x6c</span>]</span><br><span class="line">flag = [<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">18</span>)]</span><br><span class="line"><span class="comment">#mod3=0填充</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>,<span class="number">18</span>,<span class="number">3</span>):</span><br><span class="line">	flag[i] = f3[i//<span class="number">3</span>]</span><br><span class="line"><span class="comment"># 生成异或序列</span></span><br><span class="line">x = <span class="number">666</span></span><br><span class="line">xor = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">18</span>):</span><br><span class="line">	xor.append(x)</span><br><span class="line">	x += x % <span class="number">5</span></span><br><span class="line"><span class="comment"># mod3=2填充</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>,<span class="number">18</span>,<span class="number">3</span>):</span><br><span class="line">	flag[i] = f2[i//<span class="number">3</span>] ^ xor[i]</span><br><span class="line"><span class="comment"># 剩余位填充</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">18</span>,<span class="number">3</span>):</span><br><span class="line">	<span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">35</span>,<span class="number">125</span>):</span><br><span class="line">		<span class="keyword">if</span> ((j^xor[i]) * (flag[i-<span class="number">1</span>]^xor[i-<span class="number">1</span>]) % f2[i//<span class="number">3</span>] == f1[i//<span class="number">3</span>]):</span><br><span class="line">			flag[i] = j</span><br><span class="line">			<span class="keyword">break</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;tuctf&#123;&quot;</span>,end=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> flag:</span><br><span class="line">	<span class="built_in">print</span>(<span class="built_in">chr</span>(i),end=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;&#125;&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<h3 id="babymips"><a href="#babymips" class="headerlink" title="babymips"></a>babymips</h3><ul>
-<li>数字高低位置换问题</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//cmp2</span><br><span class="line"><span class="keyword">for</span> ( i = <span class="number">5</span>; i &lt; strlen(a1); ++i )</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">if</span> ( (i &amp; <span class="number">1</span>) != <span class="number">0</span> )</span><br><span class="line">      v1 = (a1[i] &gt;&gt; <span class="number">2</span>) | (a1[i] &lt;&lt; <span class="number">6</span>);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">      v1 = (a1[i] &lt;&lt; <span class="number">2</span>) | (a1[i] &gt;&gt; <span class="number">6</span>);</span><br><span class="line">    a1[i] = v1;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> ( !strncmp(a1 + <span class="number">5</span>, (const char *)off_410D04, 0x1Bu) )</span><br><span class="line">//cmp1为异或</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>Solve</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="string">&quot;Q|j&#123;g&quot;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(x)):</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">chr</span>(<span class="built_in">ord</span>(x[i]) ^ (<span class="number">32</span>-i)),end=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">lis = [<span class="number">0x52</span>,<span class="number">0xfd</span>,<span class="number">0x16</span>,<span class="number">0xa4</span>,<span class="number">0x89</span>,<span class="number">0xbd</span>,<span class="number">0x92</span>,<span class="number">0x80</span>,<span class="number">0x13</span>,<span class="number">0x41</span>,<span class="number">0x54</span>,<span class="number">0xa0</span>,<span class="number">0x8d</span>,<span class="number">0x45</span>,<span class="number">0x18</span>,<span class="number">0x81</span>,<span class="number">0xde</span>,<span class="number">0xfc</span>,<span class="number">0x95</span>,<span class="number">0xf0</span>,<span class="number">0x16</span>,<span class="number">0x79</span>,<span class="number">0x1a</span>,<span class="number">0x15</span>,<span class="number">0x5b</span>,<span class="number">0x75</span>,<span class="number">0x1f</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">5</span>,<span class="number">32</span>):</span><br><span class="line">    <span class="keyword">if</span>(i &amp; <span class="number">1</span> != <span class="number">0</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="built_in">chr</span>(((lis[i-<span class="number">5</span>]&lt;&lt;<span class="number">2</span>)&amp;<span class="number">0xff</span> | (lis[i-<span class="number">5</span>]&gt;&gt;<span class="number">6</span>)&amp;<span class="number">0xff</span>)^(<span class="number">32</span>-i)),end=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="built_in">chr</span>(((lis[i-<span class="number">5</span>]&gt;&gt;<span class="number">2</span>)&amp;<span class="number">0xff</span> | (lis[i-<span class="number">5</span>]&lt;&lt;<span class="number">6</span>)&amp;<span class="number">0xff</span>) ^ (<span class="number">32</span>-i)), end=<span class="string">&#x27;&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<h3 id="APK-逆向2"><a href="#APK-逆向2" class="headerlink" title="APK-逆向2"></a>APK-逆向2</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="type">static</span> <span class="type">void</span> <span class="title">Main</span><span class="params">(string[] args)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//监听端口</span></span><br><span class="line">    string hostname = <span class="string">&quot;127.0.0.1&quot;</span>;</span><br><span class="line">    <span class="type">int</span> port = <span class="number">31337</span>;</span><br><span class="line">    tcpClient.<span class="built_in">Connect</span>(hostname, port);</span><br><span class="line">    <span class="comment">//自我查找输出flag</span></span><br><span class="line">    string text = <span class="string">&quot;Super Secret Key&quot;</span>;</span><br><span class="line">    string text2 = Program.<span class="built_in">read</span>();</span><br><span class="line">    client.<span class="built_in">Send</span>(Encoding.ASCII.<span class="built_in">GetBytes</span>(<span class="string">&quot;CTF&#123;&quot;</span>));</span><br><span class="line">    foreach (<span class="type">char</span> x in text)</span><br><span class="line">	&#123;</span><br><span class="line">		client.<span class="built_in">Send</span>(Encoding.ASCII.<span class="built_in">GetBytes</span>(Program.<span class="built_in">search</span>(x, text2)));</span><br><span class="line">	&#125;</span><br><span class="line">	Console.<span class="built_in">WriteLine</span>(<span class="string">&quot;Success!&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//find &amp; cmp</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="type">static</span> string <span class="title">search</span><span class="params">(<span class="type">char</span> x, string text)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> length = text.Length;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; length; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (x == text[i])</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> value = i * <span class="number">1337</span> % <span class="number">256</span>;</span><br><span class="line">            <span class="keyword">return</span> Convert.<span class="built_in">ToString</span>(value, <span class="number">16</span>).<span class="built_in">PadLeft</span>(<span class="number">2</span>, <span class="string">&#x27;0&#x27;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;??&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>监听本机端口运行得到flag</li>
-<li>nc -l -p 31773</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import http.server</span><br><span class="line"></span><br><span class="line">server_address = (&#x27;127.0.0.1&#x27;, 31337)</span><br><span class="line">handler_class = http.server.BaseHTTPRequestHandler</span><br><span class="line">httpd = http.server.HTTPServer(server_address, handler_class)</span><br><span class="line">httpd.serve_forever()</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>代码仿写得到flag<ul>
-<li>本质上就是在源程序上取和key字符相同的字节下标，然后做一个计算</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">key1=<span class="string">&quot;Super Secret Key&quot;</span></span><br><span class="line">key2=<span class="built_in">open</span>(<span class="string">&#x27;1.exe&#x27;</span>,<span class="string">&#x27;r&#x27;</span>,encoding = <span class="string">&#x27;unicode-escape&#x27;</span>).read()	</span><br><span class="line">num=<span class="built_in">len</span>(key2)</span><br><span class="line"></span><br><span class="line">flag=<span class="string">&quot;CTF&#123;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">search</span>(<span class="params">x,key2,num</span>):</span><br><span class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(num):</span><br><span class="line">		<span class="keyword">if</span> x==key2[i]:</span><br><span class="line">			value=i*<span class="number">1337</span>%<span class="number">256</span>;</span><br><span class="line">			<span class="keyword">return</span> <span class="string">&#x27;%02x&#x27;</span> %value						</span><br><span class="line"><span class="keyword">for</span> j <span class="keyword">in</span> key1:</span><br><span class="line">	flag+=search(j,key2,num)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">flag+=<span class="string">&quot;&#125;&quot;</span></span><br><span class="line"><span class="built_in">print</span>(flag)</span><br></pre></td></tr></table></figure>
-
-<h3 id="secret-string-400"><a href="#secret-string-400" class="headerlink" title="secret-string-400"></a>secret-string-400</h3><ul>
-<li>虚拟机题目</li>
-<li>loadcode内是真正的cmp代码，将其转换为字节码逆写即可，简单异或</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/31/Linux/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="UmVfX1BvaW50">
-      <meta itemprop="description" content="已经魔化的CTF逆向手">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="逆向光点">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/03/31/Linux/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2023-03-31 18:44:57 / 修改时间：18:45:12" itemprop="dateCreated datePublished" datetime="2023-03-31T18:44:57+08:00">2023-03-31</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="linux指令"><a href="#linux指令" class="headerlink" title="linux指令"></a>linux指令</h3><ul>
-<li>uname，查看系统信息<ul>
-<li>-s：System name</li>
-<li>-n：Network (domain) name</li>
-<li>-r ：Kernel Release number</li>
-<li>-v ：Kernel Version</li>
-<li>-m：Machine (hardware) name</li>
-<li>-a：All of the above</li>
-</ul>
-</li>
-<li>file，查看文件类型</li>
-<li>head，查看文件内容</li>
-<li>ldd，查看文件依赖</li>
-<li>xxd，十六进制转储工具<ul>
-<li>xxd -c 32：每行显示32字节</li>
-<li>xxb -b：二进制显示</li>
-<li>-l：指定转储长度</li>
-</ul>
-</li>
-<li>dd，同转储工具，容易造成文件覆盖</li>
-<li>readelf，elf查看解析<ul>
-<li>readelf -h：查看elf头</li>
-<li>readelf -s：查看符号表</li>
-</ul>
-</li>
-<li>nm，文件符号解析<ul>
-<li>nm -D：解析动态·符号表</li>
-</ul>
-</li>
-<li>c++filt，符号解析（传入参数为要解析的函数）</li>
-<li>strings，查看字符串<ul>
-<li>-n：指定最小字符长度</li>
-<li>-d：只输出data段字符串</li>
-</ul>
-</li>
-<li>strace，显示文件执行时的系统调用<ul>
-<li>strace -p pid：附加到pid进程</li>
-</ul>
-</li>
-<li>ltrace，显示文件执行时的库文件调用</li>
 </ul>
 
       
@@ -2015,20 +2270,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-count">26</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
