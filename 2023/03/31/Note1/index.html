@@ -22,15 +22,15 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="c编译过程 常见寄存器 栈帧 函数调用约定   ## c编译过程 预处理–&gt;编译–&gt;汇编–&gt;链接\ 源码123456#include &lt;stdio.h&gt;int main()&amp;#123;    printf(&quot;hello&quot;);    return 0;&amp;#125;  预处理 扩展源文件中所有用到的宏和头文件 gcc -E -P main.c  12">
+  <meta name="description" content="c编译过程 常见寄存器 栈帧 函数调用约定">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Core Principles of Reverse Engineering --Note1">
 <meta property="og:url" content="http://example.com/2023/03/31/Note1/index.html">
 <meta property="og:site_name" content="Re__Point">
-<meta property="og:description" content="c编译过程 常见寄存器 栈帧 函数调用约定   ## c编译过程 预处理–&gt;编译–&gt;汇编–&gt;链接\ 源码123456#include &lt;stdio.h&gt;int main()&amp;#123;    printf(&quot;hello&quot;);    return 0;&amp;#125;  预处理 扩展源文件中所有用到的宏和头文件 gcc -E -P main.c  12">
+<meta property="og:description" content="c编译过程 常见寄存器 栈帧 函数调用约定">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-03-31T11:03:01.177Z">
-<meta property="article:modified_time" content="2023-04-01T02:26:54.396Z">
+<meta property="article:modified_time" content="2023-04-02T11:28:01.402Z">
 <meta property="article:author" content="UmVfX1BvaW50">
 <meta property="article:tag" content="Reverse">
 <meta name="twitter:card" content="summary">
@@ -222,7 +222,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-04-01 10:26:54" itemprop="dateModified" datetime="2023-04-01T10:26:54+08:00">2023-04-01</time>
+                <time title="Modified: 2023-04-02 19:28:01" itemprop="dateModified" datetime="2023-04-02T19:28:01+08:00">2023-04-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -256,11 +256,13 @@
 <li>c编译过程</li>
 <li>常见寄存器</li>
 <li>栈帧</li>
-<li>函数调用约定</li>
+<li>函数调用约定<span id="more"></span></li>
 </ul>
-<hr>
-<p>## c编译过程</p>
-<p>预处理–&gt;编译–&gt;汇编–&gt;链接\</p>
+<HR color="red"></HR>
+
+
+
+<h2 id="c编译过程"><a href="#c编译过程" class="headerlink" title="c编译过程"></a>c编译过程</h2><p>预处理–&gt;编译–&gt;汇编–&gt;链接</p>
 <h4 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    printf(&quot;hello&quot;);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h4 id="预处理"><a href="#预处理" class="headerlink" title="预处理"></a>预处理</h4><ul>
@@ -460,7 +462,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%BA%90%E7%A0%81"><span class="nav-number">1.</span> <span class="nav-text">源码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%84%E5%A4%84%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">预处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BC%96%E8%AF%91"><span class="nav-number">3.</span> <span class="nav-text">编译</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B1%87%E7%BC%96"><span class="nav-number">4.</span> <span class="nav-text">汇编</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%93%BE%E6%8E%A5"><span class="nav-number">5.</span> <span class="nav-text">链接</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E5%AF%84%E5%AD%98%E5%99%A8%EF%BC%88Intel%EF%BC%89"><span class="nav-number"></span> <span class="nav-text">常见寄存器（Intel）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%88%E5%B8%A7"><span class="nav-number"></span> <span class="nav-text">栈帧</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E7%BA%A6%E5%AE%9A"><span class="nav-number"></span> <span class="nav-text">函数调用约定</span></a></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#c%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">c编译过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%BA%90%E7%A0%81"><span class="nav-number">1.0.1.</span> <span class="nav-text">源码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%84%E5%A4%84%E7%90%86"><span class="nav-number">1.0.2.</span> <span class="nav-text">预处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BC%96%E8%AF%91"><span class="nav-number">1.0.3.</span> <span class="nav-text">编译</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B1%87%E7%BC%96"><span class="nav-number">1.0.4.</span> <span class="nav-text">汇编</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%93%BE%E6%8E%A5"><span class="nav-number">1.0.5.</span> <span class="nav-text">链接</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E5%AF%84%E5%AD%98%E5%99%A8%EF%BC%88Intel%EF%BC%89"><span class="nav-number">2.</span> <span class="nav-text">常见寄存器（Intel）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%88%E5%B8%A7"><span class="nav-number">3.</span> <span class="nav-text">栈帧</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E7%BA%A6%E5%AE%9A"><span class="nav-number">4.</span> <span class="nav-text">函数调用约定</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
