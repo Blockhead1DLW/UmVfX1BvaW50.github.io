@@ -30,7 +30,7 @@
 <meta property="og:description" content="Buuctf-Re">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-03-31T11:04:13.815Z">
-<meta property="article:modified_time" content="2023-04-02T11:31:47.697Z">
+<meta property="article:modified_time" content="2023-04-12T12:54:06.488Z">
 <meta property="article:author" content="UmVfX1BvaW50">
 <meta property="article:tag" content="Reverse">
 <meta name="twitter:card" content="summary">
@@ -222,7 +222,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-04-02 19:31:47" itemprop="dateModified" datetime="2023-04-02T19:31:47+08:00">2023-04-02</time>
+                <time title="Modified: 2023-04-12 20:54:06" itemprop="dateModified" datetime="2023-04-12T20:54:06+08:00">2023-04-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -297,6 +297,7 @@
 <li>下一个eax中可见原文</li>
 </ul>
 </li>
+<li>b站：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1UP411F7b1/?spm_id_from=333.999.0.0&vd_source=5f9aee5168c95a4a7e003a6d12040095">WMCTF2020]easy_re_哔哩哔哩_bilibili</a></li>
 </ul>
 <h2 id="BJDCTF2020-hamburger-competition"><a href="#BJDCTF2020-hamburger-competition" class="headerlink" title="[BJDCTF2020]hamburger competition"></a>[BJDCTF2020]hamburger competition</h2><ul>
 <li><p>一个unity游戏逆向问题</p>
@@ -308,6 +309,48 @@
 <p>\TPH\TPH_Data\Managed\Assembly-CSharp.dll</p>
 </blockquote>
 </li>
+</ul>
+<h2 id="INSHack2018-Tricky-Part1"><a href="#INSHack2018-Tricky-Part1" class="headerlink" title="[INSHack2018]Tricky-Part1"></a>[INSHack2018]Tricky-Part1</h2><ul>
+<li>flag另外生成，可以直接动调，只要绕过创建子进程的反调试即可</li>
+<li>直接nop调试函数</li>
+<li>b站：</li>
+</ul>
+<h2 id="GWCTF-2019-babyvm"><a href="#GWCTF-2019-babyvm" class="headerlink" title="[GWCTF 2019]babyvm"></a>[GWCTF 2019]babyvm</h2><ul>
+<li>vm题，主要还是找到题目提供的字节所对应的指令<ul>
+<li>指令</li>
+<li>操作地址</li>
+<li>操作数</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">unsigned</span> __int64 __fastcall <span class="title">vminit</span><span class="params">(__int64 a1)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="type">unsigned</span> __int64 v2; <span class="comment">// [rsp+18h] [rbp-8h]</span></span><br><span class="line"></span><br><span class="line">  v2 = __readfsqword(<span class="number">0x28</span>u);</span><br><span class="line">  *a1 = <span class="number">0</span>;</span><br><span class="line">  *(a1 + <span class="number">4</span>) = <span class="number">18</span>;</span><br><span class="line">  *(a1 + <span class="number">8</span>) = <span class="number">0</span>;</span><br><span class="line">  *(a1 + <span class="number">12</span>) = <span class="number">0</span>;</span><br><span class="line">  *(a1 + <span class="number">16</span>) = &amp;unk_202060;                     <span class="comment">// operator</span></span><br><span class="line">  *(a1 + <span class="number">24</span>) = <span class="number">0xF1</span>;</span><br><span class="line">  *(a1 + <span class="number">32</span>) = mov;</span><br><span class="line">  *(a1 + <span class="number">40</span>) = <span class="number">0xF2</span>;</span><br><span class="line">  *(a1 + <span class="number">48</span>) = <span class="keyword">xor</span>;</span><br><span class="line">  *(a1 + <span class="number">56</span>) = <span class="number">0xF5</span>;</span><br><span class="line">  *(a1 + <span class="number">64</span>) = ReadToQword_2022A8;</span><br><span class="line">  *(a1 + <span class="number">72</span>) = <span class="number">0xF4</span>;</span><br><span class="line">  *(a1 + <span class="number">80</span>) = null;</span><br><span class="line">  *(a1 + <span class="number">88</span>) = <span class="number">0xF7</span>;</span><br><span class="line">  *(a1 + <span class="number">96</span>) = mul;</span><br><span class="line">  *(a1 + <span class="number">104</span>) = <span class="number">0xF8</span>;</span><br><span class="line">  *(a1 + <span class="number">112</span>) = swap;</span><br><span class="line">  *(a1 + <span class="number">120</span>) = <span class="number">0xF6</span>;</span><br><span class="line">  *(a1 + <span class="number">128</span>) = clac;</span><br><span class="line">  qword_2022A8 = <span class="built_in">malloc</span>(<span class="number">0x512</span>uLL);</span><br><span class="line">  <span class="built_in">memset</span>(qword_2022A8, <span class="number">0</span>, <span class="number">0x512</span>uLL);</span><br><span class="line">  <span class="keyword">return</span> __readfsqword(<span class="number">0x28</span>u) ^ v2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>找到对应关系后下一步就是还原unk_202060中的指令（尽可能自动化，不断的替换以及正则匹配等等）</p>
+</li>
+<li><p>提取数据</p>
+</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> addr = <span class="number">0x202060</span>;</span><br><span class="line"><span class="keyword">auto</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;\n\n&#x27;</span>);</span><br><span class="line"><span class="keyword">for</span>(i; i &lt; (<span class="number">0x2022A0</span>-addr); i = i+<span class="number">1</span>)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">Message</span>(<span class="string">&quot;0x%02x &quot;</span>,<span class="built_in">Byte</span>(addr+i));</span><br><span class="line">	<span class="comment">//PatchByte(addr+i,Byte());</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>还原</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># re-1</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;test.txt&#x27;</span>,<span class="string">&#x27;r&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    x = f.read()</span><br><span class="line">x = x.replace(<span class="string">&#x27;0xf2&#x27;</span>,<span class="string">&#x27;\nXOR()&#x27;</span>)</span><br><span class="line">x = x.replace(<span class="string">&#x27;0xf5&#x27;</span>,<span class="string">&#x27;\nreadinput()\n&#x27;</span>)</span><br><span class="line">x = x.replace(<span class="string">&#x27;0xf8&#x27;</span>,<span class="string">&#x27;\nswap()&#x27;</span>)</span><br><span class="line">x = x.replace(<span class="string">&#x27;0xf6&#x27;</span>,<span class="string">&#x27;\nclac()\n&#x27;</span>)</span><br><span class="line">x = x.replace(<span class="string">&#x27;0xf7&#x27;</span>,<span class="string">&#x27;\nmul()\n&#x27;</span>)</span><br><span class="line">x = x.replace(<span class="string">&#x27;0xf1&#x27;</span>,<span class="string">&#x27;\n0xf1&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(x)</span><br><span class="line"></span><br><span class="line"><span class="comment"># re-2</span></span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> <span class="built_in">open</span>(<span class="string">&quot;test1.txt&quot;</span>):</span><br><span class="line">    li = <span class="built_in">str</span>(line)</span><br><span class="line">    <span class="keyword">if</span> li.find(<span class="string">&#x27;0xf1&#x27;</span>) == -<span class="number">1</span>:</span><br><span class="line">        <span class="built_in">print</span>(line)</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">if</span> li[<span class="number">5</span>:<span class="number">9</span>] == <span class="string">&#x27;0xe1&#x27;</span> <span class="keyword">or</span> li[<span class="number">5</span>:<span class="number">9</span>] == <span class="string">&#x27;0xe2&#x27;</span> <span class="keyword">or</span> li[<span class="number">5</span>:<span class="number">9</span>] == <span class="string">&#x27;0xe3&#x27;</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;use flag&#x27;</span> + <span class="string">&#x27;[&#x27;</span> + li[<span class="number">10</span>:<span class="number">14</span>] + <span class="string">&#x27;]&#x27;</span>)</span><br><span class="line">        <span class="keyword">if</span> li[<span class="number">5</span>:<span class="number">9</span>] == <span class="string">&#x27;0xe4&#x27;</span> <span class="keyword">or</span> li[<span class="number">5</span>:<span class="number">9</span>] == <span class="string">&#x27;0xe7&#x27;</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;use resu&#x27;</span> + <span class="string">&#x27;[&#x27;</span> + li[<span class="number">10</span>:<span class="number">14</span>] + <span class="string">&#x27;]&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>线性计算z3 &amp; xor &amp; swap</li>
+<li>b站：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1J24y1L7rU/?spm_id_from=333.999.list.card_archive.click">https://www.bilibili.com/video/BV1J24y1L7rU/?spm_id_from=333.999.list.card_archive.click</a></li>
+</ul>
+<h2 id="GKCTF-2021-app-debug"><a href="#GKCTF-2021-app-debug" class="headerlink" title="[GKCTF 2021]app-debug"></a>[GKCTF 2021]app-debug</h2><ul>
+<li>SO层的一个修改key的tea加密</li>
+</ul>
+<h2 id="FlareOn1-5get-it"><a href="#FlareOn1-5get-it" class="headerlink" title="[FlareOn1]5get_it"></a>[FlareOn1]5get_it</h2><ul>
+<li>DLL文件</li>
+<li>找到关键点后对应返回值做一个排序即可</li>
+</ul>
+<h2 id="NPUCTF2020-芜湖🛫"><a href="#NPUCTF2020-芜湖🛫" class="headerlink" title="[NPUCTF2020]芜湖🛫"></a>[NPUCTF2020]芜湖🛫</h2><ul>
+<li>base64隐写</li>
 </ul>
 
     </div>
@@ -409,7 +452,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E9%BC%8E%E6%9D%AF-2020-%E9%9D%92%E9%BE%99%E7%BB%84-jocker"><span class="nav-number">1.</span> <span class="nav-text">[网鼎杯 2020 青龙组]jocker</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SWPU2019-EasiestRe"><span class="nav-number">2.</span> <span class="nav-text">[SWPU2019]EasiestRe</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WMCTF2020-easy-re"><span class="nav-number">3.</span> <span class="nav-text">[WMCTF2020]easy_re</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BJDCTF2020-hamburger-competition"><span class="nav-number">4.</span> <span class="nav-text">[BJDCTF2020]hamburger competition</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E9%BC%8E%E6%9D%AF-2020-%E9%9D%92%E9%BE%99%E7%BB%84-jocker"><span class="nav-number">1.</span> <span class="nav-text">[网鼎杯 2020 青龙组]jocker</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SWPU2019-EasiestRe"><span class="nav-number">2.</span> <span class="nav-text">[SWPU2019]EasiestRe</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WMCTF2020-easy-re"><span class="nav-number">3.</span> <span class="nav-text">[WMCTF2020]easy_re</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BJDCTF2020-hamburger-competition"><span class="nav-number">4.</span> <span class="nav-text">[BJDCTF2020]hamburger competition</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#INSHack2018-Tricky-Part1"><span class="nav-number">5.</span> <span class="nav-text">[INSHack2018]Tricky-Part1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GWCTF-2019-babyvm"><span class="nav-number">6.</span> <span class="nav-text">[GWCTF 2019]babyvm</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GKCTF-2021-app-debug"><span class="nav-number">7.</span> <span class="nav-text">[GKCTF 2021]app-debug</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FlareOn1-5get-it"><span class="nav-number">8.</span> <span class="nav-text">[FlareOn1]5get_it</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NPUCTF2020-%E8%8A%9C%E6%B9%96%F0%9F%9B%AB"><span class="nav-number">9.</span> <span class="nav-text">[NPUCTF2020]芜湖🛫</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -423,7 +466,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-count">28</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
