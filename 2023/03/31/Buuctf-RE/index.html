@@ -30,7 +30,7 @@
 <meta property="og:description" content="Buuctf-Re">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-03-31T11:04:13.815Z">
-<meta property="article:modified_time" content="2023-04-12T12:54:06.488Z">
+<meta property="article:modified_time" content="2023-05-12T03:17:44.165Z">
 <meta property="article:author" content="UmVfX1BvaW50">
 <meta property="article:tag" content="Reverse">
 <meta name="twitter:card" content="summary">
@@ -222,7 +222,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-04-12 20:54:06" itemprop="dateModified" datetime="2023-04-12T20:54:06+08:00">2023-04-12</time>
+                <time title="Modified: 2023-05-12 11:17:44" itemprop="dateModified" datetime="2023-05-12T11:17:44+08:00">2023-05-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -352,6 +352,24 @@
 <h2 id="NPUCTF2020-芜湖🛫"><a href="#NPUCTF2020-芜湖🛫" class="headerlink" title="[NPUCTF2020]芜湖🛫"></a>[NPUCTF2020]芜湖🛫</h2><ul>
 <li>base64隐写</li>
 </ul>
+<h2 id="XNUCA2018-Code-Interpreter"><a href="#XNUCA2018-Code-Interpreter" class="headerlink" title="[XNUCA2018]Code_Interpreter"></a>[XNUCA2018]Code_Interpreter</h2><ul>
+<li>给了两个文件，一个opcode，一个解释器</li>
+<li>逆向解释器文件可以找到vm指令</li>
+<li>有两个数组一个模拟栈，一个就是密文变换数组</li>
+</ul>
+<h2 id="watevrCTF-2019-Hacking-For-Vodka"><a href="#watevrCTF-2019-Hacking-For-Vodka" class="headerlink" title="[watevrCTF 2019]Hacking For Vodka"></a>[watevrCTF 2019]Hacking For Vodka</h2><ul>
+<li>这题挺抽象的，前面一大堆都没用</li>
+<li>在最后比较的地方下个条件断点输出eax的值，然后异或i就行</li>
+</ul>
+<h2 id="Zer0pts2020-QR-Puzzle"><a href="#Zer0pts2020-QR-Puzzle" class="headerlink" title="[Zer0pts2020]QR Puzzle"></a>[Zer0pts2020]QR Puzzle</h2><ul>
+<li>给了三个文件，逆向chall文件可以发现输入参数有三个，一个qrcode文件，一个key，以及输出</li>
+<li>之后逆向chall文件中的算法即可得到正确的二维码，扫一下即可</li>
+</ul>
+<h2 id="UTCTF2020-png2"><a href="#UTCTF2020-png2" class="headerlink" title="[UTCTF2020]png2"></a>[UTCTF2020]png2</h2><ul>
+<li>杂项吧这，其实是一个raw文件、</li>
+<li>010打开可以看到宽高</li>
+<li>在gimp中设定宽高格式打开即可</li>
+</ul>
 
     </div>
 
@@ -452,7 +470,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E9%BC%8E%E6%9D%AF-2020-%E9%9D%92%E9%BE%99%E7%BB%84-jocker"><span class="nav-number">1.</span> <span class="nav-text">[网鼎杯 2020 青龙组]jocker</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SWPU2019-EasiestRe"><span class="nav-number">2.</span> <span class="nav-text">[SWPU2019]EasiestRe</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WMCTF2020-easy-re"><span class="nav-number">3.</span> <span class="nav-text">[WMCTF2020]easy_re</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BJDCTF2020-hamburger-competition"><span class="nav-number">4.</span> <span class="nav-text">[BJDCTF2020]hamburger competition</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#INSHack2018-Tricky-Part1"><span class="nav-number">5.</span> <span class="nav-text">[INSHack2018]Tricky-Part1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GWCTF-2019-babyvm"><span class="nav-number">6.</span> <span class="nav-text">[GWCTF 2019]babyvm</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GKCTF-2021-app-debug"><span class="nav-number">7.</span> <span class="nav-text">[GKCTF 2021]app-debug</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FlareOn1-5get-it"><span class="nav-number">8.</span> <span class="nav-text">[FlareOn1]5get_it</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NPUCTF2020-%E8%8A%9C%E6%B9%96%F0%9F%9B%AB"><span class="nav-number">9.</span> <span class="nav-text">[NPUCTF2020]芜湖🛫</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E9%BC%8E%E6%9D%AF-2020-%E9%9D%92%E9%BE%99%E7%BB%84-jocker"><span class="nav-number">1.</span> <span class="nav-text">[网鼎杯 2020 青龙组]jocker</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SWPU2019-EasiestRe"><span class="nav-number">2.</span> <span class="nav-text">[SWPU2019]EasiestRe</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WMCTF2020-easy-re"><span class="nav-number">3.</span> <span class="nav-text">[WMCTF2020]easy_re</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BJDCTF2020-hamburger-competition"><span class="nav-number">4.</span> <span class="nav-text">[BJDCTF2020]hamburger competition</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#INSHack2018-Tricky-Part1"><span class="nav-number">5.</span> <span class="nav-text">[INSHack2018]Tricky-Part1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GWCTF-2019-babyvm"><span class="nav-number">6.</span> <span class="nav-text">[GWCTF 2019]babyvm</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GKCTF-2021-app-debug"><span class="nav-number">7.</span> <span class="nav-text">[GKCTF 2021]app-debug</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FlareOn1-5get-it"><span class="nav-number">8.</span> <span class="nav-text">[FlareOn1]5get_it</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NPUCTF2020-%E8%8A%9C%E6%B9%96%F0%9F%9B%AB"><span class="nav-number">9.</span> <span class="nav-text">[NPUCTF2020]芜湖🛫</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#XNUCA2018-Code-Interpreter"><span class="nav-number">10.</span> <span class="nav-text">[XNUCA2018]Code_Interpreter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#watevrCTF-2019-Hacking-For-Vodka"><span class="nav-number">11.</span> <span class="nav-text">[watevrCTF 2019]Hacking For Vodka</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Zer0pts2020-QR-Puzzle"><span class="nav-number">12.</span> <span class="nav-text">[Zer0pts2020]QR Puzzle</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UTCTF2020-png2"><span class="nav-number">13.</span> <span class="nav-text">[UTCTF2020]png2</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
