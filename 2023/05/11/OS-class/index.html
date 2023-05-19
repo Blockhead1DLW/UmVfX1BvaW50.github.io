@@ -22,18 +22,30 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="1． 操作系统的定义  操作系统（operating system，OS）是配置在计算机硬件上的第一层软件，是对硬 件系统的首次扩充，其主要作用是管理硬件设备，提高它们的利用率和系统吞吐量，并为 用户和应用程序提供一个简单的接口，以便于用户和应用程序使用硬件设备。   2． 操作系统的基本类型及特征 3． 操作系统的功能及特征 4． 进程的定义、特征  进程是程序的执行过程，是系统进行">
+  <meta name="description" content="操作系统的定义 操作系统（operating system，OS）是配置在计算机硬件上的第一层软件，是对硬 件系统的首次扩充，其主要作用是管理硬件设备，提高它们的利用率和系统吞吐量，并为 用户和应用程序提供一个简单的接口，以便于用户和应用程序使用硬件设备。   基本特性 共享、并发、异步、虚拟  操作系统的基本类型及特征 批处理系统 分时系统 分布式系统 嵌入式系统  操作系统的功能及">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Pwn">
 <meta property="og:url" content="http://example.com/2023/05/11/OS-class/index.html">
 <meta property="og:site_name" content="Re__Point">
-<meta property="og:description" content="1． 操作系统的定义  操作系统（operating system，OS）是配置在计算机硬件上的第一层软件，是对硬 件系统的首次扩充，其主要作用是管理硬件设备，提高它们的利用率和系统吞吐量，并为 用户和应用程序提供一个简单的接口，以便于用户和应用程序使用硬件设备。   2． 操作系统的基本类型及特征 3． 操作系统的功能及特征 4． 进程的定义、特征  进程是程序的执行过程，是系统进行">
+<meta property="og:description" content="操作系统的定义 操作系统（operating system，OS）是配置在计算机硬件上的第一层软件，是对硬 件系统的首次扩充，其主要作用是管理硬件设备，提高它们的利用率和系统吞吐量，并为 用户和应用程序提供一个简单的接口，以便于用户和应用程序使用硬件设备。   基本特性 共享、并发、异步、虚拟  操作系统的基本类型及特征 批处理系统 分时系统 分布式系统 嵌入式系统  操作系统的功能及">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="c:\Users\27770\AppData\Roaming\Typora\typora-user-images\image-20230519181503850.png">
+<meta property="og:image" content="c:\Users\27770\AppData\Roaming\Typora\typora-user-images\image-20230519171022093.png">
+<meta property="og:image" content="c:\Users\27770\AppData\Roaming\Typora\typora-user-images\image-20230519171521665.png">
+<meta property="og:image" content="c:\Users\27770\AppData\Roaming\Typora\typora-user-images\image-20230519172712889.png">
+<meta property="og:image" content="c:\Users\27770\AppData\Roaming\Typora\typora-user-images\image-20230519173413147.png">
+<meta property="og:image" content="c:\Users\27770\AppData\Roaming\Typora\typora-user-images\image-20230519173643352.png">
+<meta property="og:image" content="c:\Users\27770\AppData\Roaming\Typora\typora-user-images\image-20230519174041713.png">
+<meta property="og:image" content="https://s2.loli.net/2023/05/19/JIu7c63HwatMzrE.png">
+<meta property="og:image" content="c:\Users\27770\AppData\Roaming\Typora\typora-user-images\image-20230519175008868.png">
+<meta property="og:image" content="c:\Users\27770\AppData\Roaming\Typora\typora-user-images\image-20230519135210236.png">
+<meta property="og:image" content="c:\Users\27770\AppData\Roaming\Typora\typora-user-images\image-20230519165037127.png">
 <meta property="article:published_time" content="2023-05-11T02:11:39.543Z">
-<meta property="article:modified_time" content="2023-05-11T02:24:59.428Z">
+<meta property="article:modified_time" content="2023-05-19T10:31:18.842Z">
 <meta property="article:author" content="UmVfX1BvaW50">
 <meta property="article:tag" content="Pwn">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:\Users\27770\AppData\Roaming\Typora\typora-user-images\image-20230519181503850.png">
 
 <link rel="canonical" href="http://example.com/2023/05/11/OS-class/">
 
@@ -214,10 +226,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2023-05-11 10:11:39 / Modified: 10:24:59" itemprop="dateCreated datePublished" datetime="2023-05-11T10:11:39+08:00">2023-05-11</time>
+              <time title="Created: 2023-05-11 10:11:39" itemprop="dateCreated datePublished" datetime="2023-05-11T10:11:39+08:00">2023-05-11</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-05-19 18:31:18" itemprop="dateModified" datetime="2023-05-19T18:31:18+08:00">2023-05-19</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -252,17 +270,36 @@
 
 
 
-<p>1． 操作系统的定义</p>
-<ul>
+<h4 id="操作系统的定义"><a href="#操作系统的定义" class="headerlink" title="操作系统的定义"></a>操作系统的定义</h4><ul>
 <li><p>操作系统（operating system，OS）是配置在计算机硬件上的第一层软件，是对硬</p>
 <p>件系统的首次扩充，其主要作用是管理硬件设备，提高它们的利用率和系统吞吐量，并为</p>
 <p>用户和应用程序提供一个简单的接口，以便于用户和应用程序使用硬件设备。</p>
 </li>
 </ul>
-<p>2． 操作系统的基本类型及特征</p>
-<p>3． 操作系统的功能及特征</p>
-<p>4． 进程的定义、特征</p>
-<ul>
+<h4 id="基本特性"><a href="#基本特性" class="headerlink" title="基本特性"></a>基本特性</h4><ul>
+<li>共享、并发、异步、虚拟</li>
+</ul>
+<h4 id="操作系统的基本类型及特征"><a href="#操作系统的基本类型及特征" class="headerlink" title="操作系统的基本类型及特征"></a>操作系统的基本类型及特征</h4><ul>
+<li>批处理系统</li>
+<li>分时系统</li>
+<li>分布式系统</li>
+<li>嵌入式系统</li>
+</ul>
+<h4 id="操作系统的功能及特征"><a href="#操作系统的功能及特征" class="headerlink" title="操作系统的功能及特征"></a>操作系统的功能及特征</h4><ul>
+<li>处理机管理</li>
+<li>存储器管理</li>
+<li>设备管理</li>
+<li>文件管理</li>
+<li>接口管理</li>
+</ul>
+<h4 id="操作系统结构"><a href="#操作系统结构" class="headerlink" title="操作系统结构"></a>操作系统结构</h4><ul>
+<li>简单结构</li>
+<li>模块化结构</li>
+<li>分层式结构</li>
+<li>微内核结构</li>
+<li>外核结构</li>
+</ul>
+<h3 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h3><h4 id="进程的定义、特征"><a href="#进程的定义、特征" class="headerlink" title="进程的定义、特征"></a>进程的定义、特征</h4><ul>
 <li>进程是程序的执行过程，是系统进行资源分配和调度的一个独立单位</li>
 <li>特征<ul>
 <li>动态性</li>
@@ -272,10 +309,17 @@
 </ul>
 </li>
 </ul>
-<p>5． 进程基本状态及其转换原因</p>
-<p>6． 进程互斥、同步（三个同步问题）</p>
-<p>7． 进程控制块的内容、作用（48）</p>
-<ul>
+<h4 id="进程基本状态及其转换原因"><a href="#进程基本状态及其转换原因" class="headerlink" title="进程基本状态及其转换原因"></a>进程基本状态及其转换原因</h4><p><img src="C:\Users\27770\AppData\Roaming\Typora\typora-user-images\image-20230519181503850.png" alt="image-20230519181503850"></p>
+<h4 id="进程互斥、同步（三个同步问题）"><a href="#进程互斥、同步（三个同步问题）" class="headerlink" title="进程互斥、同步（三个同步问题）"></a>进程互斥、同步（三个同步问题）</h4><h5 id="生产者-消费者问题"><a href="#生产者-消费者问题" class="headerlink" title="生产者-消费者问题"></a>生产者-消费者问题</h5><h5 id="读者-写者问题"><a href="#读者-写者问题" class="headerlink" title="读者-写者问题"></a>读者-写者问题</h5><h5 id="哲学家问题"><a href="#哲学家问题" class="headerlink" title="哲学家问题"></a>哲学家问题</h5><h4 id="何谓死锁？产生死锁的原因和必要条件是什么？"><a href="#何谓死锁？产生死锁的原因和必要条件是什么？" class="headerlink" title="何谓死锁？产生死锁的原因和必要条件是什么？"></a>何谓死锁？产生死锁的原因和必要条件是什么？</h4><ul>
+<li>死锁：各进程互相等待对方手里的资源，导致各进程都阻塞，无法向前推进</li>
+</ul>
+<h4 id="产生死锁的必要条件"><a href="#产生死锁的必要条件" class="headerlink" title="产生死锁的必要条件"></a>产生死锁的必要条件</h4><ul>
+<li>互斥条件：必须互斥使用的资源的争抢</li>
+<li>不剥夺条件：进程保持的资源只能主动释放，不可强行剥夺</li>
+<li>请求和保持条件：保持某些资源不放，同时请求其他资源</li>
+<li>循环等待条件：存在一种进程资源的循环等待链</li>
+</ul>
+<h4 id="预防死锁方法、避免死锁"><a href="#预防死锁方法、避免死锁" class="headerlink" title="预防死锁方法、避免死锁"></a>预防死锁方法、避免死锁</h4><h4 id="进程控制块的内容、作用"><a href="#进程控制块的内容、作用" class="headerlink" title="进程控制块的内容、作用"></a>进程控制块的内容、作用</h4><ul>
 <li><p>作用</p>
 <ul>
 <li><p>作为独立运行基本单位的标志</p>
@@ -292,21 +336,114 @@
 </li>
 </ul>
 <p>8． 用信号量和PV操作机制实现进程的同步和互斥（119）</p>
-<p>9． 引入线程的目的(是使多个程序能并发执行，以提高资源利用率和系统吞吐 </p>
-<p>量，那么，在OS中再引入线程，则是为了减少程序在并发执行时所付出的时空（时间和空间） </p>
-<p>开销，以使OS具有更好的并发性)</p>
-<p>10． 先来先服务、短者优先、高响应比优先</p>
-<p>11． 死锁的原因、必要条件(95)</p>
-<p>12． 预防死锁方法、避免死锁(银行家算法)</p>
-<p>13． 连续分配原理和特点</p>
-<p>14． 页式、段式存储管理原理</p>
-<p>15． 分页、分段存储管理的地址转换过程</p>
-<p>16． 虚拟存储器概念、理论基础</p>
-<p>17． 页面置换算法-先进先出、最佳、LRU</p>
-<p>18． 存储管理的碎片问题</p>
-<p>19． 设备分配时应考虑的因素</p>
-<p>20． 设备独立性、虚拟设备</p>
-<p>21． 磁盘的调度算法</p>
+<h4 id="引入线程的目的"><a href="#引入线程的目的" class="headerlink" title="引入线程的目的"></a>引入线程的目的</h4><ul>
+<li>是使多个程序能并发执行，以提高资源利用率和系统吞吐量，那么，在OS中再引入线程，则是为了减少程序在并发执行时所付出的时空（时间和空间）开销，以使OS具有更好的并发性</li>
+</ul>
+<h3 id="调度"><a href="#调度" class="headerlink" title="调度"></a>调度</h3><ul>
+<li><p>作业：一个具体任务</p>
+</li>
+<li><p>高级调度（作业调度）</p>
+</li>
+<li><p>中级调度（内存调度，置换）</p>
+</li>
+<li><p>低级调度（进程调度&#x2F;处理机调度）</p>
+</li>
+</ul>
+<h4 id="调度算法评判指标"><a href="#调度算法评判指标" class="headerlink" title="调度算法评判指标"></a>调度算法评判指标</h4><ul>
+<li>CPU利用率【忙碌时间 &#x2F; 总时间】</li>
+<li>系统吞吐量【完成作业量 &#x2F; 花费时间】</li>
+<li>周转时间【作业完成时间 - 作业提交时间】</li>
+<li>平均周转时间【周转时间和 &#x2F; 作业数】</li>
+<li>带权周转时间【作业周转时间 &#x2F; 作业实际运行时间】</li>
+<li>平均带权周转时间【带权周转时间之和 &#x2F; 作业数】</li>
+<li>等待时间</li>
+<li>响应时间【用户提交请求到首次产生响应所用时间】</li>
+</ul>
+<h4 id="调度算法"><a href="#调度算法" class="headerlink" title="调度算法"></a>调度算法</h4><ul>
+<li><p>先来先服务【FCFS】</p>
+<p><img src="C:\Users\27770\AppData\Roaming\Typora\typora-user-images\image-20230519171022093.png" alt="image-20230519171022093"></p>
+</li>
+<li><p>短作业优先【SJF】</p>
+<p><img src="C:\Users\27770\AppData\Roaming\Typora\typora-user-images\image-20230519171521665.png" alt="image-20230519171521665"></p>
+</li>
+<li><p>高响应优先【HRRN】</p>
+<p><img src="C:\Users\27770\AppData\Roaming\Typora\typora-user-images\image-20230519172712889.png" alt="image-20230519172712889"></p>
+</li>
+<li><p>时间片轮转【RR】</p>
+<p><img src="C:\Users\27770\AppData\Roaming\Typora\typora-user-images\image-20230519173413147.png" alt="image-20230519173413147"></p>
+</li>
+<li><p>优先级调度算法</p>
+<p><img src="C:\Users\27770\AppData\Roaming\Typora\typora-user-images\image-20230519173643352.png" alt="image-20230519173643352"></p>
+</li>
+<li><p>多级反馈队列调度算法</p>
+<p><img src="C:\Users\27770\AppData\Roaming\Typora\typora-user-images\image-20230519174041713.png" alt="image-20230519174041713"></p>
+</li>
+</ul>
+<h4 id="连续分配原理和特点"><a href="#连续分配原理和特点" class="headerlink" title="连续分配原理和特点"></a>连续分配原理和特点</h4><ul>
+<li><p>内存空间是连续的：在连续分配中，操作系统将可用的内存空间划分为若干块，每个块都是连续的一段内存空间。这种连续性可以方便程序的访问和管理。</p>
+</li>
+<li><p>分配效率高：由于内存空间是连续的，因此在分配内存时，只需要记录空闲块的起始地址和长度即可，分配效率比较高。</p>
+</li>
+<li><p>碎片化严重：连续分配容易出现碎片化问题，即已分配的内存块和未分配的内存块之间形成许多零散的空间，这些空间无法被利用。碎片化会降低内存利用率，使得系统无法分配足够的内存给新的进程，因此需要采取一些措施来减少碎片化问题。</p>
+</li>
+</ul>
+<h4 id="连续分配算法"><a href="#连续分配算法" class="headerlink" title="连续分配算法"></a>连续分配算法</h4><ul>
+<li>首次适应算法</li>
+<li>最佳适应算法（容量递增排序，优先选取差值最小分区）（产生很多碎片）</li>
+<li>最坏适应算法（容量递减排序，优先选取最大分区）</li>
+<li>邻近适应算法（从上次首次适应算法结束位置开始检索，减少查找开销）（容易无大）</li>
+</ul>
+<p><img src="https://s2.loli.net/2023/05/19/JIu7c63HwatMzrE.png" alt="屏幕截图 2023-05-19 112341.png"></p>
+<h4 id="虚拟存储器概念、理论基础"><a href="#虚拟存储器概念、理论基础" class="headerlink" title="虚拟存储器概念、理论基础"></a>虚拟存储器概念、理论基础</h4><ul>
+<li>特征：多次性</li>
+</ul>
+<h4 id="页面置换算法"><a href="#页面置换算法" class="headerlink" title="页面置换算法"></a>页面置换算法</h4><ul>
+<li><p>缺页率 &#x3D; 缺页中断次数 &#x2F; 访问页面次数</p>
+</li>
+<li><p>最佳置换算法（淘汰之后长时间不使用的页面）</p>
+</li>
+<li><p>先进先出置换算法【FIFO】（淘汰最早进入内存页面）（Belady异常：进程分配的物理块数增大时，缺页次数不减反增）</p>
+</li>
+<li><p>最近最久未使用置换算法【LRU】</p>
+</li>
+<li><p>时钟置换算法【CLOCK】【NRU】</p>
+<ul>
+<li>改进：优先淘汰未修改页面（访问位 &amp; 修改位同0）</li>
+</ul>
+</li>
+</ul>
+<h3 id="设备"><a href="#设备" class="headerlink" title="设备"></a>设备</h3><h4 id="设备分配时应考虑的因素"><a href="#设备分配时应考虑的因素" class="headerlink" title="设备分配时应考虑的因素"></a>设备分配时应考虑的因素</h4><ul>
+<li>固有属性：独占设备、共享设备、虚拟设备（SPOOLing技术）</li>
+<li>分配算法</li>
+<li>安全性</li>
+</ul>
+<h4 id="磁盘读写操作所需时间"><a href="#磁盘读写操作所需时间" class="headerlink" title="磁盘读写操作所需时间"></a>磁盘读写操作所需时间</h4><p><img src="C:\Users\27770\AppData\Roaming\Typora\typora-user-images\image-20230519175008868.png" alt="image-20230519175008868"></p>
+<h4 id="磁盘的调度算法"><a href="#磁盘的调度算法" class="headerlink" title="磁盘的调度算法"></a>磁盘的调度算法</h4><ul>
+<li>先来先服务【FCFS】</li>
+<li>最短寻找时间优先【SSTF】<ul>
+<li>缺点：可能产生饥饿</li>
+</ul>
+</li>
+<li>扫描算法【SCAN】<ul>
+<li>电梯算法</li>
+<li>只有磁头移动到最外侧磁道的时候才能向内移动，移动到最内侧磁道的时候才能向外移动</li>
+<li>缺点：对于各磁道的响应频率不平均</li>
+</ul>
+</li>
+<li>循环扫描算法【C-SCAN】<ul>
+<li>优点：各磁道的响应频率平均</li>
+<li>缺点：平均寻找时间大</li>
+</ul>
+</li>
+<li>【LOOK】算法<ul>
+<li>磁头方向无请求则转向</li>
+</ul>
+</li>
+<li>【C-LOOK】算法<ul>
+<li>磁头移动方向无请求则返回</li>
+</ul>
+</li>
+</ul>
 <p>22． 打开文件、关闭文件的操作</p>
 <p>23． 文件的物理结构（顺序结构、链接结构（隐式、显式）、索引结构（单级、多级、增量式））</p>
 <p>24． UNIX系统多级混合（增量式）索引结构</p>
@@ -318,7 +455,26 @@
 <p>二、判断题(每题1分，共10分)</p>
 <p>三、简答题(每题5分，共20分)</p>
 <p>四、应用题（每题10分，共30分）</p>
+<p><img src="C:\Users\27770\AppData\Roaming\Typora\typora-user-images\image-20230519135210236.png" alt="image-20230519135210236"></p>
 <p>​	</p>
+<h4 id="可采用哪几种方式将程序装入，它们分别适用于何种场合？"><a href="#可采用哪几种方式将程序装入，它们分别适用于何种场合？" class="headerlink" title="可采用哪几种方式将程序装入，它们分别适用于何种场合？"></a>可采用哪几种方式将程序装入，它们分别适用于何种场合？</h4><ul>
+<li>绝对装入<ul>
+<li>计算机系统很小，且仅能运行单道程序（驻留在内存中的位置确定）</li>
+</ul>
+</li>
+<li>可重定位装入<ul>
+<li>多道程序环境（根据内存的具体情况，将装入模块装入内存的适当位置）</li>
+</ul>
+</li>
+<li>动态运行时装入<ul>
+<li>在运行过程中程序在内存中的位置可能经常要改变</li>
+</ul>
+</li>
+</ul>
+<h4 id="有哪几种I-x2F-O控制方式"><a href="#有哪几种I-x2F-O控制方式" class="headerlink" title="有哪几种I&#x2F;O控制方式"></a>有哪几种I&#x2F;O控制方式</h4><p><img src="C:\Users\27770\AppData\Roaming\Typora\typora-user-images\image-20230519165037127.png" alt="image-20230519165037127"></p>
+<h4 id="引入缓冲的主要原因"><a href="#引入缓冲的主要原因" class="headerlink" title="引入缓冲的主要原因"></a>引入缓冲的主要原因</h4><ul>
+<li>为了解决不同设备之间的速度不匹配和处理器与I&#x2F;O设备之间的速度不匹配问题</li>
+</ul>
 
     </div>
 
@@ -416,6 +572,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-number">1.</span> <span class="nav-text">操作系统的定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E7%89%B9%E6%80%A7"><span class="nav-number">2.</span> <span class="nav-text">基本特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B%E5%8F%8A%E7%89%B9%E5%BE%81"><span class="nav-number">3.</span> <span class="nav-text">操作系统的基本类型及特征</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%8A%9F%E8%83%BD%E5%8F%8A%E7%89%B9%E5%BE%81"><span class="nav-number">4.</span> <span class="nav-text">操作系统的功能及特征</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84"><span class="nav-number">5.</span> <span class="nav-text">操作系统结构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B"><span class="nav-number"></span> <span class="nav-text">进程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E7%9A%84%E5%AE%9A%E4%B9%89%E3%80%81%E7%89%B9%E5%BE%81"><span class="nav-number">1.</span> <span class="nav-text">进程的定义、特征</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E5%9F%BA%E6%9C%AC%E7%8A%B6%E6%80%81%E5%8F%8A%E5%85%B6%E8%BD%AC%E6%8D%A2%E5%8E%9F%E5%9B%A0"><span class="nav-number">2.</span> <span class="nav-text">进程基本状态及其转换原因</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E4%BA%92%E6%96%A5%E3%80%81%E5%90%8C%E6%AD%A5%EF%BC%88%E4%B8%89%E4%B8%AA%E5%90%8C%E6%AD%A5%E9%97%AE%E9%A2%98%EF%BC%89"><span class="nav-number">3.</span> <span class="nav-text">进程互斥、同步（三个同步问题）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%94%9F%E4%BA%A7%E8%80%85-%E6%B6%88%E8%B4%B9%E8%80%85%E9%97%AE%E9%A2%98"><span class="nav-number">3.1.</span> <span class="nav-text">生产者-消费者问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%AF%BB%E8%80%85-%E5%86%99%E8%80%85%E9%97%AE%E9%A2%98"><span class="nav-number">3.2.</span> <span class="nav-text">读者-写者问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%93%B2%E5%AD%A6%E5%AE%B6%E9%97%AE%E9%A2%98"><span class="nav-number">3.3.</span> <span class="nav-text">哲学家问题</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%95%E8%B0%93%E6%AD%BB%E9%94%81%EF%BC%9F%E4%BA%A7%E7%94%9F%E6%AD%BB%E9%94%81%E7%9A%84%E5%8E%9F%E5%9B%A0%E5%92%8C%E5%BF%85%E8%A6%81%E6%9D%A1%E4%BB%B6%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">4.</span> <span class="nav-text">何谓死锁？产生死锁的原因和必要条件是什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%A7%E7%94%9F%E6%AD%BB%E9%94%81%E7%9A%84%E5%BF%85%E8%A6%81%E6%9D%A1%E4%BB%B6"><span class="nav-number">5.</span> <span class="nav-text">产生死锁的必要条件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%84%E9%98%B2%E6%AD%BB%E9%94%81%E6%96%B9%E6%B3%95%E3%80%81%E9%81%BF%E5%85%8D%E6%AD%BB%E9%94%81"><span class="nav-number">6.</span> <span class="nav-text">预防死锁方法、避免死锁</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E6%8E%A7%E5%88%B6%E5%9D%97%E7%9A%84%E5%86%85%E5%AE%B9%E3%80%81%E4%BD%9C%E7%94%A8"><span class="nav-number">7.</span> <span class="nav-text">进程控制块的内容、作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%95%E5%85%A5%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%9B%AE%E7%9A%84"><span class="nav-number">8.</span> <span class="nav-text">引入线程的目的</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B0%83%E5%BA%A6"><span class="nav-number"></span> <span class="nav-text">调度</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95%E8%AF%84%E5%88%A4%E6%8C%87%E6%A0%87"><span class="nav-number">1.</span> <span class="nav-text">调度算法评判指标</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">调度算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%9E%E7%BB%AD%E5%88%86%E9%85%8D%E5%8E%9F%E7%90%86%E5%92%8C%E7%89%B9%E7%82%B9"><span class="nav-number">3.</span> <span class="nav-text">连续分配原理和特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%9E%E7%BB%AD%E5%88%86%E9%85%8D%E7%AE%97%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">连续分配算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E5%99%A8%E6%A6%82%E5%BF%B5%E3%80%81%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80"><span class="nav-number">5.</span> <span class="nav-text">虚拟存储器概念、理论基础</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A1%B5%E9%9D%A2%E7%BD%AE%E6%8D%A2%E7%AE%97%E6%B3%95"><span class="nav-number">6.</span> <span class="nav-text">页面置换算法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E5%A4%87"><span class="nav-number"></span> <span class="nav-text">设备</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%BE%E5%A4%87%E5%88%86%E9%85%8D%E6%97%B6%E5%BA%94%E8%80%83%E8%99%91%E7%9A%84%E5%9B%A0%E7%B4%A0"><span class="nav-number">1.</span> <span class="nav-text">设备分配时应考虑的因素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A3%81%E7%9B%98%E8%AF%BB%E5%86%99%E6%93%8D%E4%BD%9C%E6%89%80%E9%9C%80%E6%97%B6%E9%97%B4"><span class="nav-number">2.</span> <span class="nav-text">磁盘读写操作所需时间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A3%81%E7%9B%98%E7%9A%84%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">磁盘的调度算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%AF%E9%87%87%E7%94%A8%E5%93%AA%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F%E5%B0%86%E7%A8%8B%E5%BA%8F%E8%A3%85%E5%85%A5%EF%BC%8C%E5%AE%83%E4%BB%AC%E5%88%86%E5%88%AB%E9%80%82%E7%94%A8%E4%BA%8E%E4%BD%95%E7%A7%8D%E5%9C%BA%E5%90%88%EF%BC%9F"><span class="nav-number">4.</span> <span class="nav-text">可采用哪几种方式将程序装入，它们分别适用于何种场合？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%89%E5%93%AA%E5%87%A0%E7%A7%8DI-x2F-O%E6%8E%A7%E5%88%B6%E6%96%B9%E5%BC%8F"><span class="nav-number">5.</span> <span class="nav-text">有哪几种I&#x2F;O控制方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%95%E5%85%A5%E7%BC%93%E5%86%B2%E7%9A%84%E4%B8%BB%E8%A6%81%E5%8E%9F%E5%9B%A0"><span class="nav-number">6.</span> <span class="nav-text">引入缓冲的主要原因</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
