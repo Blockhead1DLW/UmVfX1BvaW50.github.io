@@ -187,260 +187,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/05/21/RSA/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="UmVfX1BvaW50">
-      <meta itemprop="description" content="Reverse & Mobile">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Re__Point">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/05/21/RSA/" class="post-title-link" itemprop="url">Untitled</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2023-05-21 18:25:49" itemprop="dateCreated datePublished" datetime="2023-05-21T18:25:49+08:00">2023-05-21</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-05-31 16:05:48" itemprop="dateModified" datetime="2023-05-31T16:05:48+08:00">2023-05-31</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <ul>
-<li>因为我的cry库和pycharm环境是分离的，所以long_to_bytes这种就不写了</li>
-</ul>
-<h3 id="常规RSA"><a href="#常规RSA" class="headerlink" title="常规RSA"></a>常规RSA</h3><h4 id="给定n，e，c"><a href="#给定n，e，c" class="headerlink" title="给定n，e，c"></a>给定n，e，c</h4><ul>
-<li>这种类型所要求的问题无非就是分解n，具体有很多情况</li>
-</ul>
-<h5 id="工具分解n类"><a href="#工具分解n类" class="headerlink" title="工具分解n类"></a>工具分解n类</h5><ul>
-<li>yafu</li>
-<li>factordb</li>
-</ul>
-<h5 id="正常"><a href="#正常" class="headerlink" title="正常"></a>正常</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> gmpy2</span><br><span class="line">p = </span><br><span class="line">q = </span><br><span class="line">n = p*q</span><br><span class="line">e = <span class="number">65537</span></span><br><span class="line">c = </span><br><span class="line">phi = (p-<span class="number">1</span>) * (q-<span class="number">1</span>)</span><br><span class="line">d = gmpy2.invert(e, phi)</span><br><span class="line">m = <span class="built_in">pow</span>(c,d,n)</span><br><span class="line"><span class="built_in">print</span>(long_to_bytes(m))</span><br></pre></td></tr></table></figure>
-
-<h5 id="n由多素数组成"><a href="#n由多素数组成" class="headerlink" title="n由多素数组成"></a>n由多素数组成</h5><ul>
-<li>n &#x3D; p * q * r…</li>
-<li>phi &#x3D; (p-1) * (q-1) * (r-1)</li>
-</ul>
-<p>pq相近，n开根取pq</p>
-<p>共模攻击</p>
-<p>e &#x3D; 2，变换求得m方，最后开根</p>
-<p>e &#x3D; 3，低指数分解，小明文攻击</p>
-<h3 id="泄露RSA"><a href="#泄露RSA" class="headerlink" title="泄露RSA"></a>泄露RSA</h3><ul>
-<li>已知部分私钥、明文、p等等</li>
-</ul>
-<h4 id="已知p高位"><a href="#已知p高位" class="headerlink" title="已知p高位"></a>已知p高位</h4><ul>
-<li>1&#x2F;2左右即可</li>
-</ul>
-<h5 id="生成模式"><a href="#生成模式" class="headerlink" title="生成模式"></a>生成模式</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">from Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line">from gmpy2 <span class="keyword">import</span> *</span><br><span class="line">from secret <span class="keyword">import</span> flag</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line">e=</span><br><span class="line">c=</span><br><span class="line">m=<span class="built_in">bytes_to_long</span>(flag)</span><br><span class="line">p=<span class="built_in">getprime</span>(<span class="number">512</span>)</span><br><span class="line">q=<span class="built_in">getprime</span>(<span class="number">512</span>)</span><br><span class="line">n=p*q</span><br><span class="line">c=<span class="built_in">pow</span>(m,e,n)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;n=&#123;&#125;&quot;</span>.format(n))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;c=&#123;&#125;&quot;</span>.format(c))</span><br><span class="line">tmp=random.<span class="built_in">randint</span>(<span class="number">100</span>,<span class="number">300</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;p&gt;&gt;tmp=&#123;&#125;&quot;</span>.format(p&gt;&gt;tmp))</span><br><span class="line"><span class="meta">#c=</span></span><br><span class="line"><span class="meta">#n=</span></span><br><span class="line"><span class="meta">#p&gt;&gt;200=</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="sage脚本求p"><a href="#sage脚本求p" class="headerlink" title="sage脚本求p"></a>sage脚本求p</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">n = </span><br><span class="line">p = </span><br><span class="line">bits = </span><br><span class="line">p = p &lt;&lt; bits				<span class="comment"># bits为求解位数，比如已知312位p2，p为512位，bits = 200</span></span><br><span class="line">PR.&lt;x&gt; = PolynomialRing(Zmod(n))</span><br><span class="line">f = x + p</span><br><span class="line">roots = f.small_roots(X=<span class="number">2</span> ^ bits,beta = <span class="number">0.4</span>)</span><br><span class="line"><span class="built_in">print</span>(roots)</span><br></pre></td></tr></table></figure>
-
-<h4 id="已知m高位"><a href="#已知m高位" class="headerlink" title="已知m高位"></a>已知m高位</h4><h4 id="已知d低位"><a href="#已知d低位" class="headerlink" title="已知d低位"></a>已知d低位</h4><h3 id="e、phi不互素RSA"><a href="#e、phi不互素RSA" class="headerlink" title="e、phi不互素RSA"></a>e、phi不互素RSA</h3><h3 id="n和e相近（欧拉定理利用）"><a href="#n和e相近（欧拉定理利用）" class="headerlink" title="n和e相近（欧拉定理利用）"></a>n和e相近（欧拉定理利用）</h3><h5 id="生成模式-1"><a href="#生成模式-1" class="headerlink" title="生成模式"></a>生成模式</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">n = p*q</span><br><span class="line">c = <span class="built_in">pow</span>(m,n-p-q+<span class="number">3</span>,n)</span><br></pre></td></tr></table></figure>
-
-<h5 id="求解"><a href="#求解" class="headerlink" title="求解"></a>求解</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">n-p-q+<span class="number">3</span> = phi(n) + <span class="number">2</span></span><br><span class="line">那么m的平方等于c</span><br></pre></td></tr></table></figure>
-
-
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/05/11/OS-class/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="UmVfX1BvaW50">
-      <meta itemprop="description" content="Reverse & Mobile">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Re__Point">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/05/11/OS-class/" class="post-title-link" itemprop="url">OS</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2023-05-11 10:11:39" itemprop="dateCreated datePublished" datetime="2023-05-11T10:11:39+08:00">2023-05-11</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-05-21 18:22:49" itemprop="dateModified" datetime="2023-05-21T18:22:49+08:00">2023-05-21</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/408/" itemprop="url" rel="index"><span itemprop="name">408</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <ul>
-<li>OS
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/05/11/OS-class/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/05/09/Web/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="UmVfX1BvaW50">
-      <meta itemprop="description" content="Reverse & Mobile">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Re__Point">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/05/09/Web/" class="post-title-link" itemprop="url">Web</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2023-05-09 18:17:00 / Modified: 18:20:28" itemprop="dateCreated datePublished" datetime="2023-05-09T18:17:00+08:00">2023-05-09</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Web/" itemprop="url" rel="index"><span itemprop="name">Web</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <span id="more"></span>
-
-<HR color="red"></HR>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2023/05/09/pwn/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1008,10 +754,260 @@
   
   
 
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/31/Flat/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="UmVfX1BvaW50">
+      <meta itemprop="description" content="Reverse & Mobile">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Re__Point">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/03/31/Flat/" class="post-title-link" itemprop="url">Deplanarization problem</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2023-03-31 19:04:58" itemprop="dateCreated datePublished" datetime="2023-03-31T19:04:58+08:00">2023-03-31</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-04-02 19:32:02" itemprop="dateModified" datetime="2023-04-02T19:32:02+08:00">2023-04-02</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Reverse/" itemprop="url" rel="index"><span itemprop="name">Reverse</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <ul>
+<li>Deplanarization problem
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/03/31/Flat/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/31/Buuctf-RE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="UmVfX1BvaW50">
+      <meta itemprop="description" content="Reverse & Mobile">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Re__Point">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/03/31/Buuctf-RE/" class="post-title-link" itemprop="url">Buuctf-Re</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2023-03-31 19:04:13" itemprop="dateCreated datePublished" datetime="2023-03-31T19:04:13+08:00">2023-03-31</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-06-02 11:19:23" itemprop="dateModified" datetime="2023-06-02T11:19:23+08:00">2023-06-02</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CTF/" itemprop="url" rel="index"><span itemprop="name">CTF</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <ul>
+<li>Buuctf-Re
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/03/31/Buuctf-RE/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/31/Note2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="UmVfX1BvaW50">
+      <meta itemprop="description" content="Reverse & Mobile">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Re__Point">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/03/31/Note2/" class="post-title-link" itemprop="url">Core Principles of Reverse Engineering --Note2</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2023-03-31 19:03:18" itemprop="dateCreated datePublished" datetime="2023-03-31T19:03:18+08:00">2023-03-31</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-04-02 19:32:57" itemprop="dateModified" datetime="2023-04-02T19:32:57+08:00">2023-04-02</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Reverse/" itemprop="url" rel="index"><span itemprop="name">Reverse</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <ul>
+<li>PE</li>
+<li>DLL
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/03/31/Note2/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1077,20 +1073,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-count">38</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

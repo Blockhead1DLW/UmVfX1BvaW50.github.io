@@ -30,7 +30,7 @@
 <meta property="og:description" content="Android Debug Android security mechanism">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-03-31T10:44:18.928Z">
-<meta property="article:modified_time" content="2023-06-09T09:20:37.675Z">
+<meta property="article:modified_time" content="2023-06-09T09:30:39.648Z">
 <meta property="article:author" content="UmVfX1BvaW50">
 <meta property="article:tag" content="Android">
 <meta name="twitter:card" content="summary">
@@ -222,7 +222,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-06-09 17:20:37" itemprop="dateModified" datetime="2023-06-09T17:20:37+08:00">2023-06-09</time>
+                <time title="Modified: 2023-06-09 17:30:39" itemprop="dateModified" datetime="2023-06-09T17:30:39+08:00">2023-06-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -338,7 +338,26 @@
 </ul>
 </li>
 </ul>
-<h2 id="漏洞分析"><a href="#漏洞分析" class="headerlink" title="漏洞分析"></a>漏洞分析</h2><h3 id="端口扫描"><a href="#端口扫描" class="headerlink" title="端口扫描"></a>端口扫描</h3><ul>
+<h2 id="漏洞分析"><a href="#漏洞分析" class="headerlink" title="漏洞分析"></a>漏洞分析</h2><h3 id="APP通用型拒绝服务漏洞"><a href="#APP通用型拒绝服务漏洞" class="headerlink" title="APP通用型拒绝服务漏洞"></a>APP通用型拒绝服务漏洞</h3><ul>
+<li><p>当第一次执行<code>get...Extra()</code>方法的时候，会将intent中携带的Extra数据全部懒加载至mMap中方便读取，也就是说，当读取第一次的时候，实际上该intent中所有的数据都已经被读取了一次并转移至mMap中。</p>
+</li>
+<li><p>若intent中恰好含有<code>Serializable</code>或<code>Parcelable</code>对象时，应用会用自身的ClassLoader来对序列化对象的类进行加载，如果该序列化对象的类是ClassLoader无法找到的，就会抛出ClassNotFoundException异常并被捕获，最终抛出一个RuntimeException，如果在用户层未被捕获的话，就会导致应用崩溃。</p>
+</li>
+<li><p>所以，该漏洞实际上是由于ClassLoader加载时找不到类触发的。</p>
+</li>
+</ul>
+<p>activity不加校验转发intent，可以远程代码执行</p>
+<h3 id="AndroidManifest-xml"><a href="#AndroidManifest-xml" class="headerlink" title="AndroidManifest.xml"></a>AndroidManifest.xml</h3><ol>
+<li>android:allowBackup&#x3D;“true”<ul>
+<li>属性错误的设置为’true’，导致客户端应用数据可以被备份导出</li>
+</ul>
+</li>
+<li>usesCleartextTraffic&#x3D;”true”<ul>
+<li>属性错误的设置为’true’，指示应用程序需要使用明文网络流量，这意味着在网络上传输的数据没有加密</li>
+</ul>
+</li>
+</ol>
+<h3 id="端口扫描"><a href="#端口扫描" class="headerlink" title="端口扫描"></a>端口扫描</h3><ul>
 <li>传统扫描<ul>
 <li>通过因特网包探索器判断主机是否存在</li>
 <li>ICMP-Echo、Broadcast ICMP、Non-Echo ICMP</li>
@@ -511,7 +530,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Android%E5%8F%8D%E8%B0%83%E8%AF%95"><span class="nav-number">1.</span> <span class="nav-text">Android反调试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#root%E6%A3%80%E6%B5%8B"><span class="nav-number">1.1.</span> <span class="nav-text">root检测</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E6%A3%80%E6%B5%8B"><span class="nav-number">1.2.</span> <span class="nav-text">文件检测</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AB%AF%E5%8F%A3%E6%A3%80%E6%B5%8B"><span class="nav-number">1.3.</span> <span class="nav-text">端口检测</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E5%90%8D%E7%A7%B0%E6%A3%80%E6%B5%8B"><span class="nav-number">1.4.</span> <span class="nav-text">进程名称检测</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AE%E5%BE%AA%E6%A3%80%E6%B5%8B"><span class="nav-number">1.5.</span> <span class="nav-text">轮循检测</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%88%B6%E5%AD%90%E8%BF%9B%E7%A8%8B%E4%BF%9D%E6%8A%A4"><span class="nav-number">1.6.</span> <span class="nav-text">父子进程保护</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java"><span class="nav-number">1.7.</span> <span class="nav-text">Java</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Android%E5%AE%89%E5%85%A8%E6%9C%BA%E5%88%B6"><span class="nav-number">2.</span> <span class="nav-text">Android安全机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8C%BA%E5%9F%9F%E9%9A%94%E7%A6%BB"><span class="nav-number">2.1.</span> <span class="nav-text">区域隔离</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E4%BF%9D%E6%8A%A4"><span class="nav-number">2.2.</span> <span class="nav-text">进程保护</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9D%83%E9%99%90%E6%A8%A1%E5%9E%8B"><span class="nav-number">2.3.</span> <span class="nav-text">权限模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E8%AE%BF%E9%97%AE"><span class="nav-number">2.4.</span> <span class="nav-text">文件访问</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#apk%E7%AD%BE%E5%90%8D"><span class="nav-number">2.5.</span> <span class="nav-text">apk签名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A0%E5%AF%86"><span class="nav-number">2.6.</span> <span class="nav-text">加密</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90"><span class="nav-number">3.</span> <span class="nav-text">漏洞分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F"><span class="nav-number">3.1.</span> <span class="nav-text">端口扫描</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%87%E7%BA%B9%E8%AF%86%E5%88%AB"><span class="nav-number">3.2.</span> <span class="nav-text">指纹识别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%B9%E5%BE%81%E5%8C%B9%E9%85%8D"><span class="nav-number">3.3.</span> <span class="nav-text">特征匹配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E6%8B%9F%E6%94%BB%E5%87%BB"><span class="nav-number">3.4.</span> <span class="nav-text">模拟攻击</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B2%99%E7%AE%B1%E6%89%A7%E8%A1%8C"><span class="nav-number">3.5.</span> <span class="nav-text">沙箱执行</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Android%E6%B7%B7%E6%B7%86"><span class="nav-number">4.</span> <span class="nav-text">Android混淆</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#proguard"><span class="nav-number">4.0.1.</span> <span class="nav-text">proguard</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#use"><span class="nav-number">4.0.1.1.</span> <span class="nav-text">use</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Analyze"><span class="nav-number">4.0.1.2.</span> <span class="nav-text">Analyze</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#dexguard"><span class="nav-number">4.0.2.</span> <span class="nav-text">dexguard</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Android%E5%8A%A0%E5%9B%BA"><span class="nav-number">5.</span> <span class="nav-text">Android加固</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A2%86%E6%A2%86"><span class="nav-number">5.0.1.</span> <span class="nav-text">梆梆</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#360%E5%8A%A0%E5%9B%BA%E4%BF%9D"><span class="nav-number">5.0.2.</span> <span class="nav-text">360加固保</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%85%BE%E8%AE%AF%E4%B9%90%E5%9B%BA"><span class="nav-number">5.0.3.</span> <span class="nav-text">腾讯乐固</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Android%E5%8F%8D%E8%B0%83%E8%AF%95"><span class="nav-number">1.</span> <span class="nav-text">Android反调试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#root%E6%A3%80%E6%B5%8B"><span class="nav-number">1.1.</span> <span class="nav-text">root检测</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E6%A3%80%E6%B5%8B"><span class="nav-number">1.2.</span> <span class="nav-text">文件检测</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AB%AF%E5%8F%A3%E6%A3%80%E6%B5%8B"><span class="nav-number">1.3.</span> <span class="nav-text">端口检测</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E5%90%8D%E7%A7%B0%E6%A3%80%E6%B5%8B"><span class="nav-number">1.4.</span> <span class="nav-text">进程名称检测</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AE%E5%BE%AA%E6%A3%80%E6%B5%8B"><span class="nav-number">1.5.</span> <span class="nav-text">轮循检测</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%88%B6%E5%AD%90%E8%BF%9B%E7%A8%8B%E4%BF%9D%E6%8A%A4"><span class="nav-number">1.6.</span> <span class="nav-text">父子进程保护</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java"><span class="nav-number">1.7.</span> <span class="nav-text">Java</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Android%E5%AE%89%E5%85%A8%E6%9C%BA%E5%88%B6"><span class="nav-number">2.</span> <span class="nav-text">Android安全机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8C%BA%E5%9F%9F%E9%9A%94%E7%A6%BB"><span class="nav-number">2.1.</span> <span class="nav-text">区域隔离</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E4%BF%9D%E6%8A%A4"><span class="nav-number">2.2.</span> <span class="nav-text">进程保护</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9D%83%E9%99%90%E6%A8%A1%E5%9E%8B"><span class="nav-number">2.3.</span> <span class="nav-text">权限模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E8%AE%BF%E9%97%AE"><span class="nav-number">2.4.</span> <span class="nav-text">文件访问</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#apk%E7%AD%BE%E5%90%8D"><span class="nav-number">2.5.</span> <span class="nav-text">apk签名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A0%E5%AF%86"><span class="nav-number">2.6.</span> <span class="nav-text">加密</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90"><span class="nav-number">3.</span> <span class="nav-text">漏洞分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#APP%E9%80%9A%E7%94%A8%E5%9E%8B%E6%8B%92%E7%BB%9D%E6%9C%8D%E5%8A%A1%E6%BC%8F%E6%B4%9E"><span class="nav-number">3.1.</span> <span class="nav-text">APP通用型拒绝服务漏洞</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AndroidManifest-xml"><span class="nav-number">3.2.</span> <span class="nav-text">AndroidManifest.xml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F"><span class="nav-number">3.3.</span> <span class="nav-text">端口扫描</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%87%E7%BA%B9%E8%AF%86%E5%88%AB"><span class="nav-number">3.4.</span> <span class="nav-text">指纹识别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%B9%E5%BE%81%E5%8C%B9%E9%85%8D"><span class="nav-number">3.5.</span> <span class="nav-text">特征匹配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E6%8B%9F%E6%94%BB%E5%87%BB"><span class="nav-number">3.6.</span> <span class="nav-text">模拟攻击</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B2%99%E7%AE%B1%E6%89%A7%E8%A1%8C"><span class="nav-number">3.7.</span> <span class="nav-text">沙箱执行</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Android%E6%B7%B7%E6%B7%86"><span class="nav-number">4.</span> <span class="nav-text">Android混淆</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#proguard"><span class="nav-number">4.0.1.</span> <span class="nav-text">proguard</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#use"><span class="nav-number">4.0.1.1.</span> <span class="nav-text">use</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Analyze"><span class="nav-number">4.0.1.2.</span> <span class="nav-text">Analyze</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#dexguard"><span class="nav-number">4.0.2.</span> <span class="nav-text">dexguard</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Android%E5%8A%A0%E5%9B%BA"><span class="nav-number">5.</span> <span class="nav-text">Android加固</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A2%86%E6%A2%86"><span class="nav-number">5.0.1.</span> <span class="nav-text">梆梆</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#360%E5%8A%A0%E5%9B%BA%E4%BF%9D"><span class="nav-number">5.0.2.</span> <span class="nav-text">360加固保</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%85%BE%E8%AE%AF%E4%B9%90%E5%9B%BA"><span class="nav-number">5.0.3.</span> <span class="nav-text">腾讯乐固</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -525,20 +544,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-count">38</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
